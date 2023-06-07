@@ -1,0 +1,35 @@
+{
+    "name": "temple-page-next",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.11.0",
+        "@emotion/styled": "^11.11.0",
+        "@hookform/error-message": "^2.0.1",
+        "@mui/icons-material": "^5.11.16",
+        "@mui/material": "^5.13.4",
+        "@types/node": "18.16.0",
+        "@types/react": "18.0.38",
+        "@types/react-dom": "18.0.11",
+        "@types/styled-components": "^5.1.26",
+        "@typescript-eslint/eslint-plugin": "^5.59.1",
+        "eslint": "8.39.0",
+        "eslint-config-next": "13.3.1",
+        "eslint-config-prettier": "^8.8.0",
+        "next": "13.3.1",
+        "prettier": "^2.8.8",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-hook-form": "^7.44.3",
+        "sass": "^1.62.1",
+        "scss": "^0.2.4",
+        "styled-components": "^5.3.10",
+        "typescript": "5.0.4"
+    }
+}
