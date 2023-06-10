@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 // components
 import { FormInputs } from "./Form";
 // resources
-import templateImagePath from "../../images/template.png";
+import templateImagePath from "../../images/Template.png";
 import poloImagePath from "../../images/Polo.png";
 import dangoImagePath from "../../images/Dango.png";
 import discordImagePath from "../../images/Discord.png";
