@@ -269,7 +269,6 @@ export const Form = () => {
     };
     return (
         <>
-            /* handleSubmitはフォームの入力を確かめた上で、引数に渡した関数(onSubmit)を呼び出す */
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={styles.form_unit}>
                     {/* register関数の呼び出しにより、フォーム入力の要素を引数の名前で登録する */}
