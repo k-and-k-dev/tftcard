@@ -13,6 +13,20 @@ type Props = {
     formInputs: FormInputs;
 };
 
+const TacticianImageTable: { [name: string]: HTMLImageElement } = {};
+
+const LoadTacticianImage = async (name: string): Promise<HTMLImageElement> => {
+    if (TacticianImageTable[name] !== undefined) {
+        return TacticianImageTable[name];
+    }
+    const imagePath = CreateTacticianImagePath(name);
+    const image = new Image();
+    image.src = imagePath;
+    await image.decode();
+    TacticianImageTable[name] = image;
+    return image;
+};
+
 const loadImage = async (path: string): Promise<HTMLImageElement> => {
     const image = new Image();
     image.src = path;
@@ -53,15 +67,6 @@ export const ImageWithText = ({ formInputs }: Props) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
-        // タクティシャン画像パス設定
-        const tacticianImagePaths: string[] = [];
-        const tacticianNames: string[] = [formInputs.tactician1, formInputs.tactician2, formInputs.tactician3];
-        for (let i = 0; i < 3; i++) {
-            const imagePath = CreateTacticianImagePath(tacticianNames[i]);
-            if (imagePath === "") continue;
-            tacticianImagePaths.push(imagePath);
-        }
-
         // VC画像パス設定
         const vcImagePaths: string[] = [];
         const vcImageNames: string[] = formInputs.vc;
@@ -101,22 +106,30 @@ export const ImageWithText = ({ formInputs }: Props) => {
                 index++;
             });
             // タクティシャン
-            const tacticianPointX: number[] = [460, 240, 330];
-            const tacticianPointY: number[] = [320, 320, 260];
-            const tacticianSize: number[] = [100, 100, 160];
-            index = 0;
-            tacticianImagePaths.reverse();
-            tacticianImagePaths.map(async (path) => {
-                const image = await loadImage(path);
-                context.drawImage(
-                    image,
-                    tacticianPointX[index],
-                    tacticianPointY[index],
-                    tacticianSize[index],
-                    tacticianSize[index]
+            const DrawTacticianImages = async () => {
+                const tacticianNames: string[] = [formInputs.tactician3, formInputs.tactician2, formInputs.tactician1];
+                index = 0;
+                const DrawTacticianImage = async (tacticianName: string) => {
+                    const image = await LoadTacticianImage(tacticianName);
+                    const tacticianPointX: number[] = [460, 240, 330];
+                    const tacticianPointY: number[] = [320, 320, 260];
+                    const tacticianSize: number[] = [100, 100, 160];
+                    context.drawImage(
+                        image,
+                        tacticianPointX[index],
+                        tacticianPointY[index],
+                        tacticianSize[index],
+                        tacticianSize[index]
+                    );
+                    index++;
+                };
+                await Promise.all(
+                    tacticianNames.map(async (tacticianName) => {
+                        await DrawTacticianImage(tacticianName);
+                    })
                 );
-                index++;
-            });
+            };
+            DrawTacticianImages();
             // 好きなゲームモード
             const gameModePointX: number[] = [295, 361, 420, 508];
             const gameModePointY: number[] = [117, 117, 117, 118];
