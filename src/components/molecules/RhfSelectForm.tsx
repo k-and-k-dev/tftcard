@@ -21,6 +21,7 @@ export const RhfSelectForm = <T extends FieldValues>(props: RhfSelectFormProps<T
             {...props}
             selectedValue={selectedValue}
             errorMessage={(error && error.message) || props.errorMessage}
+            MenuProps={{ disableScrollLock: true }}
         />
     );
 };

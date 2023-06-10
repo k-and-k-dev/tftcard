@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 "use client";
 // react
-import React, { useState } from "react";
+import React from "react";
 // next.js
 import Link from "next/link";
 // style
 import styles from "./Header.module.scss";
 // components
 // image
-import logoImage from "./../images/polo.png";
+import logoImage from "./../images/logo.png";
 
 export const scrollToTop = () => {
     window.scrollTo({
