@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 // react-hook-form
 import { useForm, SubmitHandler } from "react-hook-form";
 // error-message
@@ -252,6 +253,7 @@ let formInputs = {
 };
 
 export const Form = () => {
+    const [isCreate, setIsCreate] = useState(false);
     const {
         control,
         register,
@@ -262,75 +264,78 @@ export const Form = () => {
     });
     const onSubmit: SubmitHandler<FormInputs> = (data) => {
         console.log("onSubmit:", data);
+        setIsCreate(true);
         formInputs = data;
     };
     return (
-        /* handleSubmitはフォームの入力を確かめた上で、引数に渡した関数(onSubmit)を呼び出す */
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className={styles.form_unit}>
-                {/* register関数の呼び出しにより、フォーム入力の要素を引数の名前で登録する */}
-                {/* register関数の第2引数には、HTML標準フォームデータ検証のルールが渡せる */}
-                <p className={styles.form_unit_title}>テンプレート</p>
-                <RhfRadioGroup name="template" control={control} radioPropsList={templateProps} />
-                <p className={styles.form_unit_title}>お名前</p>
-                <input
-                    type="text"
-                    className={styles.input_text}
-                    placeholder="りこぴっぴ"
-                    {...register("name", { required: "お名前は必須項目です。" })}
-                />
-                <ErrorMessage
-                    errors={errors}
-                    name="name"
-                    render={({ message }) =>
-                        message ? <p className={styles.form_validateMessage}>{message}</p> : null
-                    }
-                />
-                <p className={styles.form_unit_title}>ボイスチャット</p>
-                <RhfCheckboxGroup name="vc" control={control} checkBoxPropsList={vcProps} />
-                <p className={styles.form_unit_title}>好きなタクティシャン</p>
-                <p>1位</p>
-                <RhfSelectForm name="tactician1" control={control} selectPropsList={tacticianProps} />
-                <p>2位</p>
-                <RhfSelectForm name="tactician2" control={control} selectPropsList={tacticianWithNoneProps} />
-                <p>3位</p>
-                <RhfSelectForm name="tactician3" control={control} selectPropsList={tacticianWithNoneProps} />
-                <p className={styles.form_unit_title}>好きなゲームモード</p>
-                <RhfCheckboxGroup name="gameMode" control={control} checkBoxPropsList={gameModeProps} />
-                <p className={styles.form_unit_title}>ランク</p>
-                <p>ソロ</p>
-                <RhfSelectForm name="rank" control={control} selectPropsList={rankProps} />
-                <p>ダブル</p>
-                <RhfSelectForm name="rank_double" control={control} selectPropsList={rankProps} />
-                <p>ハイパーロール</p>
-                <RhfSelectForm name="rank_hyper" control={control} selectPropsList={rankHyperProps} />
-                <p className={styles.form_unit_title}>プレイ時間帯</p>
-                <RhfCheckboxGroup name="playTime" control={control} checkBoxPropsList={playTimeProps} />
-            </div>
-            <div className={styles.form_unit}>
-                <p className={styles.form_unit_title}>フリースペース</p>
-                <textarea className={styles.input_textarea} placeholder="自己アピールなど" {...register("free")} />
-                <ErrorMessage
-                    errors={errors}
-                    name="free"
-                    render={({ message }) =>
-                        message ? <p className={styles.form_validateMessage}>{message}</p> : null
-                    }
-                />
-            </div>
-            <div className={styles.form_actionArea}>
-                {!isValid && (
-                    <>
-                        <p className={styles.form_validateMessage}>まだ全ての必須項目の入力が完了していません。</p>
-                    </>
-                )}
-                <div className={styles.form_buttonWrapper}>
-                    <button type="submit" className={styles.form_submitButton}>
-                        作成
-                    </button>
+        <>
+            /* handleSubmitはフォームの入力を確かめた上で、引数に渡した関数(onSubmit)を呼び出す */
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className={styles.form_unit}>
+                    {/* register関数の呼び出しにより、フォーム入力の要素を引数の名前で登録する */}
+                    {/* register関数の第2引数には、HTML標準フォームデータ検証のルールが渡せる */}
+                    <p className={styles.form_unit_title}>テンプレート</p>
+                    <RhfRadioGroup name="template" control={control} radioPropsList={templateProps} />
+                    <p className={styles.form_unit_title}>お名前</p>
+                    <input
+                        type="text"
+                        className={styles.input_text}
+                        placeholder="りこぴっぴ"
+                        {...register("name", { required: "お名前は必須項目です。" })}
+                    />
+                    <ErrorMessage
+                        errors={errors}
+                        name="name"
+                        render={({ message }) =>
+                            message ? <p className={styles.form_validateMessage}>{message}</p> : null
+                        }
+                    />
+                    <p className={styles.form_unit_title}>ボイスチャット</p>
+                    <RhfCheckboxGroup name="vc" control={control} checkBoxPropsList={vcProps} />
+                    <p className={styles.form_unit_title}>好きなタクティシャン</p>
+                    <p>1位</p>
+                    <RhfSelectForm name="tactician1" control={control} selectPropsList={tacticianProps} />
+                    <p>2位</p>
+                    <RhfSelectForm name="tactician2" control={control} selectPropsList={tacticianWithNoneProps} />
+                    <p>3位</p>
+                    <RhfSelectForm name="tactician3" control={control} selectPropsList={tacticianWithNoneProps} />
+                    <p className={styles.form_unit_title}>好きなゲームモード</p>
+                    <RhfCheckboxGroup name="gameMode" control={control} checkBoxPropsList={gameModeProps} />
+                    <p className={styles.form_unit_title}>ランク</p>
+                    <p>ソロ</p>
+                    <RhfSelectForm name="rank" control={control} selectPropsList={rankProps} />
+                    <p>ダブル</p>
+                    <RhfSelectForm name="rank_double" control={control} selectPropsList={rankProps} />
+                    <p>ハイパーロール</p>
+                    <RhfSelectForm name="rank_hyper" control={control} selectPropsList={rankHyperProps} />
+                    <p className={styles.form_unit_title}>プレイ時間帯</p>
+                    <RhfCheckboxGroup name="playTime" control={control} checkBoxPropsList={playTimeProps} />
                 </div>
-            </div>
-            <ImageWithText formInputs={formInputs} />
-        </form>
+                <div className={styles.form_unit}>
+                    <p className={styles.form_unit_title}>フリースペース</p>
+                    <textarea className={styles.input_textarea} placeholder="自己アピールなど" {...register("free")} />
+                    <ErrorMessage
+                        errors={errors}
+                        name="free"
+                        render={({ message }) =>
+                            message ? <p className={styles.form_validateMessage}>{message}</p> : null
+                        }
+                    />
+                </div>
+                <div className={styles.form_actionArea}>
+                    {!isValid && (
+                        <>
+                            <p className={styles.form_validateMessage}>まだ全ての必須項目の入力が完了していません。</p>
+                        </>
+                    )}
+                    <div className={styles.form_buttonWrapper}>
+                        <button type="submit" className={styles.form_submitButton}>
+                            作成
+                        </button>
+                    </div>
+                </div>
+            </form>
+            {isCreate ? <ImageWithText formInputs={formInputs} /> : <></>}
+        </>
     );
 };
