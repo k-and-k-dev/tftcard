@@ -65,14 +65,14 @@ export const ImageWithText = ({ formInputs }: Props) => {
         <>
             <div className={styles.container}>
                 <p className={styles.title}>
-                    <img src={CompleteImagePath.src} />
+                    <img src={CompleteImagePath.src} className={styles.title_img} />
                 </p>
                 <canvas className={styles.canvas} ref={canvasRef} />
                 <p className={styles.save}>
-                    <img src={SaveImagePath.src} />
+                    <img src={SaveImagePath.src} className={styles.save_img} />
                 </p>
                 <p className={styles.tweet}>
-                    <img src={TweetImagePath.src} />
+                    <img src={TweetImagePath.src} className={styles.tweet_img} />
                 </p>
             </div>
         </>

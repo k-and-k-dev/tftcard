@@ -24,7 +24,7 @@
     position: relative;
     box-sizing: border-box;
     width: 80vw;
-    height: 75vh;
+    height: 70vh;
     // aspect-ratio: 16 / 9;
     padding: 50px 10px 10px 10px;
     overflow-y: auto;
@@ -34,7 +34,7 @@
     will-change: transform, opacity;
     @media screen and (max-width: 767px) {
         padding: 30px 5px 5px 5px;
-        height: 47vh;
+        height: 40vh;
     }
 }
 
