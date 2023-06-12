@@ -10,6 +10,9 @@ import poloImagePath from "../../images/Polo.png";
 import dangoImagePath from "../../images/Dango.png";
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
+import CompleteImagePath from "../../images/Complete.png";
+import SaveImagePath from "../../images/Save.png";
+import TweetImagePath from "../../images/Tweet.png";
 
 type Props = {
     formInputs: FormInputs;
@@ -28,6 +31,8 @@ export const ImageWithText = ({ formInputs }: Props) => {
                 console.error("canvas is null!");
                 return;
             }
+            canvas.width = templateImage.width;
+            canvas.height = templateImage.height;
             // 2Dコンテキスト取得
             const context = canvas.getContext("2d");
             if (context === null) {
@@ -57,9 +62,20 @@ export const ImageWithText = ({ formInputs }: Props) => {
     }, [formInputs]);
 
     return (
-        <div className={styles.container}>
-            <canvas className={styles.canvas} ref={canvasRef} width={1920} height={1080} />;
-        </div>
+        <>
+            <div className={styles.container}>
+                <p className={styles.title}>
+                    <img src={CompleteImagePath.src} />
+                </p>
+                <canvas className={styles.canvas} ref={canvasRef} />
+                <p className={styles.save}>
+                    <img src={SaveImagePath.src} />
+                </p>
+                <p className={styles.tweet}>
+                    <img src={TweetImagePath.src} />
+                </p>
+            </div>
+        </>
     );
 };
 

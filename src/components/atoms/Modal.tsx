@@ -17,8 +17,10 @@ export const Modal = ({ show, setShow, children }: Props) => {
             <div className={styles.overlay} onClick={closeModal}>
                 <div className={styles.content} onClick={(e) => e.stopPropagation()}>
                     {children}
-                    <p className={styles.button}>
-                        <Button onClick={closeModal}>閉じる</Button>
+                    <p className={styles.button_close}>
+                        <Button variant="text" onClick={closeModal}>
+                            ×
+                        </Button>
                     </p>
                 </div>
             </div>

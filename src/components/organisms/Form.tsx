@@ -284,7 +284,7 @@ export const Form = () => {
                     <input
                         type="text"
                         className={styles.input_text}
-                        placeholder="りこぴっぴ"
+                        placeholder=""
                         {...register("name", { required: "お名前は必須項目です。" })}
                     />
                     <ErrorMessage

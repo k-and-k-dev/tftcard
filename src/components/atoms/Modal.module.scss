@@ -16,17 +16,40 @@
 
     /* MUI重なり対策  */
     z-index: 10000;
-}
-.content {
-    width: 100%;
-    max-width: 1920px;
-    max-height: 1080px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1em;
-    background: #fff;
+
+    contain: content;
 }
 
-.button {
-    margin-top: 10px;
+.content {
+    position: relative;
+    box-sizing: border-box;
+    width: 80vw;
+    height: 75vh;
+    // aspect-ratio: 16 / 9;
+    padding: 50px 10px 10px 10px;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 5px;
+    animation: anim-modal 0.5s ease;
+    will-change: transform, opacity;
+    @media screen and (max-width: 767px) {
+        padding: 30px 5px 5px 5px;
+        height: 47vh;
+    }
+}
+
+@keyframes anim-modal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+}
+
+.button_close {
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+    cursor: pointer;
+    @media screen and (max-width: 767px) {
+    }
 }
