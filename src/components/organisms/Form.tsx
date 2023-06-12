@@ -10,6 +10,7 @@ import { RhfRadioGroup } from "../molecules/RhfRadioGroup";
 import { RhfCheckboxGroup } from "../molecules/RhfCheckboxGroup";
 import { RhfSelectForm } from "../molecules/RhfSelectForm";
 import { ImageWithText } from "./ImageWithText";
+import { Modal } from "../atoms/Modal";
 
 export type FormInputs = {
     template: string;
@@ -269,6 +270,10 @@ export const Form = () => {
     };
     return (
         <>
+            {/* {isCreate ? <ImageWithText formInputs={formInputs} /> : <></>} */}
+            <Modal show={isCreate} setShow={setIsCreate}>
+                <ImageWithText formInputs={formInputs} />
+            </Modal>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={styles.form_unit}>
                     {/* register関数の呼び出しにより、フォーム入力の要素を引数の名前で登録する */}
@@ -334,7 +339,6 @@ export const Form = () => {
                     </div>
                 </div>
             </form>
-            {isCreate ? <ImageWithText formInputs={formInputs} /> : <></>}
         </>
     );
 };

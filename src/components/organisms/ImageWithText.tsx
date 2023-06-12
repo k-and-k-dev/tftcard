@@ -2,6 +2,8 @@
 import React, { useEffect, useRef } from "react";
 // components
 import { FormInputs } from "./Form";
+// style
+import styles from "./ImageWithText.module.scss";
 // resources
 import templateImagePath from "../../images/Template.png";
 import poloImagePath from "../../images/Polo.png";
@@ -26,6 +28,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
                 console.error("canvas is null!");
                 return;
             }
+            // 2Dコンテキスト取得
             const context = canvas.getContext("2d");
             if (context === null) {
                 console.error("canvas 2d context is null!");
@@ -53,17 +56,23 @@ export const ImageWithText = ({ formInputs }: Props) => {
         };
     }, [formInputs]);
 
-    return <canvas ref={canvasRef} width={800} height={450} />;
+    return (
+        <div className={styles.container}>
+            <canvas className={styles.canvas} ref={canvasRef} width={1920} height={1080} />;
+        </div>
+    );
 };
 
+const ratio = 1920 / 800;
+
 const DrawTemplateImage = (context: CanvasRenderingContext2D, image: HTMLImageElement) => {
-    context.drawImage(image, 0, 0, 800, 450);
+    context.drawImage(image, 0, 0);
 };
 
 const DrawName = (context: CanvasRenderingContext2D, name: string) => {
     context.font = "12px Arial";
     context.fillStyle = "red";
-    context.fillText(name, 50, 100);
+    context.fillText(name, 50 * ratio, 100 * ratio);
 };
 
 const DrawVCImage = (context: CanvasRenderingContext2D, vcImagePaths: string[]) => {
@@ -72,7 +81,7 @@ const DrawVCImage = (context: CanvasRenderingContext2D, vcImagePaths: string[]) 
     let index = 0;
     vcImagePaths.map(async (path) => {
         const image = await loadImageAsync(path);
-        context.drawImage(image, vcPointPointX[index], vcPointPointY[index], 50, 50);
+        context.drawImage(image, vcPointPointX[index] * ratio, vcPointPointY[index] * ratio, 50 * ratio, 50 * ratio);
         index++;
     });
 };
@@ -122,10 +131,10 @@ const DrawTacticianImage = (context: CanvasRenderingContext2D, name: string, ind
         const tacticianSize: number[] = [100, 100, 160];
         context.drawImage(
             image,
-            tacticianPointX[index],
-            tacticianPointY[index],
-            tacticianSize[index],
-            tacticianSize[index]
+            tacticianPointX[index] * ratio,
+            tacticianPointY[index] * ratio,
+            tacticianSize[index] * ratio,
+            tacticianSize[index] * ratio
         );
     };
     image.src = imagePath;
@@ -147,10 +156,10 @@ const DrawGameModeImage = (context: CanvasRenderingContext2D, gameModes: string[
         context.beginPath();
         context.strokeStyle = "rgb(239, 56, 85)";
         context.ellipse(
-            gameModePointX[gameModeIndex],
-            gameModePointY[gameModeIndex],
-            gameModeRadiusX[gameModeIndex],
-            gameModeRadiusY[gameModeIndex],
+            gameModePointX[gameModeIndex] * ratio,
+            gameModePointY[gameModeIndex] * ratio,
+            gameModeRadiusX[gameModeIndex] * ratio,
+            gameModeRadiusY[gameModeIndex] * ratio,
             0,
             0,
             2 * Math.PI
