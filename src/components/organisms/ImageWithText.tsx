@@ -57,7 +57,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
             DrawVCImage(context, vcImagePaths);
             // タクティシャン
             const tacticianNames: string[] = [formInputs.tactician3, formInputs.tactician2, formInputs.tactician1];
-            await DrawTacticianImages(context, tacticianNames);
+            DrawTacticianImages(context, tacticianNames);
             // 好きなゲームモード
             DrawGameModeImage(context, formInputs.gameMode);
         };
@@ -156,11 +156,17 @@ const GetGameModeIndex = (gameMode: string): number => {
     return index;
 };
 
+const DrawTacticianImages = (context: CanvasRenderingContext2D, names: string[]) => {
+    for (let i = 0; i < names.length; i++) {
+        DrawTacticianImage(context, names[i], i);
+    }
+};
+
 const DrawTacticianImage = (context: CanvasRenderingContext2D, name: string, index: number) => {
     const imagePath = CreateTacticianImagePath(name);
     const image = document.createElement("img");
     image.onload = async () => {
-        const tacticianPointX: number[] = [1104, 576, 792];
+        const tacticianPointX: number[] = [1160, 576, 795];
         const tacticianPointY: number[] = [768, 768, 624];
         const tacticianSize: number[] = [240, 240, 384];
         context.drawImage(
@@ -172,13 +178,6 @@ const DrawTacticianImage = (context: CanvasRenderingContext2D, name: string, ind
         );
     };
     image.src = imagePath;
-};
-
-const DrawTacticianImages = async (context: CanvasRenderingContext2D, names: string[]) => {
-    for (let i = 0; i < names.length; i++) {
-        DrawTacticianImage(context, names[i], i);
-        await new Promise((s) => setTimeout(s, 10));
-    }
 };
 
 const DrawGameModeImage = (context: CanvasRenderingContext2D, gameModes: string[]) => {
