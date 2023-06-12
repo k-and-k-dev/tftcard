@@ -4,11 +4,12 @@
 import React from "react";
 // next.js
 import Link from "next/link";
+import Image from "next/image";
 // style
 import styles from "./Header.module.scss";
 // components
 // image
-import logoImage from "./../images/logo.png";
+import logoImage from "./../images/Logo.png";
 
 export const scrollToTop = () => {
     window.scrollTo({
@@ -28,7 +29,7 @@ export const Header = () => {
                 <div className={styles.container}>
                     <p className={styles.logo_image}>
                         <Link href="/" onClick={logoBtnToggle}>
-                            <img src={logoImage.src} alt="logo" width={50} height={50} />
+                            <Image src={logoImage.src} alt="logo" width={50} height={50} />
                         </Link>
                     </p>
                     <p className={styles.logo_text_denomination}>My TFT Profile Card</p>
