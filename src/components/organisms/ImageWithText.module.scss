@@ -48,6 +48,14 @@
     height: 50%;
 }
 
+.note {
+    font-size: 1rem;
+    color: rgb(239, 56, 85);
+    @media screen and (max-width: 767px) {
+        font-size: 0.5rem;
+    }
+}
+
 .tweet {
 }
 

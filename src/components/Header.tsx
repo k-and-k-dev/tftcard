@@ -32,7 +32,7 @@ export const Header = () => {
                             <Image src={logoImage.src} alt="logo" width={50} height={50} />
                         </Link>
                     </p>
-                    <p className={styles.logo_text_denomination}>My TFT Profile Card</p>
+                    <p className={styles.logo_text_denomination}>TFT Profile Card</p>
                 </div>
             </div>
         </header>

@@ -15,6 +15,7 @@ import lineImagePath from "../../images/Line.png";
 import CompleteImagePath from "../../images/Complete.png";
 import SaveImagePath from "../../images/Save.png";
 import TweetImagePath from "../../images/Tweet.png";
+import { Tweet } from "../atoms/Tweet";
 
 type Props = {
     formInputs: FormInputs;
@@ -86,14 +87,21 @@ export const ImageWithText = ({ formInputs }: Props) => {
                     />
                 </p>
                 <p className={styles.tweet}>
-                    <Image
-                        src={TweetImagePath.src}
-                        width={TweetImagePath.width}
-                        height={TweetImagePath.height}
-                        className={styles.tweet_img}
-                        alt="ツイート"
-                    />
+                    <Tweet
+                        text=""
+                        url="https://tftcard.vercel.app/"
+                        hashtags={["TFT", "TFTフレンド募集", "TFTプロフィールカード"]}
+                    >
+                        <Image
+                            src={TweetImagePath.src}
+                            width={TweetImagePath.width}
+                            height={TweetImagePath.height}
+                            className={styles.tweet_img}
+                            alt="ツイート"
+                        />
+                    </Tweet>
                 </p>
+                <p className={styles.note}>※先に画像をダウンロードしてツイートに添付してね！</p>
             </div>
         </>
     );
