@@ -41,11 +41,14 @@
 
 .save {
     margin-top: 1vh;
+    border: none;
+    background: transparent;
 }
 
 .save_img {
-    width: 50%;
-    height: 50%;
+    width: 35%;
+    height: 35%;
+    cursor: pointer;
 }
 
 .note {
@@ -60,6 +63,6 @@
 }
 
 .tweet_img {
-    width: 50%;
-    height: 50%;
+    width: 35%;
+    height: 35%;
 }

@@ -64,6 +64,19 @@ export const ImageWithText = ({ formInputs }: Props) => {
         };
     }, [formInputs]);
 
+    const onSave = () => {
+        const canvas = canvasRef.current;
+        if (canvas === null) {
+            console.error("canvas is null!");
+            return;
+        }
+        const a = document.createElement("a");
+        a.href = canvas.toDataURL("image/png", 1);
+        a.download = "profile.png";
+        a.click();
+        // canvas.toBlob((blob) => uploadImage(blob), "image/png", 1);
+    };
+
     return (
         <>
             <div className={styles.container}>
@@ -78,13 +91,16 @@ export const ImageWithText = ({ formInputs }: Props) => {
                 </p>
                 <canvas className={styles.canvas} ref={canvasRef} />
                 <p className={styles.save}>
-                    <Image
-                        src={SaveImagePath.src}
-                        width={SaveImagePath.width}
-                        height={SaveImagePath.height}
-                        className={styles.save_img}
-                        alt="保存"
-                    />
+                    <a onClick={onSave}>
+                        <Image
+                            src={SaveImagePath.src}
+                            width={SaveImagePath.width}
+                            height={SaveImagePath.height}
+                            className={styles.save_img}
+                            alt="保存"
+                            onClick={onSave}
+                        />
+                    </a>
                 </p>
                 <p className={styles.tweet}>
                     <Tweet
