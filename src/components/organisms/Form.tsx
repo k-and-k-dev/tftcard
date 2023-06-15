@@ -257,12 +257,12 @@ const gameModeProps = [
         value: "Rank",
     },
     {
-        label: "ハイパーロール",
-        value: "Hyper",
-    },
-    {
         label: "ダブル",
         value: "Double",
+    },
+    {
+        label: "ハイパーロール",
+        value: "Hyper",
     },
 ];
 

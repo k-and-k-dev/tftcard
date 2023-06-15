@@ -184,8 +184,8 @@ const GetGameModeIndex = (gameMode: string): number => {
     let index = 0;
     if (gameMode === "Normal") index = 0;
     else if (gameMode === "Rank") index = 1;
-    else if (gameMode === "Hyper") index = 2;
-    else if (gameMode === "Double") index = 3;
+    else if (gameMode === "Double") index = 2;
+    else if (gameMode === "Hyper") index = 3;
     return index;
 };
 
