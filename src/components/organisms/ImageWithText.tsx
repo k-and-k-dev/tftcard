@@ -5,6 +5,8 @@ import Image from "next/image";
 // components
 import { FormInputs } from "./Form";
 import { Tweet } from "../atoms/Tweet";
+// util
+import { getMobileOS } from "@/util/device";
 // style
 import styles from "./ImageWithText.module.scss";
 // resources
@@ -18,7 +20,6 @@ import NoneImagePath from "../../images/None.png";
 import CompleteImagePath from "../../images/Complete.png";
 import SaveImagePath from "../../images/Save.png";
 import TweetImagePath from "../../images/Tweet.png";
-import { getMobileOS } from "@/util/device";
 
 type Props = {
     formInputs: FormInputs;
@@ -159,9 +160,12 @@ const DrawTemplateImage = (context: CanvasRenderingContext2D, image: HTMLImageEl
 };
 
 const DrawName = (context: CanvasRenderingContext2D, name: string) => {
-    context.font = "12px Arial";
+    // const fontSize = (24 / name.length).toString() + "vw Arial";
+    const fontSize = "6vw Arial";
+    context.font = fontSize;
+    context.textAlign = "center";
     context.fillStyle = "red";
-    context.fillText(name, 120, 240);
+    context.fillText(name, 300, 300);
 };
 
 const DrawVCImage = (context: CanvasRenderingContext2D, vcImagePaths: string[]) => {
