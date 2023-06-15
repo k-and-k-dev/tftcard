@@ -179,7 +179,7 @@ const DrawTemplateImage = (context: CanvasRenderingContext2D, image: HTMLImageEl
 
 const DrawName = (context: CanvasRenderingContext2D, name: string) => {
     // const fontSize = (24 / name.length).toString() + "vw Arial";
-    const fontSize = "6vw Arial";
+    const fontSize = "4vh Arial";
     context.font = fontSize;
     context.textAlign = "center";
     context.fillStyle = "red";
