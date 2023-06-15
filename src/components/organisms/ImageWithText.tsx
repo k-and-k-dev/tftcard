@@ -18,6 +18,7 @@ import NoneImagePath from "../../images/None.png";
 import CompleteImagePath from "../../images/Complete.png";
 import SaveImagePath from "../../images/Save.png";
 import TweetImagePath from "../../images/Tweet.png";
+import { getMobileOS } from "@/util/device";
 
 type Props = {
     formInputs: FormInputs;
@@ -70,16 +71,36 @@ export const ImageWithText = ({ formInputs }: Props) => {
     }, [formInputs]);
 
     const onSave = () => {
+        // Canvas取得
         const canvas = canvasRef.current;
         if (canvas === null) {
             console.error("canvas is null!");
             return;
         }
-        const a = document.createElement("a");
-        a.href = canvas.toDataURL("image/png", 1);
-        a.download = "profile.png";
-        a.click();
-        // canvas.toBlob((blob) => uploadImage(blob), "image/png", 1);
+        // 完成画像保存(iOSの場合は共有としてカメラロールに保存)
+        if (getMobileOS() === "iOS") {
+            if (navigator.share) {
+                canvas.toBlob(
+                    (blob) => {
+                        if (blob !== null) {
+                            const file = new File([blob], "profile.png");
+                            navigator.share({ files: [file], title: "保存", text: "完成画面を保存します" });
+                        } else {
+                            console.error("blob is null!");
+                        }
+                    },
+                    "image/png",
+                    1
+                );
+            } else {
+                console.error("navigator.share is null!");
+            }
+        } else {
+            const a = document.createElement("a");
+            a.href = canvas.toDataURL("image/png", 1);
+            a.download = "profile.png";
+            a.click();
+        }
     };
 
     return (
