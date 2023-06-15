@@ -22,7 +22,7 @@ import SaveImagePath from "../../images/Save.png";
 import TweetImagePath from "../../images/Tweet.png";
 import RankIronImagePath from "../../images/rank/Iron.png";
 import RankBronzeImagePath from "../../images/rank/Bronze.png";
-import RankSilverImagePath from "../../images/rank/SIlver.png";
+import RankSilverImagePath from "../../images/rank/Silver.png";
 import RankGoldImagePath from "../../images/rank/Gold.png";
 import RankPlatinumImagePath from "../../images/rank/Platinum.png";
 import RankDiamondImagePath from "../../images/rank/Diamond.png";
