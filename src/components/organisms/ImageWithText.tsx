@@ -20,6 +20,20 @@ import NoneImagePath from "../../images/None.png";
 import CompleteImagePath from "../../images/Complete.png";
 import SaveImagePath from "../../images/Save.png";
 import TweetImagePath from "../../images/Tweet.png";
+import RankIronImagePath from "../../images/rank/Iron.png";
+import RankBronzeImagePath from "../../images/rank/Bronze.png";
+import RankSilverImagePath from "../../images/rank/SIlver.png";
+import RankGoldImagePath from "../../images/rank/Gold.png";
+import RankPlatinumImagePath from "../../images/rank/Platinum.png";
+import RankDiamondImagePath from "../../images/rank/Diamond.png";
+import RankMasterImagePath from "../../images/rank/Master.png";
+import RankGrandMasterImagePath from "../../images/rank/GrandMaster.png";
+import RankChallengerImagePath from "../../images/rank/Challenger.png";
+import RankGrayImagePath from "../../images/rank/Gray.png";
+import RankGreenImagePath from "../../images/rank/Green.png";
+import RankBlueImagePath from "../../images/rank/Blue.png";
+import RankPurpleImagePath from "../../images/rank/Purple.png";
+import RankHyperImagePath from "../../images/rank/Hyper.png";
 
 type Props = {
     formInputs: FormInputs;
@@ -62,12 +76,16 @@ export const ImageWithText = ({ formInputs }: Props) => {
                 }
                 vcImagePaths.push(imagePath);
             }
-            DrawVCImage(context, vcImagePaths);
+            DrawVCImages(context, vcImagePaths);
             // タクティシャン
             const tacticianNames: string[] = [formInputs.tactician3, formInputs.tactician2, formInputs.tactician1];
             DrawTacticianImages(context, tacticianNames);
             // 好きなゲームモード
             DrawGameModeImage(context, formInputs.gameMode);
+            // ランク
+            DrawRankImage(context, formInputs.rank, 0);
+            DrawRankImage(context, formInputs.rank_double, 1);
+            DrawRankImage(context, formInputs.rank_hyper, 2);
         };
     }, [formInputs]);
 
@@ -168,7 +186,7 @@ const DrawName = (context: CanvasRenderingContext2D, name: string) => {
     context.fillText(name, 300, 300);
 };
 
-const DrawVCImage = (context: CanvasRenderingContext2D, vcImagePaths: string[]) => {
+const DrawVCImages = (context: CanvasRenderingContext2D, vcImagePaths: string[]) => {
     const vcPointPointX: number[] = [168, 288, 408];
     const vcPointPointY: number[] = [528, 528, 528];
     let index = 0;
@@ -177,46 +195,6 @@ const DrawVCImage = (context: CanvasRenderingContext2D, vcImagePaths: string[]) 
         context.drawImage(image, vcPointPointX[index], vcPointPointY[index], 120, 120);
         index++;
     });
-};
-
-const loadImageAsync = async (path: string): Promise<HTMLImageElement> => {
-    const image = document.createElement("img");
-    image.src = path;
-    await image.decode();
-    return image;
-};
-
-const CreateTacticianImagePath = (name: string): string => {
-    let imagePath = "";
-    if (name === "Polo") {
-        imagePath = poloImagePath.src;
-    } else if (name === "Dango") {
-        imagePath = dangoImagePath.src;
-    }
-    return imagePath;
-};
-
-const CreateVCImagePath = (name: string): string => {
-    let imagePath = "";
-    if (name === "Discord") {
-        imagePath = discordImagePath.src;
-    } else if (name === "Line") {
-        imagePath = lineImagePath.src;
-    } else if (name === "Kikisen") {
-        imagePath = KikisenImagePath.src;
-    } else if (name === "None") {
-        imagePath = NoneImagePath.src;
-    }
-    return imagePath;
-};
-
-const GetGameModeIndex = (gameMode: string): number => {
-    let index = 0;
-    if (gameMode === "Normal") index = 0;
-    else if (gameMode === "Rank") index = 1;
-    else if (gameMode === "Double") index = 2;
-    else if (gameMode === "Hyper") index = 3;
-    return index;
 };
 
 const DrawTacticianImages = (context: CanvasRenderingContext2D, names: string[]) => {
@@ -264,4 +242,90 @@ const DrawGameModeImage = (context: CanvasRenderingContext2D, gameModes: string[
         );
         context.stroke();
     });
+};
+
+const DrawRankImage = (context: CanvasRenderingContext2D, name: string, index: number) => {
+    const imagePath = CreateRankImagePath(name);
+    const image = document.createElement("img");
+    image.onload = async () => {
+        const rankPointX: number[] = [1470, 1470, 1470];
+        const rankPointY: number[] = [220, 285, 360];
+        const rankSize: number[] = [100, 100, 100];
+        context.drawImage(image, rankPointX[index], rankPointY[index], rankSize[index], rankSize[index]);
+    };
+    image.src = imagePath;
+};
+
+const loadImageAsync = async (path: string): Promise<HTMLImageElement> => {
+    const image = document.createElement("img");
+    image.src = path;
+    await image.decode();
+    return image;
+};
+
+const CreateTacticianImagePath = (name: string): string => {
+    let imagePath = "";
+    if (name === "Polo") {
+        imagePath = poloImagePath.src;
+    } else if (name === "Dango") {
+        imagePath = dangoImagePath.src;
+    }
+    return imagePath;
+};
+
+const CreateVCImagePath = (name: string): string => {
+    let imagePath = "";
+    if (name === "Discord") {
+        imagePath = discordImagePath.src;
+    } else if (name === "Line") {
+        imagePath = lineImagePath.src;
+    } else if (name === "Kikisen") {
+        imagePath = KikisenImagePath.src;
+    } else if (name === "None") {
+        imagePath = NoneImagePath.src;
+    }
+    return imagePath;
+};
+
+const CreateRankImagePath = (name: string): string => {
+    let imagePath = "";
+    if (name === "Iron") {
+        imagePath = RankIronImagePath.src;
+    } else if (name === "Bronze") {
+        imagePath = RankBronzeImagePath.src;
+    } else if (name === "Silver") {
+        imagePath = RankSilverImagePath.src;
+    } else if (name === "Gold") {
+        imagePath = RankGoldImagePath.src;
+    } else if (name === "Platinum") {
+        imagePath = RankPlatinumImagePath.src;
+    } else if (name === "Diamond") {
+        imagePath = RankDiamondImagePath.src;
+    } else if (name === "Master") {
+        imagePath = RankMasterImagePath.src;
+    } else if (name === "GrandMaster") {
+        imagePath = RankGrandMasterImagePath.src;
+    } else if (name === "Challenger") {
+        imagePath = RankChallengerImagePath.src;
+    } else if (name === "Gray") {
+        imagePath = RankGrayImagePath.src;
+    } else if (name === "Green") {
+        imagePath = RankGreenImagePath.src;
+    } else if (name === "Blue") {
+        imagePath = RankBlueImagePath.src;
+    } else if (name === "Purple") {
+        imagePath = RankPurpleImagePath.src;
+    } else if (name === "Hyper") {
+        imagePath = RankHyperImagePath.src;
+    }
+    return imagePath;
+};
+
+const GetGameModeIndex = (gameMode: string): number => {
+    let index = 0;
+    if (gameMode === "Normal") index = 0;
+    else if (gameMode === "Rank") index = 1;
+    else if (gameMode === "Double") index = 2;
+    else if (gameMode === "Hyper") index = 3;
+    return index;
 };
