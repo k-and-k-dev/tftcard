@@ -184,8 +184,8 @@ const GetGameModeIndex = (gameMode: string): number => {
     let index = 0;
     if (gameMode === "Normal") index = 0;
     else if (gameMode === "Rank") index = 1;
-    else if (gameMode === "Double") index = 2;
-    else if (gameMode === "Hyper") index = 3;
+    else if (gameMode === "Hyper") index = 2;
+    else if (gameMode === "Double") index = 3;
     return index;
 };
 
@@ -214,14 +214,15 @@ const DrawTacticianImage = (context: CanvasRenderingContext2D, name: string, ind
 };
 
 const DrawGameModeImage = (context: CanvasRenderingContext2D, gameModes: string[]) => {
-    const gameModePointX: number[] = [708, 866.4, 1008, 508];
-    const gameModePointY: number[] = [280.8, 280.8, 280.8, 283.2];
+    const gameModePointX: number[] = [708, 866.4, 1008, 1218];
+    const gameModePointY: number[] = [285, 285, 285, 285];
     const gameModeRadiusX: number[] = [84, 81.6, 72, 144];
     const gameModeRadiusY: number[] = [48, 48, 48, 48];
     gameModes.map((gameMode) => {
         const gameModeIndex = GetGameModeIndex(gameMode);
         context.beginPath();
         context.strokeStyle = "rgb(239, 56, 85)";
+        context.lineWidth = 2;
         context.ellipse(
             gameModePointX[gameModeIndex],
             gameModePointY[gameModeIndex],
