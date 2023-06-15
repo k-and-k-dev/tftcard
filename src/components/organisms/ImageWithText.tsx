@@ -84,7 +84,12 @@ export const ImageWithText = ({ formInputs }: Props) => {
                     (blob) => {
                         if (blob !== null) {
                             const file = new File([blob], "profile.png");
-                            navigator.share({ files: [file], title: "保存", text: "完成画面を保存します" });
+                            navigator.share({
+                                files: [file],
+                                title: "保存",
+                                url: "https://tftcard.vercel.app/",
+                                text: "#TFT #TFTフレンド募集 #TFTプロフィールカード",
+                            });
                         } else {
                             console.error("blob is null!");
                         }
