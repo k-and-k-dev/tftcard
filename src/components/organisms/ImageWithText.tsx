@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 // components
 import { FormInputs } from "./Form";
+import { Tweet } from "../atoms/Tweet";
 // style
 import styles from "./ImageWithText.module.scss";
 // resources
@@ -12,10 +13,11 @@ import poloImagePath from "../../images/Polo.png";
 import dangoImagePath from "../../images/Dango.png";
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
+import KikisenImagePath from "../../images/Kikisen.png";
+import NoneImagePath from "../../images/None.png";
 import CompleteImagePath from "../../images/Complete.png";
 import SaveImagePath from "../../images/Save.png";
 import TweetImagePath from "../../images/Tweet.png";
-import { Tweet } from "../atoms/Tweet";
 
 type Props = {
     formInputs: FormInputs;
@@ -47,12 +49,15 @@ export const ImageWithText = ({ formInputs }: Props) => {
             // 名前
             DrawName(context, formInputs.name);
             // VC
-            // VC画像パス設定
             const vcImagePaths: string[] = [];
             const vcImageNames: string[] = formInputs.vc;
             for (let i = 0; i < vcImageNames.length; i++) {
                 const imagePath = CreateVCImagePath(vcImageNames[i]);
-                if (imagePath === "") continue;
+                if (imagePath === NoneImagePath.src) {
+                    vcImagePaths.splice(0);
+                    vcImagePaths.push(imagePath);
+                    break;
+                }
                 vcImagePaths.push(imagePath);
             }
             DrawVCImage(context, vcImagePaths);
@@ -167,6 +172,10 @@ const CreateVCImagePath = (name: string): string => {
         imagePath = discordImagePath.src;
     } else if (name === "Line") {
         imagePath = lineImagePath.src;
+    } else if (name === "Kikisen") {
+        imagePath = KikisenImagePath.src;
+    } else if (name === "None") {
+        imagePath = NoneImagePath.src;
     }
     return imagePath;
 };

@@ -157,6 +157,10 @@ const vcProps = [
         value: "Line",
     },
     {
+        label: "聞き専",
+        value: "Kikisen",
+    },
+    {
         label: "なし",
         value: "None",
     },
