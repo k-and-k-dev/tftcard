@@ -62,6 +62,8 @@ export const ImageWithText = ({ formInputs }: Props) => {
             }
             // テンプレート
             DrawTemplateImage(context, templateImage);
+            // 作成日
+            DrawCreatedDate(context);
             // 名前
             DrawName(context, formInputs.name);
             // VC
@@ -164,6 +166,24 @@ export const ImageWithText = ({ formInputs }: Props) => {
 
 const DrawTemplateImage = (context: CanvasRenderingContext2D, image: HTMLImageElement) => {
     context.drawImage(image, 0, 0);
+};
+
+const DrawCreatedDate = (context: CanvasRenderingContext2D) => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const date = now.getDate();
+    const dateString = "(作成日)" + year + "/" + ("00" + month).slice(-2) + "/" + ("00" + date).slice(-2);
+    let fontSize = "";
+    if (window.innerWidth <= 767) {
+        fontSize = "7vw Arial";
+    } else {
+        fontSize = "2vw Arial";
+    }
+    context.font = fontSize;
+    context.textAlign = "center";
+    context.fillStyle = "gray";
+    context.fillText(dateString, 1740, 160);
 };
 
 const DrawName = (context: CanvasRenderingContext2D, name: string) => {
