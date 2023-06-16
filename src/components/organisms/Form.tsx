@@ -15,6 +15,7 @@ import { Modal } from "../atoms/Modal";
 export type FormInputs = {
     template: string;
     name: string;
+    sex: string;
     vc: string[];
     playTime: string[];
     tactician1: string;
@@ -68,6 +69,8 @@ export const Form = () => {
                             message ? <p className={styles.form_validateMessage}>{message}</p> : null
                         }
                     />
+                    <p className={styles.form_unit_title}>性別</p>
+                    <RhfRadioGroup name="sex" control={control} radioPropsList={sexProps} />
                     <p className={styles.form_unit_title}>ボイスチャット</p>
                     <RhfCheckboxGroup name="vc" control={control} checkBoxPropsList={vcProps} />
                     <p className={styles.form_unit_title}>好きなタクティシャン</p>
@@ -120,15 +123,16 @@ export const Form = () => {
 const defaultValues: FormInputs = {
     template: "Underground",
     name: "",
+    sex: "Man",
     vc: ["Discord"],
     playTime: ["Irregular"],
     tactician1: "Polo",
     tactician2: "Polo",
     tactician3: "Polo",
     gameMode: ["Normal"],
-    rank: "Iron",
-    rank_double: "Iron",
-    rank_hyper: "Gray",
+    rank: "None",
+    rank_double: "None",
+    rank_hyper: "None",
     free: "",
 };
 
@@ -144,6 +148,21 @@ const templateProps = [
     {
         label: "スターガーディアン",
         value: "Star Guardian",
+    },
+];
+
+const sexProps = [
+    {
+        label: "男性",
+        value: "Man",
+    },
+    {
+        label: "女性",
+        value: "Woman",
+    },
+    {
+        label: "表示しない",
+        value: "None",
     },
 ];
 
@@ -311,6 +330,10 @@ const rankProps = [
 
 const rankHyperProps = [
     {
+        label: "-",
+        value: "None",
+    },
+    {
         label: "グレー",
         value: "Gray",
     },
@@ -335,6 +358,7 @@ const rankHyperProps = [
 let formInputs = {
     template: "",
     name: "",
+    sex: "",
     vc: [""],
     playTime: [""],
     tactician1: "",

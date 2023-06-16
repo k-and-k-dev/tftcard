@@ -11,6 +11,8 @@ import { getMobileOS } from "@/util/device";
 import styles from "./ImageWithText.module.scss";
 // resources
 import templateImagePath from "../../images/Template.png";
+import sexManImagePath from "../../images/Man.png";
+import sexWomanImagePath from "../../images/Woman.png";
 import poloImagePath from "../../images/Polo.png";
 import dangoImagePath from "../../images/Dango.png";
 import discordImagePath from "../../images/Discord.png";
@@ -66,6 +68,8 @@ export const ImageWithText = ({ formInputs }: Props) => {
             DrawCreatedDate(context);
             // 名前
             DrawName(context, formInputs.name);
+            // 性別
+            DrawSexImage(context, formInputs.sex);
             // VC
             DrawVCImages(context, formInputs.vc);
             // タクティシャン
@@ -187,7 +191,6 @@ const DrawCreatedDate = (context: CanvasRenderingContext2D) => {
 };
 
 const DrawName = (context: CanvasRenderingContext2D, name: string) => {
-    // const fontSize = (24 / name.length).toString() + "vw Arial";
     let fontSize = "";
     if (window.innerWidth <= 767) {
         fontSize = "13vw Arial";
@@ -200,8 +203,18 @@ const DrawName = (context: CanvasRenderingContext2D, name: string) => {
     context.fillText(name, 300, 300);
 };
 
-const DrawVCImages = async (context: CanvasRenderingContext2D, imagePaths: string[]) => {
-    const vcImagePaths = CreateVCImagePaths(imagePaths);
+const DrawSexImage = (context: CanvasRenderingContext2D, name: string) => {
+    if (name === "None") return;
+    const sexImagePath = CreateSexImagePath(name);
+    const image = document.createElement("img");
+    image.onload = () => {
+        context.drawImage(image, 440, 340, 100, 100);
+    };
+    image.src = sexImagePath;
+};
+
+const DrawVCImages = async (context: CanvasRenderingContext2D, names: string[]) => {
+    const vcImagePaths = CreateVCImagePaths(names);
     const vcPointPointX: number[] = [168, 288, 408];
     const vcPointPointY: number[] = [528, 528, 528];
     for (let i = 0; i < vcImagePaths.length; i++) {
@@ -219,7 +232,7 @@ const DrawTacticianImages = (context: CanvasRenderingContext2D, names: string[])
 const DrawTacticianImage = (context: CanvasRenderingContext2D, name: string, index: number) => {
     const imagePath = CreateTacticianImagePath(name);
     const image = document.createElement("img");
-    image.onload = async () => {
+    image.onload = () => {
         const tacticianPointX: number[] = [1160, 576, 795];
         const tacticianPointY: number[] = [768, 768, 624];
         const tacticianSize: number[] = [240, 240, 384];
@@ -260,7 +273,7 @@ const DrawGameModeImage = (context: CanvasRenderingContext2D, gameModes: string[
 const DrawRankImage = (context: CanvasRenderingContext2D, name: string, index: number) => {
     const imagePath = CreateRankImagePath(name);
     const image = document.createElement("img");
-    image.onload = async () => {
+    image.onload = () => {
         const rankPointX: number[] = [1470, 1470, 1470];
         const rankPointY: number[] = [220, 285, 360];
         const rankSize: number[] = [100, 100, 100];
@@ -319,6 +332,16 @@ const loadImageAsync = async (path: string): Promise<HTMLImageElement> => {
     image.src = path;
     await image.decode();
     return image;
+};
+
+const CreateSexImagePath = (name: string): string => {
+    let imagePath = "";
+    if (name === "Man") {
+        imagePath = sexManImagePath.src;
+    } else if (name === "Woman") {
+        imagePath = sexWomanImagePath.src;
+    }
+    return imagePath;
 };
 
 const CreateTacticianImagePath = (name: string): string => {
