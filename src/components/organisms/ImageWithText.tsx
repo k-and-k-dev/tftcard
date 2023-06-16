@@ -65,18 +65,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
             // 名前
             DrawName(context, formInputs.name);
             // VC
-            const vcImagePaths: string[] = [];
-            const vcImageNames: string[] = formInputs.vc;
-            for (let i = 0; i < vcImageNames.length; i++) {
-                const imagePath = CreateVCImagePath(vcImageNames[i]);
-                if (imagePath === NoneImagePath.src) {
-                    vcImagePaths.splice(0);
-                    vcImagePaths.push(imagePath);
-                    break;
-                }
-                vcImagePaths.push(imagePath);
-            }
-            DrawVCImages(context, vcImagePaths);
+            DrawVCImages(context, formInputs.vc);
             // タクティシャン
             const tacticianNames: string[] = [formInputs.tactician3, formInputs.tactician2, formInputs.tactician1];
             DrawTacticianImages(context, tacticianNames);
@@ -191,15 +180,14 @@ const DrawName = (context: CanvasRenderingContext2D, name: string) => {
     context.fillText(name, 300, 300);
 };
 
-const DrawVCImages = (context: CanvasRenderingContext2D, vcImagePaths: string[]) => {
+const DrawVCImages = async (context: CanvasRenderingContext2D, imagePaths: string[]) => {
+    const vcImagePaths = CreateVCImagePaths(imagePaths);
     const vcPointPointX: number[] = [168, 288, 408];
     const vcPointPointY: number[] = [528, 528, 528];
-    let index = 0;
-    vcImagePaths.map(async (path) => {
-        const image = await loadImageAsync(path);
-        context.drawImage(image, vcPointPointX[index], vcPointPointY[index], 120, 120);
-        index++;
-    });
+    for (let i = 0; i < vcImagePaths.length; i++) {
+        const image = await loadImageAsync(vcImagePaths[i]);
+        context.drawImage(image, vcPointPointX[i], vcPointPointY[i], 120, 120);
+    }
 };
 
 const DrawTacticianImages = (context: CanvasRenderingContext2D, names: string[]) => {
@@ -259,6 +247,51 @@ const DrawRankImage = (context: CanvasRenderingContext2D, name: string, index: n
         context.drawImage(image, rankPointX[index], rankPointY[index], rankSize[index], rankSize[index]);
     };
     image.src = imagePath;
+};
+
+const CreateVCImagePaths = (names: string[]): string[] => {
+    const vcImagePaths: string[] = [];
+    const vcImageNames: string[] = names;
+    SortVCNames(vcImageNames);
+    for (let i = 0; i < vcImageNames.length; i++) {
+        const imagePath = CreateVCImagePath(vcImageNames[i]);
+        if (imagePath === NoneImagePath.src) {
+            vcImagePaths.splice(0);
+            vcImagePaths.push(imagePath);
+            break;
+        }
+        vcImagePaths.push(imagePath);
+    }
+    return vcImagePaths;
+};
+
+const SortVCNames = (names: string[]): string[] => {
+    console.log(names);
+    names.sort(function (first, second): number {
+        const priority1 = GetVCPriority(first);
+        const priority2 = GetVCPriority(second);
+        if (priority1 < priority2) {
+            return -1;
+        } else {
+            return 1;
+        }
+    });
+    console.log(names);
+    return names;
+};
+
+const GetVCPriority = (name: string): number => {
+    let ret = 0;
+    if (name === "Discord") {
+        ret = 0;
+    } else if (name === "Line") {
+        ret = 1;
+    } else if (name === "Kikisen") {
+        ret = 2;
+    } else if (name === "None") {
+        ret = 3;
+    }
+    return ret;
 };
 
 const loadImageAsync = async (path: string): Promise<HTMLImageElement> => {
