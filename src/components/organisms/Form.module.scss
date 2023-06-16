@@ -12,49 +12,6 @@
     border-bottom: solid 1px #ccc;
 }
 
-.form_actionArea {
-    margin-top: 30px;
-}
-
-.form_buttonWrapper {
-    display: flex;
-}
-
-.form_submitButton {
-    appearance: none;
-    padding: 1em;
-    background: #5284e3;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #fff;
-    &:hover {
-        opacity: 0.6;
-    }
-}
-
-.form_backButton {
-    display: block;
-    margin-left: 20px;
-    padding: 0.5em 1em;
-    border: solid 1px #ccc;
-    border-radius: 10px;
-    font-size: 12px;
-    &:hover {
-        opacity: 0.6;
-    }
-}
-
-.form_validateMessage {
-    font-weight: bold;
-    color: #dc4f89;
-    line-height: 1.6;
-    font-size: 14px;
-    * + & {
-        margin-top: 8px;
-    }
-}
-
 .input_text {
     border: 1px solid #c7c7c7;
     border-radius: 6px;
@@ -74,4 +31,36 @@
     line-height: 1.5;
     overflow: hidden;
     transition: background-color 0.3s;
+}
+
+.form_actionArea {
+    margin-top: 30px;
+}
+
+.form_validateMessage {
+    font-weight: bold;
+    color: #dc4f89;
+    line-height: 1.6;
+    font-size: 14px;
+    * + & {
+        margin-top: 8px;
+    }
+}
+.form_buttonWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 40px;
+}
+
+.form_submitButton {
+    appearance: none;
+    padding: 1em;
+    background: #5284e3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    &:hover {
+        opacity: 0.6;
+    }
 }

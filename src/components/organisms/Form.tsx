@@ -103,14 +103,14 @@ export const Form = () => {
                 <div className={styles.form_actionArea}>
                     {!isValid && (
                         <>
-                            <p className={styles.form_validateMessage}>まだ全ての必須項目の入力が完了していません。</p>
+                            <p className={styles.form_validateMessage}>名前を入力してください。</p>
                         </>
                     )}
-                    <div className={styles.form_buttonWrapper}>
-                        <button type="submit" className={styles.form_submitButton}>
-                            作成
-                        </button>
-                    </div>
+                </div>
+                <div className={styles.form_buttonWrapper}>
+                    <button type="submit" className={styles.form_submitButton}>
+                        作成
+                    </button>
                 </div>
             </form>
         </>
