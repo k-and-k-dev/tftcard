@@ -177,7 +177,7 @@ const DrawCreatedDate = (context: CanvasRenderingContext2D) => {
     const year = now.getFullYear();
     const month = now.getMonth() + 1;
     const date = now.getDate();
-    const dateString = "(作成日)" + year + "/" + ("00" + month).slice(-2) + "/" + ("00" + date).slice(-2);
+    const dateString = year + "/" + ("00" + month).slice(-2) + "/" + ("00" + date).slice(-2);
     let fontSize = "";
     if (window.innerWidth <= 767) {
         fontSize = "7vw Arial";
@@ -187,7 +187,7 @@ const DrawCreatedDate = (context: CanvasRenderingContext2D) => {
     context.font = fontSize;
     context.textAlign = "center";
     context.fillStyle = "gray";
-    context.fillText(dateString, 1740, 160);
+    context.fillText(dateString, 1800, 160);
 };
 
 const DrawName = (context: CanvasRenderingContext2D, name: string) => {
@@ -315,15 +315,19 @@ const SortVCNames = (names: string[]): string[] => {
 
 const GetVCPriority = (name: string): number => {
     let ret = 0;
-    if (name === "Discord") {
-        ret = 0;
-    } else if (name === "Line") {
-        ret = 1;
-    } else if (name === "Kikisen") {
-        ret = 2;
-    } else if (name === "None") {
-        ret = 3;
-    }
+    if (name === "Discord") ret = 0;
+    else if (name === "Line") ret = 1;
+    else if (name === "Kikisen") ret = 2;
+    else if (name === "None") ret = 3;
+    return ret;
+};
+
+const GetPlayTimePriority = (name: string): number => {
+    let ret = 0;
+    if (name === "Midnight") ret = 0;
+    else if (name === "Morning") ret = 1;
+    else if (name === "Afternoon") ret = 2;
+    else if (name === "Night") ret = 3;
     return ret;
 };
 

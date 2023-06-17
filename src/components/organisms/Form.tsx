@@ -188,19 +188,19 @@ const vcProps = [
 const playTimeProps = [
     {
         label: "0時～6時",
-        value: "midnight",
+        value: "Midnight",
     },
     {
         label: "6時～12時",
-        value: "morning",
+        value: "Morning",
     },
     {
         label: "12時～18時",
-        value: "afternoon",
+        value: "Afternoon",
     },
     {
         label: "18時～24時",
-        value: "night",
+        value: "Night",
     },
     {
         label: "不定期",
