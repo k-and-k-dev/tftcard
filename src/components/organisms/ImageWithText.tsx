@@ -36,6 +36,8 @@ import RankGreenImagePath from "../../images/rank/Green.png";
 import RankBlueImagePath from "../../images/rank/Blue.png";
 import RankPurpleImagePath from "../../images/rank/Purple.png";
 import RankHyperImagePath from "../../images/rank/Hyper.png";
+import TraitDarkinImagePath from "../../images/trait/set9/origin/Darkin.png";
+import TraitIoniaImagePath from "../../images/trait/set9/origin/Ionia.png";
 
 type Props = {
     formInputs: FormInputs;
@@ -72,15 +74,19 @@ export const ImageWithText = ({ formInputs }: Props) => {
             DrawSexImage(context, formInputs.sex);
             // VC
             DrawVCImages(context, formInputs.vc);
-            // タクティシャン
-            const tacticianNames: string[] = [formInputs.tactician3, formInputs.tactician2, formInputs.tactician1];
-            DrawTacticianImages(context, tacticianNames);
+            // プレイ時間帯
             // 好きなゲームモード
             DrawGameModeImage(context, formInputs.gameMode);
             // ランク
             DrawRankImage(context, formInputs.rank, 0);
             DrawRankImage(context, formInputs.rank_double, 1);
             DrawRankImage(context, formInputs.rank_hyper, 2);
+            // 好きな特性
+            const traitNames: string[] = [formInputs.trait1, formInputs.trait2, formInputs.trait3];
+            DrawTraitImages(context, traitNames);
+            // タクティシャン
+            const tacticianNames: string[] = [formInputs.tactician3, formInputs.tactician2, formInputs.tactician1];
+            DrawTacticianImages(context, tacticianNames);
         };
     }, [formInputs]);
 
@@ -282,6 +288,40 @@ const DrawRankImage = (context: CanvasRenderingContext2D, name: string, index: n
     image.src = imagePath;
 };
 
+const DrawTraitImages = (context: CanvasRenderingContext2D, names: string[]) => {
+    let index = 0;
+    names.map((name) => {
+        if (name === "None") return;
+        DrawTraitImage(context, name, index);
+        index++;
+    });
+};
+
+const DrawTraitImage = (context: CanvasRenderingContext2D, name: string, index: number) => {
+    const imagePath = CreateTraitImagePath(name);
+    const image = document.createElement("img");
+    image.onload = () => {
+        const traitPointX: number[] = [150, 260, 370];
+        const traitPointY: number[] = [800, 800, 800];
+        const traitSize: number[] = [100, 100, 100];
+        context.drawImage(image, traitPointX[index], traitPointY[index], traitSize[index], traitSize[index]);
+    };
+    image.src = imagePath;
+};
+
+const CreateTraitImagePath = (name: string) => {
+    let imagePath = "";
+    switch (name) {
+        case "Darkin":
+            imagePath = TraitDarkinImagePath.src;
+            break;
+        case "Ionia":
+            imagePath = TraitIoniaImagePath.src;
+            break;
+    }
+    return imagePath;
+};
+
 const CreateVCImagePaths = (names: string[]): string[] => {
     const vcImagePaths: string[] = [];
     const vcImageNames: string[] = names;
@@ -299,7 +339,6 @@ const CreateVCImagePaths = (names: string[]): string[] => {
 };
 
 const SortVCNames = (names: string[]): string[] => {
-    console.log(names);
     names.sort(function (first, second): number {
         const priority1 = GetVCPriority(first);
         const priority2 = GetVCPriority(second);
@@ -309,7 +348,6 @@ const SortVCNames = (names: string[]): string[] => {
             return 1;
         }
     });
-    console.log(names);
     return names;
 };
 

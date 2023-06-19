@@ -18,13 +18,16 @@ export type FormInputs = {
     sex: string;
     vc: string[];
     playTime: string[];
-    tactician1: string;
-    tactician2: string;
-    tactician3: string;
     gameMode: string[];
     rank: string;
     rank_double: string;
     rank_hyper: string;
+    trait1: string;
+    trait2: string;
+    trait3: string;
+    tactician1: string;
+    tactician2: string;
+    tactician3: string;
     free: string;
 };
 
@@ -73,13 +76,8 @@ export const Form = () => {
                     <RhfRadioGroup name="sex" control={control} radioPropsList={sexProps} />
                     <p className={styles.form_unit_title}>ボイスチャット</p>
                     <RhfCheckboxGroup name="vc" control={control} checkBoxPropsList={vcProps} />
-                    <p className={styles.form_unit_title}>好きなタクティシャン</p>
-                    <p>1位</p>
-                    <RhfSelectForm name="tactician1" control={control} selectPropsList={tacticianProps} />
-                    <p>2位</p>
-                    <RhfSelectForm name="tactician2" control={control} selectPropsList={tacticianWithNoneProps} />
-                    <p>3位</p>
-                    <RhfSelectForm name="tactician3" control={control} selectPropsList={tacticianWithNoneProps} />
+                    <p className={styles.form_unit_title}>プレイ時間帯</p>
+                    <RhfCheckboxGroup name="playTime" control={control} checkBoxPropsList={playTimeProps} />
                     <p className={styles.form_unit_title}>好きなゲームモード</p>
                     <RhfCheckboxGroup name="gameMode" control={control} checkBoxPropsList={gameModeProps} />
                     <p className={styles.form_unit_title}>ランク</p>
@@ -89,8 +87,17 @@ export const Form = () => {
                     <RhfSelectForm name="rank_double" control={control} selectPropsList={rankProps} />
                     <p>ハイパーロール</p>
                     <RhfSelectForm name="rank_hyper" control={control} selectPropsList={rankHyperProps} />
-                    <p className={styles.form_unit_title}>プレイ時間帯</p>
-                    <RhfCheckboxGroup name="playTime" control={control} checkBoxPropsList={playTimeProps} />
+                    <p className={styles.form_unit_title}>好きな特性</p>
+                    <RhfSelectForm name="trait1" control={control} selectPropsList={traitProps} />
+                    <RhfSelectForm name="trait2" control={control} selectPropsList={traitProps} />
+                    <RhfSelectForm name="trait3" control={control} selectPropsList={traitProps} />
+                    <p className={styles.form_unit_title}>好きなタクティシャン</p>
+                    <p>1位</p>
+                    <RhfSelectForm name="tactician1" control={control} selectPropsList={tacticianProps} />
+                    <p>2位</p>
+                    <RhfSelectForm name="tactician2" control={control} selectPropsList={tacticianWithNoneProps} />
+                    <p>3位</p>
+                    <RhfSelectForm name="tactician3" control={control} selectPropsList={tacticianWithNoneProps} />
                 </div>
                 <div className={styles.form_unit}>
                     <p className={styles.form_unit_title}>フリースペース</p>
@@ -126,13 +133,16 @@ const defaultValues: FormInputs = {
     sex: "Man",
     vc: ["Discord"],
     playTime: ["Irregular"],
-    tactician1: "Polo",
-    tactician2: "Polo",
-    tactician3: "Polo",
     gameMode: ["Normal"],
     rank: "None",
     rank_double: "None",
     rank_hyper: "None",
+    trait1: "Ionia",
+    trait2: "Ionia",
+    trait3: "Ionia",
+    tactician1: "Polo",
+    tactician2: "Polo",
+    tactician3: "Polo",
     free: "",
 };
 
@@ -205,64 +215,6 @@ const playTimeProps = [
     {
         label: "不定期",
         value: "Irregular",
-    },
-];
-
-const tacticianProps = [
-    {
-        label: "ポロ",
-        value: "Polo",
-    },
-    {
-        label: "ダンゴ",
-        value: "Dango",
-    },
-    {
-        label: "ウィスカー",
-        value: "Wisker",
-    },
-    {
-        label: "スクインク",
-        value: "Squink",
-    },
-    {
-        label: "ハッシュテイル",
-        value: "Hashtail",
-    },
-    {
-        label: "バンバン",
-        value: "Banban",
-    },
-];
-
-const tacticianWithNoneProps = [
-    {
-        label: "-",
-        value: "None",
-    },
-    {
-        label: "ポロ",
-        value: "Polo",
-    },
-    {
-        label: "ダンゴ",
-        value: "Dango",
-    },
-    {
-        label: "ウィスカー",
-        value: "Wisker",
-    },
-    {
-        label: "スクインク",
-        value: "Squink",
-    },
-    {
-        label: "ハッシュテイル",
-        value: "Hashtail",
-    },
-    {
-        label: "バンバン",
-        value: "Banban",
     },
 ];
 
@@ -355,18 +307,198 @@ const rankHyperProps = [
     },
 ];
 
+const traitProps = [
+    {
+        label: "アイオニア",
+        value: "Ionia",
+    },
+    {
+        label: "ヴォイド",
+        value: "Void",
+    },
+    {
+        label: "シャドウアイル",
+        value: "ShadowIsles",
+    },
+    {
+        label: "シュリーマ",
+        value: "Shurima",
+    },
+    {
+        label: "ゾウン",
+        value: "Zaun",
+    },
+    {
+        label: "ダーキン",
+        value: "Darkin",
+    },
+    {
+        label: "ターゴン",
+        value: "Targon",
+    },
+    {
+        label: "デマーシア",
+        value: "Demacia",
+    },
+    {
+        label: "ノクサス",
+        value: "Noxus",
+    },
+    {
+        label: "ピルトーヴァー",
+        value: "Piltover",
+    },
+    {
+        label: "フレヨルド",
+        value: "Freljord",
+    },
+    {
+        label: "ヨードル",
+        value: "Yordle",
+    },
+    {
+        label: "探究者",
+        value: "Wanderer",
+    },
+    {
+        label: "--------------------",
+        value: "None",
+    },
+    {
+        label: "インヴォーカー",
+        value: "Invoker",
+    },
+    {
+        label: "ガンナー",
+        value: "Gunner",
+    },
+    {
+        label: "ジャガーノート",
+        value: "Juggernaut",
+    },
+    {
+        label: "スレイヤー",
+        value: "Slayer",
+    },
+    {
+        label: "ソーサラー",
+        value: "Sorcerer",
+    },
+    {
+        label: "チャレンジャー",
+        value: "Challenger",
+    },
+    {
+        label: "デッドアイ",
+        value: "Deadeye",
+    },
+    {
+        label: "バスティオン",
+        value: "Bastion",
+    },
+    {
+        label: "ブルーザー",
+        value: "Bruiser",
+    },
+    {
+        label: "ローグ",
+        value: "Rogue",
+    },
+    {
+        label: "救済者",
+        value: "Redeemer",
+    },
+    {
+        label: "軍師",
+        value: "Strategist",
+    },
+    {
+        label: "女帝",
+        value: "Empress",
+    },
+    {
+        label: "発明王",
+        value: "Technogenius",
+    },
+    {
+        label: "複唱者",
+        value: "Multicaster",
+    },
+];
+
+const tacticianProps = [
+    {
+        label: "ポロ",
+        value: "Polo",
+    },
+    {
+        label: "ダンゴ",
+        value: "Dango",
+    },
+    {
+        label: "ウィスカー",
+        value: "Wisker",
+    },
+    {
+        label: "スクインク",
+        value: "Squink",
+    },
+    {
+        label: "ハッシュテイル",
+        value: "Hashtail",
+    },
+    {
+        label: "バンバン",
+        value: "Banban",
+    },
+];
+
+const tacticianWithNoneProps = [
+    {
+        label: "-",
+        value: "None",
+    },
+    {
+        label: "ポロ",
+        value: "Polo",
+    },
+    {
+        label: "ダンゴ",
+        value: "Dango",
+    },
+    {
+        label: "ウィスカー",
+        value: "Wisker",
+    },
+    {
+        label: "スクインク",
+        value: "Squink",
+    },
+    {
+        label: "ハッシュテイル",
+        value: "Hashtail",
+    },
+    {
+        label: "バンバン",
+        value: "Banban",
+    },
+];
+
 let formInputs = {
     template: "",
     name: "",
     sex: "",
     vc: [""],
     playTime: [""],
-    tactician1: "",
-    tactician2: "",
-    tactician3: "",
     gameMode: [""],
     rank: "",
     rank_double: "",
     rank_hyper: "",
+    trait1: "",
+    trait2: "",
+    trait3: "",
+    tactician1: "",
+    tactician2: "",
+    tactician3: "",
     free: "",
 };
