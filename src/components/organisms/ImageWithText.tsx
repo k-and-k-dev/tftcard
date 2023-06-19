@@ -301,9 +301,9 @@ const DrawTraitImage = (context: CanvasRenderingContext2D, name: string, index: 
     const imagePath = CreateTraitImagePath(name);
     const image = document.createElement("img");
     image.onload = () => {
-        const traitPointX: number[] = [150, 260, 370];
+        const traitPointX: number[] = [130, 255, 380];
         const traitPointY: number[] = [800, 800, 800];
-        const traitSize: number[] = [100, 100, 100];
+        const traitSize: number[] = [120, 120, 120];
         context.drawImage(image, traitPointX[index], traitPointY[index], traitSize[index], traitSize[index]);
     };
     image.src = imagePath;
