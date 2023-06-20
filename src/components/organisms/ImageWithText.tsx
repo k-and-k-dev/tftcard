@@ -36,7 +36,33 @@ import RankBlueImagePath from "../../images/rank/Blue.png";
 import RankPurpleImagePath from "../../images/rank/Purple.png";
 import RankHyperImagePath from "../../images/rank/Hyper.png";
 import TraitDarkinImagePath from "../../images/trait/set9/origin/Darkin.png";
+import TraitDemaciaImagePath from "../../images/trait/set9/origin/Demacia.png";
+import TraitFreljoldImagePath from "../../images/trait/set9/origin/Freljold.png";
 import TraitIoniaImagePath from "../../images/trait/set9/origin/Ionia.png";
+import TraitImageNoxusPath from "../../images/trait/set9/origin/Noxus.png";
+import TraitImagePiltoverPath from "../../images/trait/set9/origin/Piltover.png";
+import TraitImageShadowIslesPath from "../../images/trait/set9/origin/ShadowIsles.png";
+import TraitImageShurimaPath from "../../images/trait/set9/origin/Shurima.png";
+import TraitImageTargonPath from "../../images/trait/set9/origin/Targon.png";
+import TraitImageVoidPath from "../../images/trait/set9/origin/Void.png";
+import TraitImageWandererPath from "../../images/trait/set9/origin/Wanderer.png";
+import TraitImageYordlePath from "../../images/trait/set9/origin/Yordle.png";
+import TraitImageZaunPath from "../../images/trait/set9/origin/Zaun.png";
+import TraitImageBastionPath from "../../images/trait/set9/class/Bastion.png";
+import TraitImageBruiserPath from "../../images/trait/set9/class/Bruiser.png";
+import TraitImageChallengerPath from "../../images/trait/set9/class/Challenger.png";
+import TraitImageDeadeyePath from "../../images/trait/set9/class/Deadeye.png";
+import TraitImageEmpressPath from "../../images/trait/set9/class/Empress.png";
+import TraitImageGunnerPath from "../../images/trait/set9/class/Gunner.png";
+import TraitImageInvokerPath from "../../images/trait/set9/class/Invoker.png";
+import TraitImageJuggernautPath from "../../images/trait/set9/class/Juggernaut.png";
+import TraitImageMulticasterPath from "../../images/trait/set9/class/Multicaster.png";
+import TraitImageRedeemerPath from "../../images/trait/set9/class/Redeemer.png";
+import TraitImageRoguePath from "../../images/trait/set9/class/Rogue.png";
+import TraitImageSlayerPath from "../../images/trait/set9/class/Slayer.png";
+import TraitImageSorcererPath from "../../images/trait/set9/class/Sorcerer.png";
+import TraitImageStrategistPath from "../../images/trait/set9/class/Strategist.png";
+import TraitImageTechnogeniusPath from "../../images/trait/set9/class/Technogenius.png";
 
 type Props = {
     formInputs: FormInputs;
@@ -284,11 +310,91 @@ const DrawTraitImage = (context: CanvasRenderingContext2D, name: string, index: 
 const CreateTraitImagePath = (name: string) => {
     let imagePath = "";
     switch (name) {
+        // origin
         case "Darkin":
             imagePath = TraitDarkinImagePath.src;
             break;
+        case "Demacia":
+            imagePath = TraitDemaciaImagePath.src;
+            break;
+        case "Freljord":
+            imagePath = TraitFreljoldImagePath.src;
+            break;
         case "Ionia":
             imagePath = TraitIoniaImagePath.src;
+            break;
+        case "Noxus":
+            imagePath = TraitImageNoxusPath.src;
+            break;
+        case "Piltover":
+            imagePath = TraitImagePiltoverPath.src;
+            break;
+        case "ShadowIsles":
+            imagePath = TraitImageShadowIslesPath.src;
+            break;
+        case "Shurima":
+            imagePath = TraitImageShurimaPath.src;
+            break;
+        case "Targon":
+            imagePath = TraitImageTargonPath.src;
+            break;
+        case "Void":
+            imagePath = TraitImageVoidPath.src;
+            break;
+        case "Wanderer":
+            imagePath = TraitImageWandererPath.src;
+            break;
+        case "Yordle":
+            imagePath = TraitImageYordlePath.src;
+            break;
+        case "Zaun":
+            imagePath = TraitImageZaunPath.src;
+            break;
+        // class
+        case "Bastion":
+            imagePath = TraitImageBastionPath.src;
+            break;
+        case "Bruiser":
+            imagePath = TraitImageBruiserPath.src;
+            break;
+        case "Challenger":
+            imagePath = TraitImageChallengerPath.src;
+            break;
+        case "Deadeye":
+            imagePath = TraitImageDeadeyePath.src;
+            break;
+        case "Empress":
+            imagePath = TraitImageEmpressPath.src;
+            break;
+        case "Gunner":
+            imagePath = TraitImageGunnerPath.src;
+            break;
+        case "Invoker":
+            imagePath = TraitImageInvokerPath.src;
+            break;
+        case "Juggernaut":
+            imagePath = TraitImageJuggernautPath.src;
+            break;
+        case "Multicaster":
+            imagePath = TraitImageMulticasterPath.src;
+            break;
+        case "Redeemer":
+            imagePath = TraitImageRedeemerPath.src;
+            break;
+        case "Rogue":
+            imagePath = TraitImageRoguePath.src;
+            break;
+        case "Slayer":
+            imagePath = TraitImageSlayerPath.src;
+            break;
+        case "Sorcerer":
+            imagePath = TraitImageSorcererPath.src;
+            break;
+        case "Strategist":
+            imagePath = TraitImageStrategistPath.src;
+            break;
+        case "Technogenius":
+            imagePath = TraitImageTechnogeniusPath.src;
             break;
     }
     return imagePath;
