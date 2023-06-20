@@ -1,16 +1,16 @@
 // react
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // next.js
 import Image from "next/image";
 // components
 import { FormInputs } from "./Form";
 import { Tweet } from "../atoms/Tweet";
 // util
-import { getMobileOS } from "@/util/device";
 // style
 import styles from "./ImageWithText.module.scss";
 // resources
 import templateImagePath from "../../images/Template.png";
+import templateClearImagePath from "../../images/Template_clear.png";
 import sexManImagePath from "../../images/Man.png";
 import sexWomanImagePath from "../../images/Woman.png";
 import poloImagePath from "../../images/Polo.png";
@@ -20,7 +20,6 @@ import lineImagePath from "../../images/Line.png";
 import KikisenImagePath from "../../images/Kikisen.png";
 import NoneImagePath from "../../images/None.png";
 import CompleteImagePath from "../../images/Complete.png";
-import SaveImagePath from "../../images/Save.png";
 import TweetImagePath from "../../images/Tweet.png";
 import RankIronImagePath from "../../images/rank/Iron.png";
 import RankBronzeImagePath from "../../images/rank/Bronze.png";
@@ -44,14 +43,16 @@ type Props = {
 };
 
 export const ImageWithText = ({ formInputs }: Props) => {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const [imageSrc, setImageSrc] = useState<string>(templateClearImagePath.src);
+    const [myCanvas, setMyCanvas] = useState<HTMLCanvasElement>();
+    const canvasImageRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
         const templateImage = document.createElement("img");
         templateImage.src = templateImagePath.src;
         templateImage.onload = async () => {
             // キャンバス取得
-            const canvas = canvasRef.current;
+            const canvas = document.createElement("canvas");
             if (canvas === null) {
                 console.error("canvas is null!");
                 return;
@@ -87,46 +88,21 @@ export const ImageWithText = ({ formInputs }: Props) => {
             // タクティシャン
             const tacticianNames: string[] = [formInputs.tactician3, formInputs.tactician2, formInputs.tactician1];
             DrawTacticianImages(context, tacticianNames);
+
+            // 描画が終わるまで待つ
+            await new Promise((s) => setTimeout(s, 500));
+            setMyCanvas(canvas);
         };
     }, [formInputs]);
 
-    const onSave = () => {
-        // Canvas取得
-        const canvas = canvasRef.current;
-        if (canvas === null) {
-            console.error("canvas is null!");
-            return;
+    useEffect(() => {
+        if (myCanvas === undefined) return;
+        // canvasを画像に変換して表示
+        const canvasImage = canvasImageRef.current;
+        if (canvasImage !== null) {
+            setImageSrc(myCanvas.toDataURL());
         }
-        // 完成画像保存(iOSの場合は共有としてカメラロールに保存)
-        if (getMobileOS() === "iOS") {
-            if (navigator.share) {
-                canvas.toBlob(
-                    (blob) => {
-                        if (blob !== null) {
-                            const file = new File([blob], "profile.png");
-                            navigator.share({
-                                files: [file],
-                                title: "保存",
-                                url: "https://tftcard.vercel.app/",
-                                text: "#TFT #TFTフレンド募集 #TFTプロフィールカード",
-                            });
-                        } else {
-                            console.error("blob is null!");
-                        }
-                    },
-                    "image/png",
-                    1
-                );
-            } else {
-                console.error("navigator.share is null!");
-            }
-        } else {
-            const a = document.createElement("a");
-            a.href = canvas.toDataURL("image/png", 1);
-            a.download = "profile.png";
-            a.click();
-        }
-    };
+    }, [myCanvas]);
 
     return (
         <>
@@ -140,25 +116,15 @@ export const ImageWithText = ({ formInputs }: Props) => {
                         alt="完成"
                     />
                 </p>
-                <canvas className={styles.canvas} ref={canvasRef} />
-                <p className={styles.save}>
-                    <a onClick={onSave}>
-                        <Image
-                            src={SaveImagePath.src}
-                            width={SaveImagePath.width}
-                            height={SaveImagePath.height}
-                            className={styles.save_img}
-                            onSelect={() => {
-                                return false;
-                            }}
-                            onMouseDown={() => {
-                                return false;
-                            }}
-                            alt="保存"
-                            onClick={onSave}
-                        />
-                    </a>
-                </p>
+                <Image
+                    className={styles.complete_image}
+                    src={imageSrc}
+                    width={1920}
+                    height={1080}
+                    ref={canvasImageRef}
+                    alt="完成画像"
+                />
+                <p className={styles.complete_note}>※画像を右クリックor長押しして保存してね！</p>
                 <p className={styles.tweet}>
                     <Tweet
                         text=""
@@ -174,7 +140,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
                         />
                     </Tweet>
                 </p>
-                <p className={styles.note}>※先に画像をダウンロードしてツイートに添付してね！</p>
+                <p className={styles.tweet_note}>※先に画像を保存してツイートに添付してね！</p>
             </div>
         </>
     );
