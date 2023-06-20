@@ -9,18 +9,24 @@ import { Tweet } from "../atoms/Tweet";
 // style
 import styles from "./ImageWithText.module.scss";
 // resources
+// template
 import templateImagePath from "../../images/Template.png";
 import templateClearImagePath from "../../images/Template_clear.png";
+// sex
 import sexManImagePath from "../../images/Man.png";
 import sexWomanImagePath from "../../images/Woman.png";
+// tactician
 import poloImagePath from "../../images/Polo.png";
 import dangoImagePath from "../../images/Dango.png";
+// vc
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
 import KikisenImagePath from "../../images/Kikisen.png";
 import NoneImagePath from "../../images/None.png";
+// complete
 import CompleteImagePath from "../../images/Complete.png";
 import TweetImagePath from "../../images/Tweet.png";
+// rank
 import RankIronImagePath from "../../images/rank/Iron.png";
 import RankBronzeImagePath from "../../images/rank/Bronze.png";
 import RankSilverImagePath from "../../images/rank/Silver.png";
@@ -35,6 +41,35 @@ import RankGreenImagePath from "../../images/rank/Green.png";
 import RankBlueImagePath from "../../images/rank/Blue.png";
 import RankPurpleImagePath from "../../images/rank/Purple.png";
 import RankHyperImagePath from "../../images/rank/Hyper.png";
+// trait
+import TraitAceImagePath from "../../images/trait/set8.5/Ace.png";
+import TraitADMINImagePath from "../../images/trait/set8.5/ADMIN.png";
+import TraitAegisImagePath from "../../images/trait/set8.5/Aegis.png";
+import TraitAnimaImagePath from "../../images/trait/set8.5/Anima.png";
+import TraitBrawlerImagePath from "../../images/trait/set8.5/Brawler.png";
+import TraitCorruptedImagePath from "../../images/trait/set8.5/Corrupted.png";
+import TraitDefenderImagePath from "../../images/trait/set8.5/Defender.png";
+import TraitDuelistImagePath from "../../images/trait/set8.5/Duelist.png";
+import TraitForecasterImagePath from "../../images/trait/set8.5/Forecaster.png";
+import TraitGadgeteenImagePath from "../../images/trait/set8.5/Gadgeteen.png";
+import TraitHackerImagePath from "../../images/trait/set8.5/Hacker.png";
+import TraitHeartImagePath from "../../images/trait/set8.5/Heart.png";
+import TraitInfiniTeamImagePath from "../../images/trait/set8.5/InfiniTeam.png";
+import TraitLazerCorpsImagePath from "../../images/trait/set8.5/LazerCorps.png";
+import TraitMascotImagePath from "../../images/trait/set8.5/Mascot.png";
+import TraitMechaPrimeImagePath from "../../images/trait/set8.5/MechaPrime.png";
+import TraitOxForceImagePath from "../../images/trait/set8.5/OxForce.png";
+import TraitParallelImagePath from "../../images/trait/set8.5/Parallel.png";
+import TraitPranksterImagePath from "../../images/trait/set8.5/Prankster.png";
+import TraitQuickdrawImagePath from "../../images/trait/set8.5/Quickdraw.png";
+import TraitRenegadeImagePath from "../../images/trait/set8.5/Renegade.png";
+import TraitRiftwalkerImagePath from "../../images/trait/set8.5/Riftwalker.png";
+import TraitSpellslingerImagePath from "../../images/trait/set8.5/Spellslinger.png";
+import TraitStarGuardianImagePath from "../../images/trait/set8.5/StarGuardian.png";
+import TraitSupersImagePath from "../../images/trait/set8.5/Supers.png";
+import TraitSureshotImagePath from "../../images/trait/set8.5/Sureshot.png";
+import TraitThreatImagePath from "../../images/trait/set8.5/Threat.png";
+import TraitUndergroundImagePath from "../../images/trait/set8.5/Underground.png";
 import TraitDarkinImagePath from "../../images/trait/set9/origin/Darkin.png";
 import TraitDemaciaImagePath from "../../images/trait/set9/origin/Demacia.png";
 import TraitFreljoldImagePath from "../../images/trait/set9/origin/Freljold.png";
@@ -63,6 +98,12 @@ import TraitImageSlayerPath from "../../images/trait/set9/class/Slayer.png";
 import TraitImageSorcererPath from "../../images/trait/set9/class/Sorcerer.png";
 import TraitImageStrategistPath from "../../images/trait/set9/class/Strategist.png";
 import TraitImageTechnogeniusPath from "../../images/trait/set9/class/Technogenius.png";
+// playtime
+import PlayTimeWeekdayAfternoonPath from "../../images/playtime/WeekdayAfternoon.png";
+import PlayTimeWeekdayNightPath from "../../images/playtime/WeekdayNight.png";
+import PlayTimeHolidayAfternoonPath from "../../images/playtime/HolidayAfternoon.png";
+import PlayTimeHolidayNightPath from "../../images/playtime/HolidayNight.png";
+import PlayTimeIrregularPath from "../../images/playtime/Irregular.png";
 
 type Props = {
     formInputs: FormInputs;
@@ -102,6 +143,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
             // VC
             DrawVCImages(context, formInputs.vc);
             // プレイ時間帯
+            DrawPlayTimes(context, formInputs.playTime);
             // 好きなゲームモード
             DrawGameModeImage(context, formInputs.gameMode);
             // ランク
@@ -307,9 +349,121 @@ const DrawTraitImage = (context: CanvasRenderingContext2D, name: string, index: 
     image.src = imagePath;
 };
 
-const CreateTraitImagePath = (name: string) => {
+const DrawPlayTimes = (context: CanvasRenderingContext2D, names: string[]) => {
+    let index = 0;
+    SortPlayTimes(names);
+    names.map((name) => {
+        DrawPlayTime(context, name, index);
+        index++;
+    });
+};
+
+const DrawPlayTime = (context: CanvasRenderingContext2D, name: string, index: number) => {
+    const imagePath = CreatePlayTimeImagePath(name);
+    const image = document.createElement("img");
+    image.onload = () => {
+        const playTimePointX: number[] = [650, 800, 950, 1100, 1250];
+        const playTimePointY: number[] = [460, 460, 460, 460, 460];
+        const playTimeSize: number[] = [100, 100, 100, 100, 100];
+        context.drawImage(
+            image,
+            playTimePointX[index],
+            playTimePointY[index],
+            playTimeSize[index],
+            playTimeSize[index]
+        );
+    };
+    image.src = imagePath;
+};
+
+const CreateTraitImagePath = (name: string): string => {
     let imagePath = "";
     switch (name) {
+        // 8.5
+        case "Ace":
+            imagePath = TraitAceImagePath.src;
+            break;
+        case "ADMIN":
+            imagePath = TraitADMINImagePath.src;
+            break;
+        case "Aegis":
+            imagePath = TraitAegisImagePath.src;
+            break;
+        case "Anima":
+            imagePath = TraitAnimaImagePath.src;
+            break;
+        case "Brawler":
+            imagePath = TraitBrawlerImagePath.src;
+            break;
+        case "Corrupted":
+            imagePath = TraitCorruptedImagePath.src;
+            break;
+        case "Defender":
+            imagePath = TraitDefenderImagePath.src;
+            break;
+        case "Duelist":
+            imagePath = TraitDuelistImagePath.src;
+            break;
+        case "Forecaster":
+            imagePath = TraitForecasterImagePath.src;
+            break;
+        case "Gadgeteen":
+            imagePath = TraitGadgeteenImagePath.src;
+            break;
+        case "Hacker":
+            imagePath = TraitHackerImagePath.src;
+            break;
+        case "Heart":
+            imagePath = TraitHeartImagePath.src;
+            break;
+        case "InfiniTeam":
+            imagePath = TraitInfiniTeamImagePath.src;
+            break;
+        case "LazerCorps":
+            imagePath = TraitLazerCorpsImagePath.src;
+            break;
+        case "Mascot":
+            imagePath = TraitMascotImagePath.src;
+            break;
+        case "MechaPrime":
+            imagePath = TraitMechaPrimeImagePath.src;
+            break;
+        case "OxForce":
+            imagePath = TraitOxForceImagePath.src;
+            break;
+        case "Parallel":
+            imagePath = TraitParallelImagePath.src;
+            break;
+        case "Prankster":
+            imagePath = TraitPranksterImagePath.src;
+            break;
+        case "Quickdraw":
+            imagePath = TraitQuickdrawImagePath.src;
+            break;
+        case "Renegede":
+            imagePath = TraitRenegadeImagePath.src;
+            break;
+        case "Riftwalker":
+            imagePath = TraitRiftwalkerImagePath.src;
+            break;
+        case "Spellslinger":
+            imagePath = TraitSpellslingerImagePath.src;
+            break;
+        case "StarGuardian":
+            imagePath = TraitStarGuardianImagePath.src;
+            break;
+        case "Supers":
+            imagePath = TraitSupersImagePath.src;
+            break;
+        case "Sureshot":
+            imagePath = TraitSureshotImagePath.src;
+            break;
+        case "Threat":
+            imagePath = TraitThreatImagePath.src;
+            break;
+        case "Underground":
+            imagePath = TraitUndergroundImagePath.src;
+            break;
         // origin
         case "Darkin":
             imagePath = TraitDarkinImagePath.src;
@@ -429,6 +583,28 @@ const SortVCNames = (names: string[]): string[] => {
     return names;
 };
 
+const CreatePlayTimeImagePath = (name: string): string => {
+    let imagePath = "";
+    switch (name) {
+        case "WeekdayAfternoon":
+            imagePath = PlayTimeWeekdayAfternoonPath.src;
+            break;
+        case "WeekdayNight":
+            imagePath = PlayTimeWeekdayNightPath.src;
+            break;
+        case "HolidayAfternoon":
+            imagePath = PlayTimeHolidayAfternoonPath.src;
+            break;
+        case "HolidayNight":
+            imagePath = PlayTimeHolidayNightPath.src;
+            break;
+        case "Irregular":
+            imagePath = PlayTimeIrregularPath.src;
+            break;
+    }
+    return imagePath;
+};
+
 const GetVCPriority = (name: string): number => {
     let ret = 0;
     if (name === "Discord") ret = 0;
@@ -438,12 +614,26 @@ const GetVCPriority = (name: string): number => {
     return ret;
 };
 
+const SortPlayTimes = (names: string[]): string[] => {
+    names.sort(function (first, second): number {
+        const priority1 = GetPlayTimePriority(first);
+        const priority2 = GetPlayTimePriority(second);
+        if (priority1 < priority2) {
+            return -1;
+        } else {
+            return 1;
+        }
+    });
+    return names;
+};
+
 const GetPlayTimePriority = (name: string): number => {
     let ret = 0;
-    if (name === "Midnight") ret = 0;
-    else if (name === "Morning") ret = 1;
-    else if (name === "Afternoon") ret = 2;
-    else if (name === "Night") ret = 3;
+    if (name === "WeekdayAfternoon") ret = 0;
+    else if (name === "WeekdayNight") ret = 1;
+    else if (name === "HolidayAfternoon") ret = 2;
+    else if (name === "HolidayNight") ret = 3;
+    else if (name === "Irregular") ret = 4;
     return ret;
 };
 

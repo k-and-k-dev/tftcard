@@ -197,20 +197,20 @@ const vcProps = [
 
 const playTimeProps = [
     {
-        label: "0時～6時",
-        value: "Midnight",
+        label: "平日昼",
+        value: "WeekdayAfternoon",
     },
     {
-        label: "6時～12時",
-        value: "Morning",
+        label: "平日夜",
+        value: "WeekdayNight",
     },
     {
-        label: "12時～18時",
-        value: "Afternoon",
+        label: "休日昼",
+        value: "HolidayAfternoon",
     },
     {
-        label: "18時～24時",
-        value: "Night",
+        label: "休日夜",
+        value: "HolidayNight",
     },
     {
         label: "不定期",
@@ -361,10 +361,6 @@ const traitProps = [
         value: "Wanderer",
     },
     {
-        label: "--------------------",
-        value: "None",
-    },
-    {
         label: "インヴォーカー",
         value: "Invoker",
     },
@@ -423,6 +419,122 @@ const traitProps = [
     {
         label: "複唱者",
         value: "Multicaster",
+    },
+    {
+        label: "----------以下SET8.5----------",
+        value: "None",
+    },
+    {
+        label: "ADMIN",
+        value: "ADMIN",
+    },
+    {
+        label: "アニマ部隊",
+        value: "Anima",
+    },
+    {
+        label: "アンダーグラウンド",
+        value: "Underground",
+    },
+    {
+        label: "インフィニティーム",
+        value: "InfiniTeam",
+    },
+    {
+        label: "OXフォース",
+        value: "OxForce",
+    },
+    {
+        label: "ガジェッティーン",
+        value: "Gadgeteen",
+    },
+    {
+        label: "脅威",
+        value: "Threat",
+    },
+    {
+        label: "スーパー",
+        value: "Supers",
+    },
+    {
+        label: "スターガーディアン",
+        value: "StarGuardian",
+    },
+    {
+        label: "メカ: プライム",
+        value: "MechaPrime",
+    },
+    {
+        label: "リフトウォーカー",
+        value: "Riftwalker",
+    },
+    {
+        label: "レーザーコープ",
+        value: "LazerCorps",
+    },
+    {
+        label: "イージス",
+        value: "Aegis",
+    },
+    {
+        label: "エース",
+        value: "Ace",
+    },
+    {
+        label: "クイックドロー",
+        value: "Quickdraw",
+    },
+    {
+        label: "コラプテッド",
+        value: "Corrupted",
+    },
+    {
+        label: "ショアショット",
+        value: "Sureshot",
+    },
+    {
+        label: "スペルスリンガー",
+        value: "Spellslinger",
+    },
+    {
+        label: "ディフェンダー",
+        value: "Defender",
+    },
+    {
+        label: "デュエリスト",
+        value: "Duelist",
+    },
+    {
+        label: "ハート",
+        value: "Heart",
+    },
+    {
+        label: "ハッカー",
+        value: "Hacker",
+    },
+    {
+        label: "パラレル",
+        value: "Parallel",
+    },
+    {
+        label: "反逆者",
+        value: "Renegade",
+    },
+    {
+        label: "プランクスター",
+        value: "Prankster",
+    },
+    {
+        label: "ブローラー",
+        value: "Brawler",
+    },
+    {
+        label: "マスコット",
+        value: "Mascot",
+    },
+    {
+        label: "予報士",
+        value: "Forecaster",
     },
 ];
 
