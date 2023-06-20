@@ -148,6 +148,12 @@ export const ImageWithText = ({ formInputs }: Props) => {
                             width={SaveImagePath.width}
                             height={SaveImagePath.height}
                             className={styles.save_img}
+                            onSelect={() => {
+                                return false;
+                            }}
+                            onMouseDown={() => {
+                                return false;
+                            }}
                             alt="保存"
                             onClick={onSave}
                         />
@@ -301,9 +307,9 @@ const DrawTraitImage = (context: CanvasRenderingContext2D, name: string, index: 
     const imagePath = CreateTraitImagePath(name);
     const image = document.createElement("img");
     image.onload = () => {
-        const traitPointX: number[] = [130, 255, 380];
-        const traitPointY: number[] = [800, 800, 800];
-        const traitSize: number[] = [120, 120, 120];
+        const traitPointX: number[] = [110, 245, 380];
+        const traitPointY: number[] = [790, 790, 790];
+        const traitSize: number[] = [140, 140, 140];
         context.drawImage(image, traitPointX[index], traitPointY[index], traitSize[index], traitSize[index]);
     };
     image.src = imagePath;

@@ -16,6 +16,15 @@
 .title_img {
     width: 50%;
     height: 50%;
+    /* 保存対策 */
+    // for PC
+    pointer-events: none;
+    // for SP
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-touch-callout: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 .canvas {
