@@ -30,7 +30,16 @@ body {
     background-color: #ffffff;
     background-image: url(../images/Background.png);
     background-size: contain;
+    animation: bg 40s infinite linear;
     overflow-y: scroll;
+}
+@keyframes bg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0px -1920px;
+    }
 }
 
 img {
