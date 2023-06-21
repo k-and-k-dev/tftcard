@@ -350,28 +350,28 @@ const DrawTraitImage = (context: CanvasRenderingContext2D, name: string, index: 
 };
 
 const DrawPlayTimes = (context: CanvasRenderingContext2D, names: string[]) => {
-    let index = 0;
+    if (names.length === 0) return;
     SortPlayTimes(names);
+    const playTimePointXTable = [
+        [910],
+        [810, 1010],
+        [700, 910, 1120],
+        [650, 830, 1000, 1170],
+        [610, 755, 915, 1060, 1212],
+    ];
+    const playTimePointX = playTimePointXTable[names.length - 1];
+    let index = 0;
     names.map((name) => {
-        DrawPlayTime(context, name, index);
+        DrawPlayTime(context, name, playTimePointX[index]);
         index++;
     });
 };
 
-const DrawPlayTime = (context: CanvasRenderingContext2D, name: string, index: number) => {
+const DrawPlayTime = (context: CanvasRenderingContext2D, name: string, x: number) => {
     const imagePath = CreatePlayTimeImagePath(name);
     const image = document.createElement("img");
     image.onload = () => {
-        const playTimePointX: number[] = [650, 800, 950, 1100, 1250];
-        const playTimePointY: number[] = [460, 460, 460, 460, 460];
-        const playTimeSize: number[] = [100, 100, 100, 100, 100];
-        context.drawImage(
-            image,
-            playTimePointX[index],
-            playTimePointY[index],
-            playTimeSize[index],
-            playTimeSize[index]
-        );
+        context.drawImage(image, x, 460, 180, 80);
     };
     image.src = imagePath;
 };
@@ -440,7 +440,7 @@ const CreateTraitImagePath = (name: string): string => {
         case "Quickdraw":
             imagePath = TraitQuickdrawImagePath.src;
             break;
-        case "Renegede":
+        case "Renegade":
             imagePath = TraitRenegadeImagePath.src;
             break;
         case "Riftwalker":

@@ -33,6 +33,7 @@
     animation: anim-modal 0.5s ease;
     will-change: transform, opacity;
     @media screen and (max-width: 767px) {
+        width: 95vw;
         height: 42vh;
         padding: 30px 5px 5px 5px;
     }
