@@ -100,7 +100,7 @@ export const Form = () => {
                     <RhfSelectForm name="tactician3" control={control} selectPropsList={tacticianWithNoneProps} />
                 </div>
                 <div className={styles.form_unit}>
-                    <p className={styles.form_unit_title}>フリースペース</p>
+                    <p className={styles.form_unit_title}>フリースペース ※8文字以上は自動で改行されます</p>
                     <textarea className={styles.input_textarea} placeholder="自己アピールなど" {...register("free")} />
                     <ErrorMessage
                         errors={errors}
