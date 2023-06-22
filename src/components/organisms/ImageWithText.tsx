@@ -386,7 +386,7 @@ const DrawFreespace = (context: CanvasRenderingContext2D, text: string) => {
     context.fillStyle = "gray";
     context.textAlign = "left";
     for (let i = 0; i < parseTexts.length; i++) {
-        const y = i * 40 + 620;
+        const y = i * 60 + 620;
         context.fillText(parseTexts[i], 1460, y);
     }
 };
