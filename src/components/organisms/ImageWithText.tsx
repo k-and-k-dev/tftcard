@@ -158,6 +158,8 @@ export const ImageWithText = ({ formInputs }: Props) => {
             // タクティシャン
             const tacticianNames: string[] = [formInputs.tactician3, formInputs.tactician2, formInputs.tactician1];
             DrawTacticianImages(context, tacticianNames);
+            // フリースペース
+            DrawFreespace(context, formInputs.free);
 
             // 描画が終わるまで待つ
             await new Promise((s) => setTimeout(s, 500));
@@ -367,6 +369,37 @@ const DrawPlayTime = (context: CanvasRenderingContext2D, name: string, x: number
         context.drawImage(image, x, 460, 180, 80);
     };
     image.src = imagePath;
+};
+
+const DrawFreespace = (context: CanvasRenderingContext2D, text: string) => {
+    const parseTexts = ParseFreespaceText(text);
+    let fontSize = "";
+    if (window.innerWidth <= 767) {
+        fontSize = "12vw Arial";
+    } else {
+        fontSize = "3vw Arial";
+    }
+    context.font = fontSize;
+    context.fillStyle = "gray";
+    context.textAlign = "left";
+    for (let i = 0; i < parseTexts.length; i++) {
+        const y = i * 40 + 620;
+        context.fillText(parseTexts[i], 1460, y);
+    }
+};
+
+const ParseFreespaceText = (text: string): string[] => {
+    const ret: string[] = [];
+    const splitTexts = text.split("\n");
+    for (let i = 0; i < splitTexts.length; i++) {
+        const lineText = splitTexts[i].match(/.{1,8}/g);
+        if (lineText === null) continue;
+        for (let j = 0; j < lineText.length; j++) {
+            const matchString = lineText[j];
+            ret.push(matchString);
+        }
+    }
+    return ret;
 };
 
 const CreateTraitImagePath = (name: string): string => {
