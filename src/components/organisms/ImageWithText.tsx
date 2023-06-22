@@ -16,8 +16,11 @@ import templateClearImagePath from "../../images/Template_clear.png";
 import sexManImagePath from "../../images/Man.png";
 import sexWomanImagePath from "../../images/Woman.png";
 // tactician
-import poloImagePath from "../../images/Polo.png";
-import dangoImagePath from "../../images/Dango.png";
+import PoloImagePath from "../../images/tactician/Polo.png";
+import DangoImagePath from "../../images/tactician/Dango.png";
+import SpriteImagePath from "../../images/tactician/Sprite.png";
+import PenguImagePath from "../../images/tactician/Pengu.png";
+import ChonccImagePath from "../../images/tactician/Choncc.png";
 // vc
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
@@ -682,10 +685,22 @@ const CreateSexImagePath = (name: string): string => {
 
 const CreateTacticianImagePath = (name: string): string => {
     let imagePath = "";
-    if (name === "Polo") {
-        imagePath = poloImagePath.src;
-    } else if (name === "Dango") {
-        imagePath = dangoImagePath.src;
+    switch (name) {
+        case "Polo":
+            imagePath = PoloImagePath.src;
+            break;
+        case "Dango":
+            imagePath = DangoImagePath.src;
+            break;
+        case "Sprite":
+            imagePath = SpriteImagePath.src;
+            break;
+        case "Pengu":
+            imagePath = PenguImagePath.src;
+            break;
+        case "Choncc":
+            imagePath = ChonccImagePath.src;
+            break;
     }
     return imagePath;
 };

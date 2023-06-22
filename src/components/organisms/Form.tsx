@@ -548,6 +548,19 @@ const tacticianProps = [
         value: "Dango",
     },
     {
+        label: "スプライト",
+        value: "Sprite",
+    },
+    {
+        label: "ペング",
+        value: "Pengu",
+    },
+    {
+        label: "チョンク",
+        value: "Choncc",
+    },
+    /*
+    {
         label: "ウィスカー",
         value: "Wisker",
     },
@@ -563,13 +576,10 @@ const tacticianProps = [
         label: "バンバン",
         value: "Banban",
     },
+    */
 ];
 
 const tacticianWithNoneProps = [
-    {
-        label: "-",
-        value: "None",
-    },
     {
         label: "ポロ",
         value: "Polo",
@@ -579,20 +589,16 @@ const tacticianWithNoneProps = [
         value: "Dango",
     },
     {
-        label: "ウィスカー",
-        value: "Wisker",
+        label: "スプライト",
+        value: "Sprite",
     },
     {
-        label: "スクインク",
-        value: "Squink",
+        label: "ペング",
+        value: "Pengu",
     },
     {
-        label: "ハッシュテイル",
-        value: "Hashtail",
-    },
-    {
-        label: "バンバン",
-        value: "Banban",
+        label: "チョンク",
+        value: "Choncc",
     },
 ];
 
