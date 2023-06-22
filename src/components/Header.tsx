@@ -26,17 +26,15 @@ export const Header = () => {
     return (
         <header className={styles.wrapper}>
             <div className={styles.container}>
-                <p className={styles.banner}>
-                    <Link href="/" onClick={bannerBtnToggle}>
-                        <Image
-                            src={BannerImage.src}
-                            className={styles.banner_image}
-                            alt="banner"
-                            width={1920}
-                            height={177}
-                        />
-                    </Link>
-                </p>
+                <Link href="/" onClick={bannerBtnToggle}>
+                    <Image
+                        src={BannerImage.src}
+                        className={styles.banner_image}
+                        alt="banner"
+                        width={1920}
+                        height={177}
+                    />
+                </Link>
             </div>
         </header>
     );

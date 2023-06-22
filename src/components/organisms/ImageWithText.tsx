@@ -10,7 +10,7 @@ import { Tweet } from "../atoms/Tweet";
 import styles from "./ImageWithText.module.scss";
 // resources
 // template
-import templateImagePath from "../../images/Template.png";
+import templateImagePath from "../../images/Template2.png";
 import templateClearImagePath from "../../images/Template_clear.png";
 // sex
 import sexManImagePath from "../../images/Man.png";
@@ -99,11 +99,13 @@ import TraitImageSorcererPath from "../../images/trait/set9/class/Sorcerer.png";
 import TraitImageStrategistPath from "../../images/trait/set9/class/Strategist.png";
 import TraitImageTechnogeniusPath from "../../images/trait/set9/class/Technogenius.png";
 // playtime
-import PlayTimeWeekdayAfternoonPath from "../../images/playtime/WeekdayAfternoon2.png";
-import PlayTimeWeekdayNightPath from "../../images/playtime/WeekdayNight2.png";
-import PlayTimeHolidayAfternoonPath from "../../images/playtime/HolidayAfternoon2.png";
-import PlayTimeHolidayNightPath from "../../images/playtime/HolidayNight2.png";
-import PlayTimeIrregularPath from "../../images/playtime/Irregular2.png";
+import PlayTimeWeekdayAfternoonPath from "../../images/playtime/WeekdayAfternoon3.png";
+import PlayTimeWeekdayNightPath from "../../images/playtime/WeekdayNight3.png";
+import PlayTimeHolidayAfternoonPath from "../../images/playtime/HolidayAfternoon3.png";
+import PlayTimeHolidayNightPath from "../../images/playtime/HolidayNight3.png";
+import PlayTimeIrregularPath from "../../images/playtime/Irregular3.png";
+// gamemode
+import GameModeMaruImagePath from "../../images/Maru.png";
 
 type Props = {
     formInputs: FormInputs;
@@ -294,26 +296,17 @@ const DrawTacticianImage = (context: CanvasRenderingContext2D, name: string, ind
 };
 
 const DrawGameModeImage = (context: CanvasRenderingContext2D, gameModes: string[]) => {
-    const gameModePointX: number[] = [708, 866.4, 1008, 1218];
-    const gameModePointY: number[] = [285, 285, 285, 285];
-    const gameModeRadiusX: number[] = [84, 81.6, 72, 144];
-    const gameModeRadiusY: number[] = [48, 48, 48, 48];
-    gameModes.map((gameMode) => {
-        const gameModeIndex = GetGameModeIndex(gameMode);
-        context.beginPath();
-        context.strokeStyle = "rgb(239, 56, 85)";
-        context.lineWidth = 2;
-        context.ellipse(
-            gameModePointX[gameModeIndex],
-            gameModePointY[gameModeIndex],
-            gameModeRadiusX[gameModeIndex],
-            gameModeRadiusY[gameModeIndex],
-            0,
-            0,
-            2 * Math.PI
-        );
-        context.stroke();
-    });
+    const maruImagePath = GameModeMaruImagePath.src;
+    const image = document.createElement("img");
+    image.onload = () => {
+        const gameModePointX: number[] = [550, 700, 850, 1050];
+        const gameModePointY: number[] = [230, 230, 230, 230];
+        gameModes.map((gameMode) => {
+            const gameModeIndex = GetGameModeIndex(gameMode);
+            context.drawImage(image, gameModePointX[gameModeIndex], gameModePointY[gameModeIndex], 330, 110);
+        });
+    };
+    image.src = maruImagePath;
 };
 
 const DrawRankImage = (context: CanvasRenderingContext2D, name: string, index: number) => {
