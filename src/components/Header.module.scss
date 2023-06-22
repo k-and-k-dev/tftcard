@@ -8,44 +8,28 @@
     z-index: 10;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     @media screen and (max-width: 767px) {
-    }
-}
-
-.inner {
-    max-width: 1200px;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 40px;
-    padding-right: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @media screen and (max-width: 767px) {
-        padding-left: 0px;
-        padding-right: 0px;
-        position: relative;
+        height: 30px;
     }
 }
 
 .container {
-    display: flex;
-    align-items: center;
     @media screen and (max-width: 767px) {
     }
 }
 
-.logo_image {
+.banner {
+    @media screen and (max-width: 767px) {
+    }
+}
+
+.banner_image {
     display: block;
-    width: 50px;
-    height: 50px;
-    margin: 10px;
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
     @media screen and (max-width: 767px) {
+        width: 100%;
+        height: 100%;
     }
-}
-
-.logo_text_denomination {
-    font-size: 20px;
-    letter-spacing: 0.05em;
-    color: #2c2c2c;
 }

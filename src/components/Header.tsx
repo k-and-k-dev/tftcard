@@ -9,7 +9,7 @@ import Image from "next/image";
 import styles from "./Header.module.scss";
 // components
 // image
-import logoImage from "./../images/Logo.png";
+import BannerImage from "../images/Banner2.png";
 
 export const scrollToTop = () => {
     window.scrollTo({
@@ -18,22 +18,25 @@ export const scrollToTop = () => {
     });
 };
 
-const logoBtnToggle = () => {
+const bannerBtnToggle = () => {
     scrollToTop();
 };
 
 export const Header = () => {
     return (
         <header className={styles.wrapper}>
-            <div className={styles.inner}>
-                <div className={styles.container}>
-                    <p className={styles.logo_image}>
-                        <Link href="/" onClick={logoBtnToggle}>
-                            <Image src={logoImage.src} alt="logo" width={50} height={50} />
-                        </Link>
-                    </p>
-                    <p className={styles.logo_text_denomination}>TFT Profile Card</p>
-                </div>
+            <div className={styles.container}>
+                <p className={styles.banner}>
+                    <Link href="/" onClick={bannerBtnToggle}>
+                        <Image
+                            src={BannerImage.src}
+                            className={styles.banner_image}
+                            alt="banner"
+                            width={1920}
+                            height={177}
+                        />
+                    </Link>
+                </p>
             </div>
         </header>
     );
