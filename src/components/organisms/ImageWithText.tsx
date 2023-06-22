@@ -99,11 +99,11 @@ import TraitImageSorcererPath from "../../images/trait/set9/class/Sorcerer.png";
 import TraitImageStrategistPath from "../../images/trait/set9/class/Strategist.png";
 import TraitImageTechnogeniusPath from "../../images/trait/set9/class/Technogenius.png";
 // playtime
-import PlayTimeWeekdayAfternoonPath from "../../images/playtime/WeekdayAfternoon.png";
-import PlayTimeWeekdayNightPath from "../../images/playtime/WeekdayNight.png";
-import PlayTimeHolidayAfternoonPath from "../../images/playtime/HolidayAfternoon.png";
-import PlayTimeHolidayNightPath from "../../images/playtime/HolidayNight.png";
-import PlayTimeIrregularPath from "../../images/playtime/Irregular.png";
+import PlayTimeWeekdayAfternoonPath from "../../images/playtime/WeekdayAfternoon2.png";
+import PlayTimeWeekdayNightPath from "../../images/playtime/WeekdayNight2.png";
+import PlayTimeHolidayAfternoonPath from "../../images/playtime/HolidayAfternoon2.png";
+import PlayTimeHolidayNightPath from "../../images/playtime/HolidayNight2.png";
+import PlayTimeIrregularPath from "../../images/playtime/Irregular2.png";
 
 type Props = {
     formInputs: FormInputs;
