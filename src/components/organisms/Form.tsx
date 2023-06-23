@@ -559,6 +559,10 @@ const tacticianProps = [
         label: "チョンク",
         value: "Choncc",
     },
+    {
+        label: "ちびアニー",
+        value: "Chibi_Annie",
+    },
     /*
     {
         label: "ウィスカー",
@@ -599,6 +603,10 @@ const tacticianWithNoneProps = [
     {
         label: "チョンク",
         value: "Choncc",
+    },
+    {
+        label: "ちびアニー",
+        value: "Chibi_Annie",
     },
 ];
 

@@ -33,6 +33,7 @@ export const Header = () => {
                         alt="banner"
                         width={1920}
                         height={177}
+                        priority={true}
                     />
                 </Link>
             </div>

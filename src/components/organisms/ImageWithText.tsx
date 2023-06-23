@@ -21,6 +21,7 @@ import DangoImagePath from "../../images/tactician/Dango.png";
 import SpriteImagePath from "../../images/tactician/Sprite.png";
 import PenguImagePath from "../../images/tactician/Pengu.png";
 import ChonccImagePath from "../../images/tactician/Choncc.png";
+import ChibiAnnieImagePath from "../../images/tactician/Chibi_Annie.png";
 // vc
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
@@ -700,6 +701,9 @@ const CreateTacticianImagePath = (name: string): string => {
             break;
         case "Choncc":
             imagePath = ChonccImagePath.src;
+            break;
+        case "Chibi_Annie":
+            imagePath = ChibiAnnieImagePath.src;
             break;
     }
     return imagePath;
