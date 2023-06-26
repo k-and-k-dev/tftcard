@@ -197,29 +197,37 @@ export const Form = () => {
                             </div>
                         </div>
                     </Paper>
-                </div>
-                <div className={styles.form_unit}>
-                    <p className={styles.form_unit_title}>フリースペース ※8文字以上は自動で改行されます</p>
-                    <textarea className={styles.input_textarea} placeholder="自己アピールなど" {...register("free")} />
-                    <ErrorMessage
-                        errors={errors}
-                        name="free"
-                        render={({ message }) =>
-                            message ? <p className={styles.form_validateMessage}>{message}</p> : null
-                        }
-                    />
-                </div>
-                <div className={styles.form_actionArea}>
-                    {!isValid && (
-                        <>
-                            <p className={styles.form_validateMessage}>名前を入力してください。</p>
-                        </>
-                    )}
-                </div>
-                <div className={styles.form_buttonWrapper}>
-                    <button type="submit" className={styles.form_submitButton}>
-                        作成
-                    </button>
+                    <Paper elevation={3} sx={paperSx}>
+                        <p className={styles.form_unit_title}>
+                            フリースペース&emsp;
+                            <br className={styles.br} />
+                            ※8文字以上は自動で改行されます
+                        </p>
+                        <textarea
+                            className={styles.input_textarea}
+                            placeholder="ご自由にどうぞ！"
+                            {...register("free")}
+                        />
+                        <ErrorMessage
+                            errors={errors}
+                            name="free"
+                            render={({ message }) =>
+                                message ? <p className={styles.form_validateMessage}>{message}</p> : null
+                            }
+                        />
+                    </Paper>
+                    <div className={styles.form_actionArea}>
+                        {!isValid && (
+                            <>
+                                <p className={styles.form_validateMessage}>名前を入力してください。</p>
+                            </>
+                        )}
+                    </div>
+                    <div className={styles.form_buttonWrapper}>
+                        <button type="submit" className={styles.form_submitButton}>
+                            作成
+                        </button>
+                    </div>
                 </div>
             </form>
         </>
