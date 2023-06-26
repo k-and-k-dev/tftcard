@@ -25,7 +25,7 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
 }) => {
     return (
         <div>
-            <FormGroup row={true} ref={inputRef} {...rest}>
+            <FormGroup row={true} ref={inputRef} {...rest} sx={{ display: "block" }}>
                 {checkBoxPropsList.map((props) => (
                     <FormControlLabel
                         key={props.value}

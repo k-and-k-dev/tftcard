@@ -330,7 +330,7 @@ const DrawRankImage = (context: CanvasRenderingContext2D, name: string, index: n
 const DrawTraitImages = (context: CanvasRenderingContext2D, names: string[]) => {
     let index = 0;
     names.map((name) => {
-        if (name === "None") return;
+        if (name === "None" || name === "Line") return;
         DrawTraitImage(context, name, index);
         index++;
     });

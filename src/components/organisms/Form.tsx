@@ -11,6 +11,7 @@ import { RhfCheckboxGroup } from "../molecules/RhfCheckboxGroup";
 import { RhfSelectForm } from "../molecules/RhfSelectForm";
 import { ImageWithText } from "./ImageWithText";
 import { Modal } from "../atoms/Modal";
+import { Paper } from "@mui/material";
 
 export type FormInputs = {
     template: string;
@@ -46,6 +47,16 @@ export const Form = () => {
         setIsCreate(true);
         formInputs = data;
     };
+
+    const paperSx = {
+        m: "20px",
+        px: "20px",
+        pt: "5px",
+        pb: "20px",
+        color: "black",
+        bgcolor: "aliceblue",
+        opacity: 0.9,
+    };
     return (
         <>
             {/* {isCreate ? <ImageWithText formInputs={formInputs} /> : <></>} */}
@@ -56,48 +67,136 @@ export const Form = () => {
                 <div className={styles.form_unit}>
                     {/* register関数の呼び出しにより、フォーム入力の要素を引数の名前で登録する */}
                     {/* register関数の第2引数には、HTML標準フォームデータ検証のルールが渡せる */}
-                    <p className={styles.form_unit_title}>テンプレート</p>
-                    <RhfRadioGroup name="template" control={control} radioPropsList={templateProps} />
-                    <p className={styles.form_unit_title}>お名前</p>
-                    <input
-                        type="text"
-                        className={styles.input_text}
-                        placeholder=""
-                        {...register("name", { required: "お名前は必須項目です。" })}
-                    />
-                    <ErrorMessage
-                        errors={errors}
-                        name="name"
-                        render={({ message }) =>
-                            message ? <p className={styles.form_validateMessage}>{message}</p> : null
-                        }
-                    />
-                    <p className={styles.form_unit_title}>性別</p>
-                    <RhfRadioGroup name="sex" control={control} radioPropsList={sexProps} />
-                    <p className={styles.form_unit_title}>ボイスチャット</p>
-                    <RhfCheckboxGroup name="vc" control={control} checkBoxPropsList={vcProps} />
-                    <p className={styles.form_unit_title}>プレイ時間帯</p>
-                    <RhfCheckboxGroup name="playTime" control={control} checkBoxPropsList={playTimeProps} />
-                    <p className={styles.form_unit_title}>好きなゲームモード</p>
-                    <RhfCheckboxGroup name="gameMode" control={control} checkBoxPropsList={gameModeProps} />
-                    <p className={styles.form_unit_title}>ランク</p>
-                    <p>ソロ</p>
-                    <RhfSelectForm name="rank" control={control} selectPropsList={rankProps} />
-                    <p>ダブル</p>
-                    <RhfSelectForm name="rank_double" control={control} selectPropsList={rankProps} />
-                    <p>ハイパーロール</p>
-                    <RhfSelectForm name="rank_hyper" control={control} selectPropsList={rankHyperProps} />
-                    <p className={styles.form_unit_title}>好きな特性</p>
-                    <RhfSelectForm name="trait1" control={control} selectPropsList={traitProps} />
-                    <RhfSelectForm name="trait2" control={control} selectPropsList={traitProps} />
-                    <RhfSelectForm name="trait3" control={control} selectPropsList={traitProps} />
-                    <p className={styles.form_unit_title}>好きなタクティシャン</p>
-                    <p>1位</p>
-                    <RhfSelectForm name="tactician1" control={control} selectPropsList={tacticianProps} />
-                    <p>2位</p>
-                    <RhfSelectForm name="tactician2" control={control} selectPropsList={tacticianWithNoneProps} />
-                    <p>3位</p>
-                    <RhfSelectForm name="tactician3" control={control} selectPropsList={tacticianWithNoneProps} />
+                    <Paper elevation={3} sx={paperSx}>
+                        <p className={styles.form_unit_title}>テンプレート</p>
+                        <RhfRadioGroup name="template" control={control} radioPropsList={templateProps} />
+                    </Paper>
+                    <Paper elevation={3} sx={paperSx}>
+                        <p className={styles.form_unit_title}>お名前</p>
+                        <input
+                            type="text"
+                            className={styles.input_text}
+                            placeholder=""
+                            {...register("name", { required: "お名前は必須項目です。" })}
+                        />
+                        <ErrorMessage
+                            errors={errors}
+                            name="name"
+                            render={({ message }) =>
+                                message ? <p className={styles.form_validateMessage}>{message}</p> : null
+                            }
+                        />
+                    </Paper>
+                    <Paper elevation={3} sx={paperSx}>
+                        <p className={styles.form_unit_title}>性別</p>
+                        <RhfRadioGroup name="sex" control={control} radioPropsList={sexProps} />
+                    </Paper>
+                    <Paper elevation={3} sx={paperSx}>
+                        <p className={styles.form_unit_title}>ボイスチャット</p>
+                        <RhfCheckboxGroup name="vc" control={control} checkBoxPropsList={vcProps} />
+                    </Paper>
+                    <Paper elevation={3} sx={paperSx}>
+                        <p className={styles.form_unit_title}>プレイ時間帯</p>
+                        <RhfCheckboxGroup name="playTime" control={control} checkBoxPropsList={playTimeProps} />
+                    </Paper>
+                    <Paper elevation={3} sx={paperSx}>
+                        <p className={styles.form_unit_title}>好きなゲームモード</p>
+                        <RhfCheckboxGroup name="gameMode" control={control} checkBoxPropsList={gameModeProps} />
+                    </Paper>
+                    <Paper elevation={3} sx={paperSx}>
+                        <p className={styles.form_unit_title}>ランク</p>
+                        <div className={styles.form_multicombobox_container}>
+                            <div className={styles.form_multicombobox_item}>
+                                <div className={styles.form_multicombobox_title}>
+                                    <p>ソロ</p>
+                                </div>
+                                <div className={styles.form_multicombobox_combobox}>
+                                    <RhfSelectForm name="rank" control={control} selectPropsList={rankProps} />
+                                </div>
+                            </div>
+                            <div className={styles.form_multicombobox_item}>
+                                <div className={styles.form_multicombobox_title}>
+                                    <p>ダブル</p>
+                                </div>
+                                <div className={styles.form_multicombobox_combobox}>
+                                    <RhfSelectForm name="rank_double" control={control} selectPropsList={rankProps} />
+                                </div>
+                            </div>
+                            <div className={styles.form_multicombobox_item}>
+                                <div className={styles.form_multicombobox_title}>
+                                    <p>ハイパーロール</p>
+                                </div>
+                                <div className={styles.form_multicombobox_combobox}>
+                                    <RhfSelectForm
+                                        name="rank_hyper"
+                                        control={control}
+                                        selectPropsList={rankHyperProps}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </Paper>
+                    <Paper elevation={3} sx={paperSx}>
+                        <p className={styles.form_unit_title}>好きな特性</p>
+                        <div className={styles.form_multicombobox_container}>
+                            <div className={styles.form_multicombobox_item}>
+                                <div className={styles.form_multicombobox_combobox}>
+                                    <RhfSelectForm name="trait1" control={control} selectPropsList={traitProps} />
+                                </div>
+                            </div>
+                            <div className={styles.form_multicombobox_item}>
+                                <div className={styles.form_multicombobox_combobox}>
+                                    <RhfSelectForm name="trait2" control={control} selectPropsList={traitProps} />
+                                </div>
+                            </div>
+                            <div className={styles.form_multicombobox_item}>
+                                <div className={styles.form_multicombobox_combobox}>
+                                    <RhfSelectForm name="trait3" control={control} selectPropsList={traitProps} />
+                                </div>
+                            </div>
+                        </div>
+                    </Paper>
+                    <Paper elevation={3} sx={paperSx}>
+                        <p className={styles.form_unit_title}>好きなタクティシャン</p>
+                        <div className={styles.form_multicombobox_container}>
+                            <div className={styles.form_multicombobox_item}>
+                                <div className={styles.form_multicombobox_title}>
+                                    <p>1位</p>
+                                </div>
+                                <div className={styles.form_multicombobox_combobox}>
+                                    <RhfSelectForm
+                                        name="tactician1"
+                                        control={control}
+                                        selectPropsList={tacticianProps}
+                                    />
+                                </div>
+                            </div>
+                            <div className={styles.form_multicombobox_item}>
+                                <div className={styles.form_multicombobox_title}>
+                                    <p>2位</p>
+                                </div>
+                                <div className={styles.form_multicombobox_combobox}>
+                                    <RhfSelectForm
+                                        name="tactician2"
+                                        control={control}
+                                        selectPropsList={tacticianWithNoneProps}
+                                    />
+                                </div>
+                            </div>
+                            <div className={styles.form_multicombobox_item}>
+                                <div className={styles.form_multicombobox_title}>
+                                    <p>3位</p>
+                                </div>
+                                <div className={styles.form_multicombobox_combobox}>
+                                    <RhfSelectForm
+                                        name="tactician3"
+                                        control={control}
+                                        selectPropsList={tacticianWithNoneProps}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </Paper>
                 </div>
                 <div className={styles.form_unit}>
                     <p className={styles.form_unit_title}>フリースペース ※8文字以上は自動で改行されます</p>
@@ -137,9 +236,9 @@ const defaultValues: FormInputs = {
     rank: "None",
     rank_double: "None",
     rank_hyper: "None",
-    trait1: "Ionia",
-    trait2: "Ionia",
-    trait3: "Ionia",
+    trait1: "None",
+    trait2: "None",
+    trait3: "None",
     tactician1: "Polo",
     tactician2: "Polo",
     tactician3: "Polo",
@@ -309,6 +408,10 @@ const rankHyperProps = [
 
 const traitProps = [
     {
+        label: "-",
+        value: "None",
+    },
+    {
         label: "アイオニア",
         value: "Ionia",
     },
@@ -422,7 +525,7 @@ const traitProps = [
     },
     {
         label: "----------以下SET8.5----------",
-        value: "None",
+        value: "Line",
     },
     {
         label: "ADMIN",
