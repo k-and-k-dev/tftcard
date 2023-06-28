@@ -32,6 +32,44 @@ export type FormInputs = {
     free: string;
 };
 
+const defaultValues: FormInputs = {
+    template: "Underground",
+    name: "",
+    sex: "Man",
+    vc: ["Discord"],
+    playTime: ["Irregular"],
+    gameMode: ["Normal"],
+    rank: "None",
+    rank_double: "None",
+    rank_hyper: "None",
+    trait1: "None",
+    trait2: "None",
+    trait3: "None",
+    tactician1: "Polo",
+    tactician2: "Polo",
+    tactician3: "Polo",
+    free: "",
+};
+
+let formInputs = {
+    template: "",
+    name: "",
+    sex: "",
+    vc: [""],
+    playTime: [""],
+    gameMode: [""],
+    rank: "",
+    rank_double: "",
+    rank_hyper: "",
+    trait1: "",
+    trait2: "",
+    trait3: "",
+    tactician1: "",
+    tactician2: "",
+    tactician3: "",
+    free: "",
+};
+
 export const Form = () => {
     const [isCreate, setIsCreate] = useState(false);
     const {
@@ -232,25 +270,6 @@ export const Form = () => {
             </form>
         </>
     );
-};
-
-const defaultValues: FormInputs = {
-    template: "Underground",
-    name: "",
-    sex: "Man",
-    vc: ["Discord"],
-    playTime: ["Irregular"],
-    gameMode: ["Normal"],
-    rank: "None",
-    rank_double: "None",
-    rank_hyper: "None",
-    trait1: "None",
-    trait2: "None",
-    trait3: "None",
-    tactician1: "Polo",
-    tactician2: "Polo",
-    tactician3: "Polo",
-    free: "",
 };
 
 const templateProps = [
@@ -720,22 +739,3 @@ const tacticianWithNoneProps = [
         value: "Chibi_Annie",
     },
 ];
-
-let formInputs = {
-    template: "",
-    name: "",
-    sex: "",
-    vc: [""],
-    playTime: [""],
-    gameMode: [""],
-    rank: "",
-    rank_double: "",
-    rank_hyper: "",
-    trait1: "",
-    trait2: "",
-    trait3: "",
-    tactician1: "",
-    tactician2: "",
-    tactician3: "",
-    free: "",
-};

@@ -6,6 +6,7 @@ import React from "react";
 import styles from "./page.module.scss";
 import { Spacer } from "@/components/atoms/Spacer";
 import { Form } from "@/components/organisms/Form";
+import { ContactForm } from "@/components/organisms/ContactForm";
 // components
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
                     あなただけの自己紹介カードをつくろう！
                 </p>
                 <Form />
+                <ContactForm />
             </div>
         </>
     );

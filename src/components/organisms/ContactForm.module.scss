@@ -1,0 +1,67 @@
+.form_unit {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_unit_title {
+    margin-top: 30px;
+    text-align: left;
+    padding-bottom: 1em;
+    border-bottom: solid 1px #ccc;
+}
+
+.input_textarea {
+    display: block;
+    appearance: none;
+    width: 100%;
+    min-height: 100px;
+    padding: 1em;
+    border: 1px solid #c7c7c7;
+    border-radius: 5px;
+    line-height: 1.5;
+    overflow: hidden;
+    transition: background-color 0.3s;
+}
+
+.form_actionArea {
+    margin-top: 30px;
+}
+
+.form_validateMessage {
+    font-weight: bold;
+    color: #dc4f89;
+    line-height: 1.6;
+    font-size: 14px;
+    * + & {
+        margin-top: 8px;
+    }
+}
+
+.form_buttonWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 50px;
+}
+
+.form_submitButton {
+    margin-top: 10px;
+    width: 100px;
+    appearance: none;
+    padding: 1em;
+    background: #5284e3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.br {
+    display: none;
+    @media screen and (max-width: 767px) {
+        display: block;
+    }
+}
