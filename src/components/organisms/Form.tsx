@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 // error-message
 import { ErrorMessage } from "@hookform/error-message";
+// mui
+import { Paper } from "@mui/material";
 // style
 import styles from "./Form.module.scss";
 // components
@@ -11,7 +13,6 @@ import { RhfCheckboxGroup } from "../molecules/RhfCheckboxGroup";
 import { RhfSelectForm } from "../molecules/RhfSelectForm";
 import { ImageWithText } from "./ImageWithText";
 import { Modal } from "../atoms/Modal";
-import { Paper } from "@mui/material";
 
 export type FormInputs = {
     template: string;
@@ -87,7 +88,9 @@ export const Form = () => {
     };
 
     const paperSx = {
-        m: "20px",
+        mt: "30px",
+        mr: "20px",
+        ml: "20px",
         px: "20px",
         pt: "5px",
         pb: "20px",

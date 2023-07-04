@@ -166,7 +166,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
             DrawFreespace(context, formInputs.free);
 
             // 描画が終わるまで待つ
-            await new Promise((s) => setTimeout(s, 500));
+            await new Promise((s) => setTimeout(s, 1000));
             setMyCanvas(canvas);
         };
     }, [formInputs]);

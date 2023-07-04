@@ -1,5 +1,8 @@
+// react
 import React, { ReactNode } from "react";
+// style
 import styles from "./Modal.module.scss";
+// mui
 import { Button } from "@mui/material";
 
 type Props = {
