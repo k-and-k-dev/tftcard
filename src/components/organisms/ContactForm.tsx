@@ -93,8 +93,7 @@ export const ContactForm = () => {
                         <p className={styles.form_unit_title}>フィードバックフォーム</p>
                         <textarea
                             className={styles.input_textarea}
-                            placeholder="当サイトに関するご意見やご要望、及びバグ報告等をお寄せください。
-                            &#13;&#10;今後のサービス向上の参考とさせていただきます。"
+                            placeholder={`当サイトに関するご意見やご要望、及びバグ報告等をお寄せください。\n今後のサービス向上の参考とさせていただきます。`}
                             {...register("contact", { required: "内容は必須項目です。" })}
                         />
                         <ErrorMessage
