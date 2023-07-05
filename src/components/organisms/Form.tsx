@@ -34,7 +34,7 @@ export type FormInputs = {
 };
 
 const defaultValues: FormInputs = {
-    template: "Underground",
+    template: "Pink",
     name: "",
     sex: "Man",
     vc: ["Discord"],
@@ -277,16 +277,16 @@ export const Form = () => {
 
 const templateProps = [
     {
-        label: "アンダーグラウンド",
-        value: "Underground",
+        label: "ピンク",
+        value: "Pink",
     },
     {
-        label: "ガジェッティーン",
-        value: "Gadgeteen",
+        label: "ブルー",
+        value: "Blue",
     },
     {
-        label: "スターガーディアン",
-        value: "Star Guardian",
+        label: "イエロー",
+        value: "Yellow",
     },
 ];
 

@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 // mui
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
+// style
+import styles from "./CommonDialog.module.scss";
 
 type props = {
     title: string;
@@ -32,10 +34,10 @@ export const CommonDialog = ({ title, message, onAccept, onClose, open }: props)
     return (
         <Dialog open={dialogOpen} disableScrollLock={true}>
             <DialogTitle>
-                <span>{title}</span>
+                <span className={styles.title}>{title}</span>
             </DialogTitle>
             <DialogContent>
-                <Box>{message}</Box>
+                <Box sx={{ fontSize: 14 }}>{message}</Box>
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleAccept}>OK</Button>

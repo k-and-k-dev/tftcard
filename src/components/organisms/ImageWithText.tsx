@@ -10,8 +10,10 @@ import { Tweet } from "../atoms/Tweet";
 import styles from "./ImageWithText.module.scss";
 // resources
 // template
-import templateImagePath from "../../images/Template2.png";
-import templateClearImagePath from "../../images/Template_clear.png";
+import templatePinkImagePath from "../../images/template/Pink.png";
+import templateBlueImagePath from "../../images/template/Blue.png";
+import templateYellowImagePath from "../../images/template/Yellow.png";
+import templateClearImagePath from "../../images/template/Clear.png";
 // sex
 import sexManImagePath from "../../images/Man.png";
 import sexWomanImagePath from "../../images/Woman.png";
@@ -122,7 +124,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
 
     useEffect(() => {
         const templateImage = document.createElement("img");
-        templateImage.src = templateImagePath.src;
+        templateImage.src = CreateTemplateImagePath(formInputs.template);
         templateImage.onload = async () => {
             // キャンバス取得
             const canvas = document.createElement("canvas");
@@ -764,4 +766,20 @@ const GetGameModeIndex = (gameMode: string): number => {
     else if (gameMode === "Double") index = 2;
     else if (gameMode === "Hyper") index = 3;
     return index;
+};
+
+const CreateTemplateImagePath = (name: string): string => {
+    let imagePath = "";
+    switch (name) {
+        case "Pink":
+            imagePath = templatePinkImagePath.src;
+            break;
+        case "Blue":
+            imagePath = templateBlueImagePath.src;
+            break;
+        case "Yellow":
+            imagePath = templateYellowImagePath.src;
+            break;
+    }
+    return imagePath;
 };
