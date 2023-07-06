@@ -675,72 +675,322 @@ const traitProps = [
 
 const tacticianProps = [
     {
-        label: "ポロ",
-        value: "Polo",
+        label: "アオシン",
+        value: "Aoshin",
     },
-    {
-        label: "ダンゴ",
-        value: "Dango",
-    },
-    {
-        label: "スプライト",
-        value: "Sprite",
-    },
-    {
-        label: "ペング",
-        value: "Pengu",
-    },
-    {
-        label: "チョンク",
-        value: "Choncc",
-    },
-    {
-        label: "ちびアニー",
-        value: "Chibi_Annie",
-    },
-    /*
     {
         label: "ウィスカー",
-        value: "Wisker",
+        value: "Whisker",
+    },
+    {
+        label: "オシア",
+        value: "Ossia",
+    },
+    {
+        label: "キキ",
+        value: "Qiqi",
+    },
+    {
+        label: "グリズル",
+        value: "Grizzle",
+    },
+    {
+        label: "グルゥプ",
+        value: "Gloop",
+    },
+    {
+        label: "シーサ",
+        value: "Shisa",
+    },
+    {
+        label: "ショーク",
+        value: "Shork",
     },
     {
         label: "スクインク",
         value: "Squink",
     },
     {
-        label: "ハッシュテイル",
-        value: "Hashtail",
+        label: "スターマウ",
+        value: "Starmaw",
     },
     {
-        label: "バンバン",
-        value: "Banban",
+        label: "ダウジー",
+        value: "Dowsie",
     },
-    */
-];
-
-const tacticianWithNoneProps = [
     {
-        label: "ポロ",
-        value: "Polo",
+        label: "ダックビル",
+        value: "Duckbill",
     },
     {
         label: "ダンゴ",
         value: "Dango",
     },
     {
+        label: "チョンク",
+        value: "Choncc",
+    },
+    {
+        label: "トッカー",
+        value: "Tocker",
+    },
+    {
+        label: "バーノ",
+        value: "Burno",
+    },
+    {
+        label: "ハッシュテイル",
+        value: "Hushtail",
+    },
+    {
+        label: "パドルマー",
+        value: "Paddlemar",
+    },
+    {
+        label: "バンバン",
+        value: "Banban",
+    },
+    {
+        label: "フェザーナイト",
+        value: "Featherknight",
+    },
+    {
+        label: "フューリーホーン",
+        value: "Furyhorn",
+    },
+    {
+        label: "プロテクター",
+        value: "Protector",
+    },
+    {
+        label: "フワ",
+        value: "Fuwa",
+    },
+    {
+        label: "ブンゴ",
+        value: "Bungo",
+    },
+    {
+        label: "ベルスウェイヤー",
+        value: "Bellswayer",
+    },
+    {
+        label: "ホーントリング",
+        value: "Hauntling",
+    },
+    {
+        label: "ポグルス",
+        value: "Poggles",
+    },
+    {
+        label: "ポロ",
+        value: "Polo",
+    },
+    {
+        label: "メリスマ",
+        value: "Melisma",
+    },
+    {
+        label: "モールダイバー",
+        value: "Molediver",
+    },
+    {
+        label: "ライトチャージャー",
+        value: "Lightcharger",
+    },
+    {
         label: "スプライト",
         value: "Sprite",
     },
     {
-        label: "ペング",
-        value: "Pengu",
+        label: "ルーンスプリット",
+        value: "Runespirit",
+    },
+    {
+        label: "ちびアーリ",
+        value: "Chibi_Ahri",
+    },
+    {
+        label: "ちびアニー",
+        value: "Chibi_Annie",
+    },
+    {
+        label: "ちびエコー",
+        value: "Chibi_Echo",
+    },
+    {
+        label: "ちびジンクス",
+        value: "Chibi_Jinx",
+    },
+    {
+        label: "ちびティーモ",
+        value: "Chibi_Teemo",
+    },
+    {
+        label: "ちびラックス",
+        value: "Chibi_Lux",
+    },
+];
+
+const tacticianWithNoneProps = [
+    {
+        label: "なし",
+        value: "None",
+    },
+    {
+        label: "アオシン",
+        value: "Aoshin",
+    },
+    {
+        label: "ウィスカー",
+        value: "Whisker",
+    },
+    {
+        label: "オシア",
+        value: "Ossia",
+    },
+    {
+        label: "キキ",
+        value: "Qiqi",
+    },
+    {
+        label: "グリズル",
+        value: "Grizzle",
+    },
+    {
+        label: "グルゥプ",
+        value: "Gloop",
+    },
+    {
+        label: "シーサ",
+        value: "Shisa",
+    },
+    {
+        label: "ショーク",
+        value: "Shork",
+    },
+    {
+        label: "スクインク",
+        value: "Squink",
+    },
+    {
+        label: "スターマウ",
+        value: "Starmaw",
+    },
+    {
+        label: "ダウジー",
+        value: "Dowsie",
+    },
+    {
+        label: "ダックビル",
+        value: "Duckbill",
+    },
+    {
+        label: "ダンゴ",
+        value: "Dango",
     },
     {
         label: "チョンク",
         value: "Choncc",
     },
     {
+        label: "トッカー",
+        value: "Tocker",
+    },
+    {
+        label: "バーノ",
+        value: "Burno",
+    },
+    {
+        label: "ハッシュテイル",
+        value: "Hushtail",
+    },
+    {
+        label: "パドルマー",
+        value: "Paddlemar",
+    },
+    {
+        label: "バンバン",
+        value: "Banban",
+    },
+    {
+        label: "フェザーナイト",
+        value: "Featherknight",
+    },
+    {
+        label: "フューリーホーン",
+        value: "Furyhorn",
+    },
+    {
+        label: "プロテクター",
+        value: "Protector",
+    },
+    {
+        label: "フワ",
+        value: "Fuwa",
+    },
+    {
+        label: "ブンゴ",
+        value: "Bungo",
+    },
+    {
+        label: "ベルスウェイヤー",
+        value: "Bellswayer",
+    },
+    {
+        label: "ホーントリング",
+        value: "Hauntling",
+    },
+    {
+        label: "ポグルス",
+        value: "Poggles",
+    },
+    {
+        label: "ポロ",
+        value: "Polo",
+    },
+    {
+        label: "メリスマ",
+        value: "Melisma",
+    },
+    {
+        label: "モールダイバー",
+        value: "Molediver",
+    },
+    {
+        label: "ライトチャージャー",
+        value: "Lightcharger",
+    },
+    {
+        label: "スプライト",
+        value: "Sprite",
+    },
+    {
+        label: "ルーンスプリット",
+        value: "Runespirit",
+    },
+    {
+        label: "ちびアーリ",
+        value: "Chibi_Ahri",
+    },
+    {
         label: "ちびアニー",
         value: "Chibi_Annie",
+    },
+    {
+        label: "ちびエコー",
+        value: "Chibi_Echo",
+    },
+    {
+        label: "ちびジンクス",
+        value: "Chibi_Jinx",
+    },
+    {
+        label: "ちびティーモ",
+        value: "Chibi_Teemo",
+    },
+    {
+        label: "ちびラックス",
+        value: "Chibi_Lux",
     },
 ];

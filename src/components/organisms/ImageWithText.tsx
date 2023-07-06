@@ -21,9 +21,42 @@ import sexWomanImagePath from "../../images/Woman.png";
 import PoloImagePath from "../../images/tactician/Polo.png";
 import DangoImagePath from "../../images/tactician/Dango.png";
 import SpriteImagePath from "../../images/tactician/Sprite.png";
-import PenguImagePath from "../../images/tactician/Pengu.png";
+import FeatherknightImagePath from "../../images/tactician/Featherknight.png";
 import ChonccImagePath from "../../images/tactician/Choncc.png";
 import ChibiAnnieImagePath from "../../images/tactician/Chibi_Annie.png";
+import AoshinImagePath from "../../images/tactician/Aoshin.png";
+import BanbanImagePath from "../../images/tactician/Banban.png";
+import BellswayerImagePath from "../../images/tactician/Bellswayer.png";
+import BurnoImagePath from "../../images/tactician/Burno.png";
+import BungoImagePath from "../../images/tactician/Bungo.png";
+import ChibiAhriImagePath from "../../images/tactician/Chibi_Ahri.png";
+import ChibiEchoImagePath from "../../images/tactician/Chibi_Echo.png";
+import ChibiJinxImagePath from "../../images/tactician/Chibi_Jinx.png";
+import ChibiLuxImagePath from "../../images/tactician/Chibi_Lux.png";
+import ChibiTeemoImagePath from "../../images/tactician/Chibi_Teemo.png";
+import DowsieImagePath from "../../images/tactician/Dowsie.png";
+import DuckbillImagePath from "../../images/tactician/Duckbill.png";
+import FuryhornImagePath from "../../images/tactician/Furyhorn.png";
+import FuwaImagePath from "../../images/tactician/Fuwa.png";
+import GloopImagePath from "../../images/tactician/Gloop.png";
+import GrizzleImagePath from "../../images/tactician/Grizzle.png";
+import HauntlingImagePath from "../../images/tactician/Hauntling.png";
+import HushtailImagePath from "../../images/tactician/Hushtail.png";
+import LightchargerImagePath from "../../images/tactician/Lightcharger.png";
+import MelismaImagePath from "../../images/tactician/Melisma.png";
+import MolediverImagePath from "../../images/tactician/Molediver.png";
+import OssiaImagePath from "../../images/tactician/Ossia.png";
+import PaddlemarImagePath from "../../images/tactician/Paddlemar.png";
+import PogglesImagePath from "../../images/tactician/Poggles.png";
+import ProtectorImagePath from "../../images/tactician/Protector.png";
+import QiqiImagePath from "../../images/tactician/Qiqi.png";
+import RunespiritImagePath from "../../images/tactician/Runespirit.png";
+import ShisaImagePath from "../../images/tactician/Shisa.png";
+import ShorkImagePath from "../../images/tactician/Shork.png";
+import SquinkImagePath from "../../images/tactician/Squink.png";
+import StarmawImagePath from "../../images/tactician/Starmaw.png";
+import TockerImagePath from "../../images/tactician/Tocker.png";
+import WhiskerImagePath from "../../images/tactician/Whisker.png";
 // vc
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
@@ -168,7 +201,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
             DrawFreespace(context, formInputs.free);
 
             // 描画が終わるまで待つ
-            await new Promise((s) => setTimeout(s, 1000));
+            await new Promise((s) => setTimeout(s, 1500));
             setMyCanvas(canvas);
         };
     }, [formInputs]);
@@ -698,14 +731,113 @@ const CreateTacticianImagePath = (name: string): string => {
         case "Sprite":
             imagePath = SpriteImagePath.src;
             break;
-        case "Pengu":
-            imagePath = PenguImagePath.src;
+        case "Featherknight":
+            imagePath = FeatherknightImagePath.src;
             break;
         case "Choncc":
             imagePath = ChonccImagePath.src;
             break;
         case "Chibi_Annie":
             imagePath = ChibiAnnieImagePath.src;
+            break;
+        case "Aoshin":
+            imagePath = AoshinImagePath.src;
+            break;
+        case "Banban":
+            imagePath = BanbanImagePath.src;
+            break;
+        case "Bellswayer":
+            imagePath = BellswayerImagePath.src;
+            break;
+        case "Bruno":
+            imagePath = BurnoImagePath.src;
+            break;
+        case "Bungo":
+            imagePath = BungoImagePath.src;
+            break;
+        case "Chibi_Ahri":
+            imagePath = ChibiAhriImagePath.src;
+            break;
+        case "Chibi_Echo":
+            imagePath = ChibiEchoImagePath.src;
+            break;
+        case "Chibi_Jinx":
+            imagePath = ChibiJinxImagePath.src;
+            break;
+        case "Chibi_Lux":
+            imagePath = ChibiLuxImagePath.src;
+            break;
+        case "Chibi_Teemo":
+            imagePath = ChibiTeemoImagePath.src;
+            break;
+        case "Dowsie":
+            imagePath = DowsieImagePath.src;
+            break;
+        case "Duckbill":
+            imagePath = DuckbillImagePath.src;
+            break;
+        case "Furyhorn":
+            imagePath = FuryhornImagePath.src;
+            break;
+        case "Fuwa":
+            imagePath = FuwaImagePath.src;
+            break;
+        case "Gloop":
+            imagePath = GloopImagePath.src;
+            break;
+        case "Grizzle":
+            imagePath = GrizzleImagePath.src;
+            break;
+        case "Hauntling":
+            imagePath = HauntlingImagePath.src;
+            break;
+        case "Hushtail":
+            imagePath = HushtailImagePath.src;
+            break;
+        case "Lightcharger":
+            imagePath = LightchargerImagePath.src;
+            break;
+        case "Melisma":
+            imagePath = MelismaImagePath.src;
+            break;
+        case "Molediver":
+            imagePath = MolediverImagePath.src;
+            break;
+        case "Ossia":
+            imagePath = OssiaImagePath.src;
+            break;
+        case "Paddlemar":
+            imagePath = PaddlemarImagePath.src;
+            break;
+        case "Poggles":
+            imagePath = PogglesImagePath.src;
+            break;
+        case "Protector":
+            imagePath = ProtectorImagePath.src;
+            break;
+        case "Qiqi":
+            imagePath = QiqiImagePath.src;
+            break;
+        case "Runespirit":
+            imagePath = RunespiritImagePath.src;
+            break;
+        case "Shisa":
+            imagePath = ShisaImagePath.src;
+            break;
+        case "Shork":
+            imagePath = ShorkImagePath.src;
+            break;
+        case "Squink":
+            imagePath = SquinkImagePath.src;
+            break;
+        case "Starmaw":
+            imagePath = StarmawImagePath.src;
+            break;
+        case "Tocker":
+            imagePath = TockerImagePath.src;
+            break;
+        case "Whisker":
+            imagePath = WhiskerImagePath.src;
             break;
     }
     return imagePath;
