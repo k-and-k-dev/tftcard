@@ -97,6 +97,8 @@ export const Form = () => {
         color: "black",
         bgcolor: "aliceblue",
         opacity: 0.9,
+        border: 3,
+        borderColor: "powderblue",
     };
     return (
         <>
