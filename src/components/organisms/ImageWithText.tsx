@@ -749,7 +749,7 @@ const CreateTacticianImagePath = (name: string): string => {
         case "Bellswayer":
             imagePath = BellswayerImagePath.src;
             break;
-        case "Bruno":
+        case "Burno":
             imagePath = BurnoImagePath.src;
             break;
         case "Bungo":
