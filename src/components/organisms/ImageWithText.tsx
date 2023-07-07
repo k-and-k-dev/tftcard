@@ -300,11 +300,13 @@ const DrawName = async (context: CanvasRenderingContext2D, name: string) => {
         }
     }
     let fontSize = "";
+    /*
     if (window.innerWidth <= 767) {
-        fontSize = `13vw ${fontFamilyName}`;
+        fontSize = `15vw ${fontFamilyName}`;
     } else {
         fontSize = `4vw ${fontFamilyName}`;
     }
+    */
     /*
     let fontSize = "";
     if (window.innerWidth <= 767) {
@@ -313,6 +315,7 @@ const DrawName = async (context: CanvasRenderingContext2D, name: string) => {
         fontSize = "4vw Arial";
     }
     */
+    fontSize = `bold 40px Arial`;
     context.font = fontSize;
     context.textAlign = "center";
     context.fillStyle = "#666666";
@@ -445,6 +448,7 @@ const DrawFreespace = (context: CanvasRenderingContext2D, text: string) => {
     } else {
         fontSize = "3vw M PLUS Rounded 1c";
     }
+    fontSize = `bold 40px Arial`;
     context.font = fontSize;
     context.fillStyle = "gray";
     context.textAlign = "left";

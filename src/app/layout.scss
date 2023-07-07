@@ -21,6 +21,8 @@ a {
 }
 
 body {
+    width: auto;
+    height: 100%;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -30,16 +32,19 @@ body {
     background-position: 0 0;
     background-color: #ffffff;
     background: url(../images/Background2.png) repeat-y;
-    background-size: 100% 1920px;
+    background-size: 100% auto;
     animation: bg 40s infinite linear;
     overflow-y: scroll;
+    @media screen and (max-width: 767px) {
+        background-size: contain;
+    }
 }
 @keyframes bg {
-    0% {
+    from {
         background-position: 0 0;
     }
-    100% {
-        background-position: 0px -1920px;
+    to {
+        background-position: 0 -1920px;
     }
 }
 
