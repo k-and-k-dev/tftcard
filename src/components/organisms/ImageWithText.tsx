@@ -146,6 +146,8 @@ import PlayTimeIrregularPath from "../../images/playtime/Irregular3.png";
 // gamemode
 import GameModeMaruImagePath from "../../images/Maru.png";
 
+const fontFamilyName = "M PLUS Rounded 1c";
+
 type Props = {
     formInputs: FormInputs;
 };
@@ -201,7 +203,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
             DrawFreespace(context, formInputs.free);
 
             // 描画が終わるまで待つ
-            await new Promise((s) => setTimeout(s, 1500));
+            await new Promise((s) => setTimeout(s, 3000));
             setMyCanvas(canvas);
         };
     }, [formInputs]);
@@ -279,16 +281,41 @@ const DrawCreatedDate = (context: CanvasRenderingContext2D) => {
     context.fillText(dateString, 1800, 160);
 };
 
-const DrawName = (context: CanvasRenderingContext2D, name: string) => {
+const DrawName = async (context: CanvasRenderingContext2D, name: string) => {
+    const urlFamilyName = fontFamilyName.replace(/ /g, "+");
+    const googleApiUrl = `https://fonts.googleapis.com/css?family=${urlFamilyName}`;
+
+    const response = await fetch(googleApiUrl);
+    if (response.ok) {
+        // URLだけ抽出
+        const cssFontFace = await response.text();
+        const matchUrls = cssFontFace.match(/url\(.+?\)/g);
+        if (!matchUrls) throw new Error("フォントが見つかりませんでした");
+        for (const url of matchUrls) {
+            // FontFace追加
+            console.log(`font url = ${url}`);
+            const font = new FontFace(fontFamilyName, url);
+            await font.load();
+            document.fonts.add(font);
+        }
+    }
+    let fontSize = "";
+    if (window.innerWidth <= 767) {
+        fontSize = `13vw ${fontFamilyName}`;
+    } else {
+        fontSize = `4vw ${fontFamilyName}`;
+    }
+    /*
     let fontSize = "";
     if (window.innerWidth <= 767) {
         fontSize = "13vw Arial";
     } else {
         fontSize = "4vw Arial";
     }
+    */
     context.font = fontSize;
     context.textAlign = "center";
-    context.fillStyle = "red";
+    context.fillStyle = "#666666";
     context.fillText(name, 300, 300);
 };
 
@@ -414,9 +441,9 @@ const DrawFreespace = (context: CanvasRenderingContext2D, text: string) => {
     const parseTexts = ParseFreespaceText(text);
     let fontSize = "";
     if (window.innerWidth <= 767) {
-        fontSize = "12vw Arial";
+        fontSize = "12vw M PLUS Rounded 1c";
     } else {
-        fontSize = "3vw Arial";
+        fontSize = "3vw M PLUS Rounded 1c";
     }
     context.font = fontSize;
     context.fillStyle = "gray";
