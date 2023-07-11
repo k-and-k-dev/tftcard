@@ -146,7 +146,10 @@ import PlayTimeIrregularPath from "../../images/playtime/Irregular3.png";
 // gamemode
 import GameModeMaruImagePath from "../../images/Maru.png";
 
-const fontFamilyName = "M PLUS Rounded 1c";
+// const fontFamilyName = "M PLUS Rounded 1c";
+// const fontFamilyName = "Kiwi Maru";
+const fontFamilyName = "Zen Maru Gothic";
+// const fontFamilyName = "Dela Gothic One";
 
 type Props = {
     formInputs: FormInputs;
@@ -177,6 +180,8 @@ export const ImageWithText = ({ formInputs }: Props) => {
             }
             // テンプレート
             DrawTemplateImage(context, templateImage);
+            // フォント読み込み
+            await LoadFont();
             // 作成日
             DrawCreatedDate(context);
             // 名前
@@ -203,7 +208,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
             DrawFreespace(context, formInputs.free);
 
             // 描画が終わるまで待つ
-            await new Promise((s) => setTimeout(s, 3000));
+            await new Promise((s) => setTimeout(s, 2000));
             setMyCanvas(canvas);
         };
     }, [formInputs]);
@@ -264,13 +269,14 @@ const DrawTemplateImage = (context: CanvasRenderingContext2D, image: HTMLImageEl
 };
 
 const DrawCreatedDate = (context: CanvasRenderingContext2D) => {
+    const isMobile = window.innerWidth <= 767 ? true : false;
     const now = new Date();
     const year = now.getFullYear();
     const month = now.getMonth() + 1;
     const date = now.getDate();
     const dateString = year + "/" + ("00" + month).slice(-2) + "/" + ("00" + date).slice(-2);
     let fontSize = "";
-    if (window.innerWidth <= 767) {
+    if (isMobile) {
         fontSize = "7vw Arial";
     } else {
         fontSize = "2vw Arial";
@@ -278,12 +284,16 @@ const DrawCreatedDate = (context: CanvasRenderingContext2D) => {
     context.font = fontSize;
     context.textAlign = "center";
     context.fillStyle = "gray";
-    context.fillText(dateString, 1800, 160);
+    if (isMobile) {
+        context.fillText(dateString, 1800, 160);
+    } else {
+        context.fillText(dateString, 1780, 160);
+    }
 };
 
-const DrawName = async (context: CanvasRenderingContext2D, name: string) => {
+const LoadFont = async () => {
     const urlFamilyName = fontFamilyName.replace(/ /g, "+");
-    const googleApiUrl = `https://fonts.googleapis.com/css?family=${urlFamilyName}`;
+    const googleApiUrl = `https://fonts.googleapis.com/css?family=${urlFamilyName}:400,900`;
 
     const response = await fetch(googleApiUrl);
     if (response.ok) {
@@ -299,14 +309,9 @@ const DrawName = async (context: CanvasRenderingContext2D, name: string) => {
             document.fonts.add(font);
         }
     }
-    let fontSize = "";
-    /*
-    if (window.innerWidth <= 767) {
-        fontSize = `15vw ${fontFamilyName}`;
-    } else {
-        fontSize = `4vw ${fontFamilyName}`;
-    }
-    */
+};
+
+const DrawName = async (context: CanvasRenderingContext2D, name: string) => {
     /*
     let fontSize = "";
     if (window.innerWidth <= 767) {
@@ -315,7 +320,7 @@ const DrawName = async (context: CanvasRenderingContext2D, name: string) => {
         fontSize = "4vw Arial";
     }
     */
-    fontSize = `bold 40px Arial`;
+    const fontSize = `bold 42px ${fontFamilyName}`;
     context.font = fontSize;
     context.textAlign = "center";
     context.fillStyle = "#666666";
@@ -442,13 +447,7 @@ const DrawPlayTime = (context: CanvasRenderingContext2D, name: string, x: number
 
 const DrawFreespace = (context: CanvasRenderingContext2D, text: string) => {
     const parseTexts = ParseFreespaceText(text);
-    let fontSize = "";
-    if (window.innerWidth <= 767) {
-        fontSize = "12vw M PLUS Rounded 1c";
-    } else {
-        fontSize = "3vw M PLUS Rounded 1c";
-    }
-    fontSize = `bold 40px Arial`;
+    const fontSize = `bold 40px ${fontFamilyName}`;
     context.font = fontSize;
     context.fillStyle = "gray";
     context.textAlign = "left";
@@ -462,7 +461,7 @@ const ParseFreespaceText = (text: string): string[] => {
     const ret: string[] = [];
     const splitTexts = text.split("\n");
     for (let i = 0; i < splitTexts.length; i++) {
-        const lineText = splitTexts[i].match(/.{1,8}/g);
+        const lineText = splitTexts[i].match(/.{1,9}/g);
         if (lineText === null) continue;
         for (let j = 0; j < lineText.length; j++) {
             const matchString = lineText[j];

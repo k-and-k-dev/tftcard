@@ -244,7 +244,7 @@ export const Form = () => {
                         <p className={styles.form_unit_title}>
                             フリースペース&emsp;
                             <br className={styles.br} />
-                            ※8文字以上は自動で改行されます
+                            ※9文字以上は自動で改行されます
                         </p>
                         <textarea
                             className={styles.input_textarea}
