@@ -187,28 +187,28 @@ export const ImageWithText = ({ formInputs }: Props) => {
             // 名前
             DrawName(context, formInputs.name);
             // 性別
-            DrawSexImage(context, formInputs.sex);
+            await DrawSexImageAsync(context, formInputs.sex);
             // VC
-            DrawVCImages(context, formInputs.vc);
+            await DrawVCImagesAsync(context, formInputs.vc);
             // プレイ時間帯
-            DrawPlayTimes(context, formInputs.playTime);
+            await DrawPlayTimesAsync(context, formInputs.playTime);
             // 好きなゲームモード
-            DrawGameModeImage(context, formInputs.gameMode);
+            await DrawGameModeImageAsync(context, formInputs.gameMode);
             // ランク
-            DrawRankImage(context, formInputs.rank, 0);
-            DrawRankImage(context, formInputs.rank_double, 1);
-            DrawRankImage(context, formInputs.rank_hyper, 2);
+            await DrawRankImageAsync(context, formInputs.rank, 0);
+            await DrawRankImageAsync(context, formInputs.rank_double, 1);
+            await DrawRankImageAsync(context, formInputs.rank_hyper, 2);
             // 好きな特性
             const traitNames: string[] = [formInputs.trait1, formInputs.trait2, formInputs.trait3];
-            DrawTraitImages(context, traitNames);
+            await DrawTraitImagesAsync(context, traitNames);
             // タクティシャン
             const tacticianNames: string[] = [formInputs.tactician3, formInputs.tactician2, formInputs.tactician1];
-            DrawTacticianImages(context, tacticianNames);
+            await DrawTacticianImagesAsync(context, tacticianNames);
             // フリースペース
             DrawFreespace(context, formInputs.free);
 
             // 描画が終わるまで待つ
-            await new Promise((s) => setTimeout(s, 2000));
+            // await new Promise((s) => setTimeout(s, 2000));
             setMyCanvas(canvas);
         };
     }, [formInputs]);
@@ -327,17 +327,20 @@ const DrawName = async (context: CanvasRenderingContext2D, name: string) => {
     context.fillText(name, 300, 300);
 };
 
-const DrawSexImage = (context: CanvasRenderingContext2D, name: string) => {
-    if (name === "None") return;
-    const sexImagePath = CreateSexImagePath(name);
-    const image = document.createElement("img");
-    image.onload = () => {
-        context.drawImage(image, 440, 340, 100, 100);
-    };
-    image.src = sexImagePath;
+const DrawSexImageAsync = (context: CanvasRenderingContext2D, name: string): Promise<void> => {
+    return new Promise((resolve) => {
+        if (name === "None") return;
+        const sexImagePath = CreateSexImagePath(name);
+        const image = document.createElement("img");
+        image.onload = () => {
+            context.drawImage(image, 440, 340, 100, 100);
+            resolve();
+        };
+        image.src = sexImagePath;
+    });
 };
 
-const DrawVCImages = async (context: CanvasRenderingContext2D, names: string[]) => {
+const DrawVCImagesAsync = async (context: CanvasRenderingContext2D, names: string[]): Promise<void> => {
     const vcImagePaths = CreateVCImagePaths(names);
     const vcPointPointX: number[] = [168, 288, 408];
     const vcPointPointY: number[] = [528, 528, 528];
@@ -347,78 +350,88 @@ const DrawVCImages = async (context: CanvasRenderingContext2D, names: string[]) 
     }
 };
 
-const DrawTacticianImages = (context: CanvasRenderingContext2D, names: string[]) => {
+const DrawTacticianImagesAsync = async (context: CanvasRenderingContext2D, names: string[]): Promise<void> => {
     for (let i = 0; i < names.length; i++) {
-        DrawTacticianImage(context, names[i], i);
+        await DrawTacticianImageAsync(context, names[i], i);
     }
 };
 
-const DrawTacticianImage = (context: CanvasRenderingContext2D, name: string, index: number) => {
-    const imagePath = CreateTacticianImagePath(name);
-    const image = document.createElement("img");
-    image.onload = () => {
-        const tacticianPointX: number[] = [1160, 576, 795];
-        const tacticianPointY: number[] = [768, 768, 624];
-        const tacticianSize: number[] = [240, 240, 384];
-        context.drawImage(
-            image,
-            tacticianPointX[index],
-            tacticianPointY[index],
-            tacticianSize[index],
-            tacticianSize[index]
-        );
-    };
-    image.src = imagePath;
-};
-
-const DrawGameModeImage = (context: CanvasRenderingContext2D, gameModes: string[]) => {
-    const maruImagePath = GameModeMaruImagePath.src;
-    const image = document.createElement("img");
-    image.onload = () => {
-        const gameModePointX: number[] = [550, 700, 850, 1050];
-        const gameModePointY: number[] = [230, 230, 230, 230];
-        gameModes.map((gameMode) => {
-            const gameModeIndex = GetGameModeIndex(gameMode);
-            context.drawImage(image, gameModePointX[gameModeIndex], gameModePointY[gameModeIndex], 330, 110);
-        });
-    };
-    image.src = maruImagePath;
-};
-
-const DrawRankImage = (context: CanvasRenderingContext2D, name: string, index: number) => {
-    const imagePath = CreateRankImagePath(name);
-    const image = document.createElement("img");
-    image.onload = () => {
-        const rankPointX: number[] = [1470, 1470, 1470];
-        const rankPointY: number[] = [220, 285, 360];
-        const rankSize: number[] = [100, 100, 100];
-        context.drawImage(image, rankPointX[index], rankPointY[index], rankSize[index], rankSize[index]);
-    };
-    image.src = imagePath;
-};
-
-const DrawTraitImages = (context: CanvasRenderingContext2D, names: string[]) => {
-    let index = 0;
-    names.map((name) => {
-        if (name === "None" || name === "Line") return;
-        DrawTraitImage(context, name, index);
-        index++;
+const DrawTacticianImageAsync = (context: CanvasRenderingContext2D, name: string, index: number): Promise<void> => {
+    return new Promise((resolve) => {
+        const imagePath = CreateTacticianImagePath(name);
+        const image = document.createElement("img");
+        image.onload = () => {
+            const tacticianPointX: number[] = [1160, 576, 795];
+            const tacticianPointY: number[] = [768, 768, 624];
+            const tacticianSize: number[] = [240, 240, 384];
+            context.drawImage(
+                image,
+                tacticianPointX[index],
+                tacticianPointY[index],
+                tacticianSize[index],
+                tacticianSize[index]
+            );
+            resolve();
+        };
+        image.src = imagePath;
     });
 };
 
-const DrawTraitImage = (context: CanvasRenderingContext2D, name: string, index: number) => {
-    const imagePath = CreateTraitImagePath(name);
-    const image = document.createElement("img");
-    image.onload = () => {
-        const traitPointX: number[] = [110, 245, 380];
-        const traitPointY: number[] = [790, 790, 790];
-        const traitSize: number[] = [140, 140, 140];
-        context.drawImage(image, traitPointX[index], traitPointY[index], traitSize[index], traitSize[index]);
-    };
-    image.src = imagePath;
+const DrawGameModeImageAsync = (context: CanvasRenderingContext2D, gameModes: string[]): Promise<void> => {
+    return new Promise((resolve) => {
+        const maruImagePath = GameModeMaruImagePath.src;
+        const image = document.createElement("img");
+        image.onload = () => {
+            const gameModePointX: number[] = [550, 700, 850, 1050];
+            const gameModePointY: number[] = [230, 230, 230, 230];
+            gameModes.map((gameMode) => {
+                const gameModeIndex = GetGameModeIndex(gameMode);
+                context.drawImage(image, gameModePointX[gameModeIndex], gameModePointY[gameModeIndex], 330, 110);
+            });
+            resolve();
+        };
+        image.src = maruImagePath;
+    });
 };
 
-const DrawPlayTimes = (context: CanvasRenderingContext2D, names: string[]) => {
+const DrawRankImageAsync = (context: CanvasRenderingContext2D, name: string, index: number): Promise<void> => {
+    return new Promise((resolve) => {
+        const imagePath = CreateRankImagePath(name);
+        const image = document.createElement("img");
+        image.onload = () => {
+            const rankPointX: number[] = [1470, 1470, 1470];
+            const rankPointY: number[] = [220, 285, 360];
+            const rankSize: number[] = [100, 100, 100];
+            context.drawImage(image, rankPointX[index], rankPointY[index], rankSize[index], rankSize[index]);
+            resolve();
+        };
+        image.src = imagePath;
+    });
+};
+
+const DrawTraitImagesAsync = async (context: CanvasRenderingContext2D, names: string[]): Promise<void> => {
+    for (let i = 0; i < names.length; i++) {
+        if (names[i] === "None" || names[i] === "Line") continue;
+        await DrawTraitImageAsync(context, names[i], i);
+    }
+};
+
+const DrawTraitImageAsync = (context: CanvasRenderingContext2D, name: string, index: number): Promise<void> => {
+    return new Promise((resolve) => {
+        const imagePath = CreateTraitImagePath(name);
+        const image = document.createElement("img");
+        image.onload = () => {
+            const traitPointX: number[] = [110, 245, 380];
+            const traitPointY: number[] = [790, 790, 790];
+            const traitSize: number[] = [140, 140, 140];
+            context.drawImage(image, traitPointX[index], traitPointY[index], traitSize[index], traitSize[index]);
+            resolve();
+        };
+        image.src = imagePath;
+    });
+};
+
+const DrawPlayTimesAsync = async (context: CanvasRenderingContext2D, names: string[]): Promise<void> => {
     if (names.length === 0) return;
     SortPlayTimes(names);
     const playTimePointXTable = [
@@ -429,20 +442,21 @@ const DrawPlayTimes = (context: CanvasRenderingContext2D, names: string[]) => {
         [610, 755, 915, 1060, 1212],
     ];
     const playTimePointX = playTimePointXTable[names.length - 1];
-    let index = 0;
-    names.map((name) => {
-        DrawPlayTime(context, name, playTimePointX[index]);
-        index++;
-    });
+    for (let i = 0; i < names.length; i++) {
+        await DrawPlayTimeAsync(context, names[i], playTimePointX[i]);
+    }
 };
 
-const DrawPlayTime = (context: CanvasRenderingContext2D, name: string, x: number) => {
-    const imagePath = CreatePlayTimeImagePath(name);
-    const image = document.createElement("img");
-    image.onload = () => {
-        context.drawImage(image, x, 460, 180, 80);
-    };
-    image.src = imagePath;
+const DrawPlayTimeAsync = (context: CanvasRenderingContext2D, name: string, x: number): Promise<void> => {
+    return new Promise((resolve) => {
+        const imagePath = CreatePlayTimeImagePath(name);
+        const image = document.createElement("img");
+        image.onload = () => {
+            context.drawImage(image, x, 460, 180, 80);
+            resolve();
+        };
+        image.src = imagePath;
+    });
 };
 
 const DrawFreespace = (context: CanvasRenderingContext2D, text: string) => {
@@ -733,10 +747,13 @@ const GetPlayTimePriority = (name: string): number => {
 };
 
 const loadImageAsync = async (path: string): Promise<HTMLImageElement> => {
-    const image = document.createElement("img");
-    image.src = path;
-    await image.decode();
-    return image;
+    return new Promise((resolve) => {
+        const image = document.createElement("img");
+        image.onload = () => {
+            resolve(image);
+        };
+        image.src = path;
+    });
 };
 
 const CreateSexImagePath = (name: string): string => {
