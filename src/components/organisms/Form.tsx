@@ -200,7 +200,9 @@ export const Form = () => {
                         </div>
                     </Paper>
                     <Paper elevation={3} sx={paperSx}>
-                        <p className={styles.form_unit_title}>好きなタクティシャン</p>
+                        <p className={styles.form_unit_title}>
+                            好きなタクティシャン&emsp;<span className={styles.form_unit_title_note}>※随時追加</span>
+                        </p>
                         <div className={styles.form_multicombobox_container}>
                             <div className={styles.form_multicombobox_item}>
                                 <div className={styles.form_multicombobox_title}>
@@ -244,7 +246,7 @@ export const Form = () => {
                         <p className={styles.form_unit_title}>
                             フリースペース&emsp;
                             <br className={styles.br} />
-                            ※9文字以上は自動で改行されます
+                            <span className={styles.form_unit_title_note}>※9文字以上は自動で改行されます</span>
                         </p>
                         <textarea
                             className={styles.input_textarea}
