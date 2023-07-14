@@ -5,6 +5,7 @@ import Image from "next/image";
 // components
 import { FormInputs } from "./Form";
 import { Tweet } from "../atoms/Tweet";
+import { uploadImage } from "@/providers/aws/s3";
 // util
 // style
 import styles from "./ImageWithText.module.scss";
@@ -207,8 +208,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
             // フリースペース
             DrawFreespace(context, formInputs.free);
 
-            // 描画が終わるまで待つ
-            // await new Promise((s) => setTimeout(s, 2000));
+            // キャンバスをセット（画像に変換して表示開始）
             setMyCanvas(canvas);
         };
     }, [formInputs]);
@@ -220,6 +220,10 @@ export const ImageWithText = ({ formInputs }: Props) => {
         if (canvasImage !== null) {
             setImageSrc(myCanvas.toDataURL());
         }
+        // 画像をアップロード
+        myCanvas.toBlob((blob) => {
+            uploadImage(blob);
+        });
     }, [myCanvas]);
 
     return (
