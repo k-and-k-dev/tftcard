@@ -329,7 +329,10 @@ const DrawName = async (context: CanvasRenderingContext2D, name: string) => {
 
 const DrawSexImageAsync = (context: CanvasRenderingContext2D, name: string): Promise<void> => {
     return new Promise((resolve) => {
-        if (name === "None") return;
+        if (name === "None") {
+            resolve();
+            return;
+        }
         const sexImagePath = CreateSexImagePath(name);
         const image = document.createElement("img");
         image.onload = () => {
@@ -359,6 +362,10 @@ const DrawTacticianImagesAsync = async (context: CanvasRenderingContext2D, names
 const DrawTacticianImageAsync = (context: CanvasRenderingContext2D, name: string, index: number): Promise<void> => {
     return new Promise((resolve) => {
         const imagePath = CreateTacticianImagePath(name);
+        if (imagePath === "") {
+            resolve();
+            return;
+        }
         const image = document.createElement("img");
         image.onload = () => {
             const tacticianPointX: number[] = [1160, 576, 795];
@@ -397,6 +404,10 @@ const DrawGameModeImageAsync = (context: CanvasRenderingContext2D, gameModes: st
 const DrawRankImageAsync = (context: CanvasRenderingContext2D, name: string, index: number): Promise<void> => {
     return new Promise((resolve) => {
         const imagePath = CreateRankImagePath(name);
+        if (imagePath === "") {
+            resolve();
+            return;
+        }
         const image = document.createElement("img");
         image.onload = () => {
             const rankPointX: number[] = [1470, 1470, 1470];
@@ -769,6 +780,9 @@ const CreateSexImagePath = (name: string): string => {
 const CreateTacticianImagePath = (name: string): string => {
     let imagePath = "";
     switch (name) {
+        case "None":
+            imagePath = "";
+            break;
         case "Polo":
             imagePath = PoloImagePath.src;
             break;
@@ -906,34 +920,51 @@ const CreateVCImagePath = (name: string): string => {
 
 const CreateRankImagePath = (name: string): string => {
     let imagePath = "";
-    if (name === "Iron") {
-        imagePath = RankIronImagePath.src;
-    } else if (name === "Bronze") {
-        imagePath = RankBronzeImagePath.src;
-    } else if (name === "Silver") {
-        imagePath = RankSilverImagePath.src;
-    } else if (name === "Gold") {
-        imagePath = RankGoldImagePath.src;
-    } else if (name === "Platinum") {
-        imagePath = RankPlatinumImagePath.src;
-    } else if (name === "Diamond") {
-        imagePath = RankDiamondImagePath.src;
-    } else if (name === "Master") {
-        imagePath = RankMasterImagePath.src;
-    } else if (name === "GrandMaster") {
-        imagePath = RankGrandMasterImagePath.src;
-    } else if (name === "Challenger") {
-        imagePath = RankChallengerImagePath.src;
-    } else if (name === "Gray") {
-        imagePath = RankGrayImagePath.src;
-    } else if (name === "Green") {
-        imagePath = RankGreenImagePath.src;
-    } else if (name === "Blue") {
-        imagePath = RankBlueImagePath.src;
-    } else if (name === "Purple") {
-        imagePath = RankPurpleImagePath.src;
-    } else if (name === "Hyper") {
-        imagePath = RankHyperImagePath.src;
+    switch (name) {
+        case "None":
+            return "";
+        case "Iron":
+            imagePath = RankIronImagePath.src;
+            break;
+        case "Bronze":
+            imagePath = RankBronzeImagePath.src;
+            break;
+        case "Silver":
+            imagePath = RankSilverImagePath.src;
+            break;
+        case "Gold":
+            imagePath = RankGoldImagePath.src;
+            break;
+        case "Platinum":
+            imagePath = RankPlatinumImagePath.src;
+            break;
+        case "Diamond":
+            imagePath = RankDiamondImagePath.src;
+            break;
+        case "Master":
+            imagePath = RankMasterImagePath.src;
+            break;
+        case "GrandMaster":
+            imagePath = RankGrandMasterImagePath.src;
+            break;
+        case "Challenger":
+            imagePath = RankChallengerImagePath.src;
+            break;
+        case "Gray":
+            imagePath = RankGrayImagePath.src;
+            break;
+        case "Green":
+            imagePath = RankGreenImagePath.src;
+            break;
+        case "Blue":
+            imagePath = RankBlueImagePath.src;
+            break;
+        case "Purple":
+            imagePath = RankPurpleImagePath.src;
+            break;
+        case "Hyper":
+            imagePath = RankHyperImagePath.src;
+            break;
     }
     return imagePath;
 };
