@@ -12,7 +12,7 @@ export const metadata = {
         telephone: false,
     },
     icons: {
-        icon: "/favicon.png",
+        icon: "/favicon.ico",
     },
     viewport: "width=device-width,initial-scale=1.0,maximum-scale=1.0",
 };
