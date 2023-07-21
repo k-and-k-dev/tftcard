@@ -16,11 +16,11 @@ export const uploadImage = async (blob: Blob | null): Promise<string> => {
     // const uuid = GetUUID();
     // console.log("uuid = ", uuid);
     const nowDate = getNowDate("");
-    console.log(nowDate);
+    // console.log(nowDate);
     const fileName = nowDate + ".png";
     const uploadParams: PutObjectCommandInput = { Bucket: S3_BUCKET_NAME, Key: fileName, Body: blob };
     const res = await s3Client.send(new PutObjectCommand(uploadParams));
-    console.log("s3 uploadImage:", res);
+    // console.log("s3 uploadImage:", res);
     return fileName;
 };
 

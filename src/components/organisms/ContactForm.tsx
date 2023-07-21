@@ -51,10 +51,10 @@ export const ContactForm = () => {
                 )
                 .then(
                     (result) => {
-                        console.log("email send success: ", result);
+                        // console.log("email send success: ", result);
                     },
                     (error) => {
-                        console.error("email send failure: ", error);
+                        // console.error("email send failure: ", error);
                     }
                 );
         } else {
@@ -72,7 +72,7 @@ export const ContactForm = () => {
     };
 
     const onSubmit: SubmitHandler<ContactFormInputs> = (data) => {
-        console.log("onSubmit:", data);
+        // console.log("onSubmit:", data);
         reset();
         setDialogOpen(true);
         sendEmail(data.contact);

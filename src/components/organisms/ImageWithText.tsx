@@ -307,7 +307,7 @@ const LoadFont = async () => {
         if (!matchUrls) throw new Error("フォントが見つかりませんでした");
         for (const url of matchUrls) {
             // FontFace追加
-            console.log(`font url = ${url}`);
+            // console.log(`font url = ${url}`);
             const font = new FontFace(fontFamilyName, url);
             await font.load();
             document.fonts.add(font);

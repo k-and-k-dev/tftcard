@@ -82,7 +82,7 @@ export const Form = () => {
         defaultValues: defaultValues,
     });
     const onSubmit: SubmitHandler<FormInputs> = (data) => {
-        console.log("onSubmit:", data);
+        // console.log("onSubmit:", data);
         setIsCreate(true);
         formInputs = data;
     };
