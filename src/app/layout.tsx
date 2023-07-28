@@ -4,7 +4,7 @@ import "./layout.scss";
 import { Header } from "@/components/Header";
 
 export const metadata = {
-    title: "TFT Profile Card-自己紹介カード作成ツール-",
+    title: "TFT Profile Card 自己紹介カード作成ツール",
     description:
         "TFT（チームファイトタクティクス）のプロフィールカードが簡単に作成・編集出来るサイトです。かわいいタクティシャンを選んであなただけの自己紹介カードを作ってTwitter等で投稿してね。",
     themeColor: "#000000",

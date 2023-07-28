@@ -681,6 +681,14 @@ const tacticianProps = [
         value: "Aoshin",
     },
     {
+        label: "アビシア",
+        value: "Abyssia",
+    },
+    {
+        label: "アンブラ",
+        value: "Umbra",
+    },
+    {
         label: "ウィスカー",
         value: "Whisker",
     },
@@ -689,8 +697,16 @@ const tacticianProps = [
         value: "Ossia",
     },
     {
+        label: "カット＝サイ",
+        value: "Khat_Sai",
+    },
+    {
         label: "キキ",
         value: "Qiqi",
+    },
+    {
+        label: "クラグル",
+        value: "Craggle",
     },
     {
         label: "グリズル",
@@ -707,6 +723,14 @@ const tacticianProps = [
     {
         label: "ショーク",
         value: "Shork",
+    },
+    {
+        label: "シルバーウィング",
+        value: "Silverwing",
+    },
+    {
+        label: "スカトル",
+        value: "Scuttle",
     },
     {
         label: "スクインク",
@@ -844,6 +868,14 @@ const tacticianWithNoneProps = [
         value: "Aoshin",
     },
     {
+        label: "アビシア",
+        value: "Abyssia",
+    },
+    {
+        label: "アンブラ",
+        value: "Umbra",
+    },
+    {
         label: "ウィスカー",
         value: "Whisker",
     },
@@ -852,8 +884,16 @@ const tacticianWithNoneProps = [
         value: "Ossia",
     },
     {
+        label: "カット＝サイ",
+        value: "Khat_Sai",
+    },
+    {
         label: "キキ",
         value: "Qiqi",
+    },
+    {
+        label: "クラグル",
+        value: "Craggle",
     },
     {
         label: "グリズル",
@@ -870,6 +910,14 @@ const tacticianWithNoneProps = [
     {
         label: "ショーク",
         value: "Shork",
+    },
+    {
+        label: "シルバーウィング",
+        value: "Silverwing",
+    },
+    {
+        label: "スカトル",
+        value: "Scuttle",
     },
     {
         label: "スクインク",

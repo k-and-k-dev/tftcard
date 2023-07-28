@@ -58,6 +58,12 @@ import SquinkImagePath from "../../images/tactician/Squink.png";
 import StarmawImagePath from "../../images/tactician/Starmaw.png";
 import TockerImagePath from "../../images/tactician/Tocker.png";
 import WhiskerImagePath from "../../images/tactician/Whisker.png";
+import AbyssiaImagePath from "../../images/tactician/Abyssia.png";
+import CraggleImagePath from "../../images/tactician/Craggle.png";
+import Khat_SaiImagePath from "../../images/tactician/Khat_Sai.png";
+import ScuttleImagePath from "../../images/tactician/Scuttle.png";
+import SilverwingImagePath from "../../images/tactician/Silverwing.png";
+import UmbraImagePath from "../../images/tactician/Umbra.png";
 // vc
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
@@ -903,6 +909,24 @@ const CreateTacticianImagePath = (name: string): string => {
             break;
         case "Whisker":
             imagePath = WhiskerImagePath.src;
+            break;
+        case "Asyssia":
+            imagePath = AbyssiaImagePath.src;
+            break;
+        case "Craggle":
+            imagePath = CraggleImagePath.src;
+            break;
+        case "Khat_Sai":
+            imagePath = Khat_SaiImagePath.src;
+            break;
+        case "Scuttle":
+            imagePath = ScuttleImagePath.src;
+            break;
+        case "Silverwing":
+            imagePath = SilverwingImagePath.src;
+            break;
+        case "Umbra":
+            imagePath = UmbraImagePath.src;
             break;
     }
     return imagePath;
