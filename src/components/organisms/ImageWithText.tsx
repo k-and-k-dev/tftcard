@@ -910,7 +910,7 @@ const CreateTacticianImagePath = (name: string): string => {
         case "Whisker":
             imagePath = WhiskerImagePath.src;
             break;
-        case "Asyssia":
+        case "Abyssia":
             imagePath = AbyssiaImagePath.src;
             break;
         case "Craggle":
