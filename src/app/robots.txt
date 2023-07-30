@@ -6,4 +6,4 @@ Allow: /
 Host: https://tftcard.vercel.app/
 
 # Sitemaps
-Sitemap: https://tftcard.vercel.app/sitemap.xml
+Sitemap: https://tftcard.vercel.app/sitemap-0.xml
