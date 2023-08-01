@@ -787,7 +787,7 @@ const CreateSexImagePath = (name: string): string => {
     return imagePath;
 };
 
-const CreateTacticianImagePath = (name: string): string => {
+export const CreateTacticianImagePath = (name: string): string => {
     let imagePath = "";
     switch (name) {
         case "None":

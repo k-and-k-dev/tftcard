@@ -11,6 +11,7 @@ import styles from "./Form.module.scss";
 import { RhfRadioGroup } from "../molecules/RhfRadioGroup";
 import { RhfCheckboxGroup } from "../molecules/RhfCheckboxGroup";
 import { RhfSelectForm } from "../molecules/RhfSelectForm";
+import { RhfSelectFormWithImage } from "../molecules/RhfSelectFormWithImage";
 import { ImageWithText } from "./ImageWithText";
 import { Modal } from "../atoms/Modal";
 
@@ -209,7 +210,7 @@ export const Form = () => {
                                     <p>1位</p>
                                 </div>
                                 <div className={styles.form_multicombobox_combobox}>
-                                    <RhfSelectForm
+                                    <RhfSelectFormWithImage
                                         name="tactician1"
                                         control={control}
                                         selectPropsList={tacticianProps}
@@ -221,7 +222,7 @@ export const Form = () => {
                                     <p>2位</p>
                                 </div>
                                 <div className={styles.form_multicombobox_combobox}>
-                                    <RhfSelectForm
+                                    <RhfSelectFormWithImage
                                         name="tactician2"
                                         control={control}
                                         selectPropsList={tacticianWithNoneProps}
@@ -233,7 +234,7 @@ export const Form = () => {
                                     <p>3位</p>
                                 </div>
                                 <div className={styles.form_multicombobox_combobox}>
-                                    <RhfSelectForm
+                                    <RhfSelectFormWithImage
                                         name="tactician3"
                                         control={control}
                                         selectPropsList={tacticianWithNoneProps}

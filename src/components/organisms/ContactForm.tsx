@@ -50,10 +50,10 @@ export const ContactForm = () => {
                     process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
                 )
                 .then(
-                    (result) => {
+                    () => {
                         // console.log("email send success: ", result);
                     },
-                    (error) => {
+                    () => {
                         // console.error("email send failure: ", error);
                     }
                 );
