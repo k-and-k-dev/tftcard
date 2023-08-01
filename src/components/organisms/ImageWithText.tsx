@@ -32,6 +32,7 @@ import BurnoImagePath from "../../images/tactician/Burno.png";
 import BungoImagePath from "../../images/tactician/Bungo.png";
 import ChibiAhriImagePath from "../../images/tactician/Chibi_Ahri.png";
 import ChibiEchoImagePath from "../../images/tactician/Chibi_Echo.png";
+import ChibiGwenImagePath from "../../images/tactician/Chibi_Gwen.png";
 import ChibiJinxImagePath from "../../images/tactician/Chibi_Jinx.png";
 import ChibiLuxImagePath from "../../images/tactician/Chibi_Lux.png";
 import ChibiTeemoImagePath from "../../images/tactician/Chibi_Teemo.png";
@@ -293,10 +294,13 @@ const DrawCreatedDate = (context: CanvasRenderingContext2D) => {
     }
     context.font = fontSize;
     context.textAlign = "center";
-    context.fillStyle = "gray";
+    context.strokeStyle = "gray";
+    context.lineWidth = 4;
+    context.fillStyle = "white";
     if (isMobile) {
         context.fillText(dateString, 1800, 160);
     } else {
+        context.strokeText(dateString, 1780, 160);
         context.fillText(dateString, 1780, 160);
     }
 };
@@ -831,6 +835,9 @@ export const CreateTacticianImagePath = (name: string): string => {
             break;
         case "Chibi_Echo":
             imagePath = ChibiEchoImagePath.src;
+            break;
+        case "Chibi_Gwen":
+            imagePath = ChibiGwenImagePath.src;
             break;
         case "Chibi_Jinx":
             imagePath = ChibiJinxImagePath.src;
