@@ -191,7 +191,7 @@ export const ImageWithText = ({ formInputs }: Props) => {
             // フォント読み込み
             await LoadFont();
             // 作成日
-            DrawCreatedDate(context);
+            DrawCreatedDate(context, formInputs.template);
             // 名前
             DrawName(context, formInputs.name);
             // 性別
@@ -279,7 +279,7 @@ const DrawTemplateImage = (context: CanvasRenderingContext2D, image: HTMLImageEl
     context.drawImage(image, 0, 0);
 };
 
-const DrawCreatedDate = (context: CanvasRenderingContext2D) => {
+const DrawCreatedDate = (context: CanvasRenderingContext2D, templateName: string) => {
     const isMobile = window.innerWidth <= 767 ? true : false;
     const now = new Date();
     const year = now.getFullYear();
@@ -294,13 +294,23 @@ const DrawCreatedDate = (context: CanvasRenderingContext2D) => {
     }
     context.font = fontSize;
     context.textAlign = "center";
-    context.strokeStyle = "gray";
-    context.lineWidth = 4;
-    context.fillStyle = "white";
+    switch (templateName) {
+        case "Pink":
+            context.fillStyle = "gray";
+            break;
+        case "Blue":
+            context.fillStyle = "white";
+            break;
+        case "Yellow":
+            context.fillStyle = "gray";
+            break;
+        default:
+            context.fillStyle = "gray";
+            break;
+    }
     if (isMobile) {
         context.fillText(dateString, 1800, 160);
     } else {
-        context.strokeText(dateString, 1780, 160);
         context.fillText(dateString, 1780, 160);
     }
 };
