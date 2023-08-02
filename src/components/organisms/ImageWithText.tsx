@@ -65,6 +65,7 @@ import Khat_SaiImagePath from "../../images/tactician/Khat_Sai.png";
 import ScuttleImagePath from "../../images/tactician/Scuttle.png";
 import SilverwingImagePath from "../../images/tactician/Silverwing.png";
 import UmbraImagePath from "../../images/tactician/Umbra.png";
+import PrancieImagePath from "../../images/tactician/Prancie.png";
 // vc
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
@@ -944,6 +945,9 @@ export const CreateTacticianImagePath = (name: string): string => {
             break;
         case "Umbra":
             imagePath = UmbraImagePath.src;
+            break;
+        case "Prancie":
+            imagePath = PrancieImagePath.src;
             break;
     }
     return imagePath;
