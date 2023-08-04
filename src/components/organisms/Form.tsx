@@ -293,6 +293,14 @@ const templateProps = [
         label: "イエロー",
         value: "Yellow",
     },
+    {
+        label: "バンドルシティ",
+        value: "BandleCity",
+    },
+    {
+        label: "フレヨルド",
+        value: "Freljold",
+    },
 ];
 
 const sexProps = [

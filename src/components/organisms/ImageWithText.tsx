@@ -15,6 +15,8 @@ import templatePinkImagePath from "../../images/template/Pink.png";
 import templateBlueImagePath from "../../images/template/Blue.png";
 import templateYellowImagePath from "../../images/template/Yellow.png";
 import templateClearImagePath from "../../images/template/Clear.png";
+import templateBandleCityImagePath from "../../images/template/BandleCity.png";
+import templateFreljoldImagePath from "../../images/template/Freljold.png";
 // sex
 import sexManImagePath from "../../images/Man.png";
 import sexWomanImagePath from "../../images/Woman.png";
@@ -1038,6 +1040,12 @@ const CreateTemplateImagePath = (name: string): string => {
             break;
         case "Yellow":
             imagePath = templateYellowImagePath.src;
+            break;
+        case "BandleCity":
+            imagePath = templateBandleCityImagePath.src;
+            break;
+        case "Freljold":
+            imagePath = templateFreljoldImagePath.src;
             break;
     }
     return imagePath;
