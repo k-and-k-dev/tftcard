@@ -850,6 +850,10 @@ const tacticianProps = [
         value: "Chibi_Ahri",
     },
     {
+        label: "ちびアッシュ",
+        value: "Chibi_Ashe",
+    },
+    {
         label: "ちびアニー",
         value: "Chibi_Annie",
     },
@@ -1043,6 +1047,10 @@ const tacticianWithNoneProps = [
     {
         label: "ちびアーリ",
         value: "Chibi_Ahri",
+    },
+    {
+        label: "ちびアッシュ",
+        value: "Chibi_Ashe",
     },
     {
         label: "ちびアニー",
