@@ -170,6 +170,7 @@ type Props = {
 
 export const ImageWithText = ({ formInputs }: Props) => {
     const [imageSrc, setImageSrc] = useState<string>(templateClearImagePath.src);
+    const [loading, setLoading] = useState(true);
     const [myCanvas, setMyCanvas] = useState<HTMLCanvasElement>();
     const canvasImageRef = useRef<HTMLImageElement>(null);
 
@@ -222,6 +223,9 @@ export const ImageWithText = ({ formInputs }: Props) => {
 
             // キャンバスをセット（画像に変換して表示開始）
             setMyCanvas(canvas);
+
+            // ローディング終了
+            setLoading(false);
         };
     }, [formInputs]);
 
@@ -250,14 +254,20 @@ export const ImageWithText = ({ formInputs }: Props) => {
                         alt="完成"
                     />
                 </p>
-                <Image
-                    className={styles.complete_image}
-                    src={imageSrc}
-                    width={1920}
-                    height={1080}
-                    ref={canvasImageRef}
-                    alt="完成画像"
-                />
+                <div className={styles.complete}>
+                    {loading ? (
+                        <p className={styles.loading}>Loading...</p>
+                    ) : (
+                        <Image
+                            className={styles.complete_image}
+                            src={imageSrc}
+                            width={1920}
+                            height={1080}
+                            ref={canvasImageRef}
+                            alt="完成画像"
+                        />
+                    )}
+                </div>
                 <p className={styles.complete_note}>※画像を右クリックor長押しして保存してね！</p>
                 <p className={styles.tweet}>
                     <Tweet
