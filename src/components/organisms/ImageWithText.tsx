@@ -69,6 +69,7 @@ import SilverwingImagePath from "../../images/tactician/Silverwing.png";
 import UmbraImagePath from "../../images/tactician/Umbra.png";
 import PrancieImagePath from "../../images/tactician/Prancie.png";
 import ChibiAsheImagePath from "../../images/tactician/Chibi_Ashe.png";
+import NixieImagePath from "../../images/tactician/Nixie.png";
 // vc
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
@@ -954,6 +955,9 @@ export const CreateTacticianImagePath = (name: string): string => {
             break;
         case "Chibi_Ashe":
             imagePath = ChibiAsheImagePath.src;
+            break;
+        case "Nixie":
+            imagePath = NixieImagePath.src;
             break;
     }
     return imagePath;

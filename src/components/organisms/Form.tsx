@@ -770,6 +770,10 @@ const tacticianProps = [
         value: "Tocker",
     },
     {
+        label: "ニクシー",
+        value: "Nixie",
+    },
+    {
         label: "バーノ",
         value: "Burno",
     },
@@ -967,6 +971,10 @@ const tacticianWithNoneProps = [
     {
         label: "トッカー",
         value: "Tocker",
+    },
+    {
+        label: "ニクシー",
+        value: "Nixie",
     },
     {
         label: "バーノ",
