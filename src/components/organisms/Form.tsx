@@ -798,6 +798,10 @@ const tacticianProps = [
         value: "Furyhorn",
     },
     {
+        label: "フラッターバグ",
+        value: "Flutterbug",
+    },
+    {
         label: "プランシー",
         value: "Prancie",
     },
@@ -999,6 +1003,10 @@ const tacticianWithNoneProps = [
     {
         label: "フューリーホーン",
         value: "Furyhorn",
+    },
+    {
+        label: "フラッターバグ",
+        value: "Flutterbug",
     },
     {
         label: "プランシー",
