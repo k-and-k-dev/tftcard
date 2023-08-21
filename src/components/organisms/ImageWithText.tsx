@@ -71,6 +71,7 @@ import PrancieImagePath from "../../images/tactician/Prancie.png";
 import ChibiAsheImagePath from "../../images/tactician/Chibi_Ashe.png";
 import NixieImagePath from "../../images/tactician/Nixie.png";
 import FlutterbugImagePath from "../../images/tactician/Flutterbug.png";
+import FenroarImagePath from "../../images/tactician/Fenroar.png";
 // vc
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
@@ -972,6 +973,9 @@ export const CreateTacticianImagePath = (name: string): string => {
             break;
         case "Flutterbug":
             imagePath = FlutterbugImagePath.src;
+            break;
+        case "Fenroar":
+            imagePath = FenroarImagePath.src;
             break;
     }
     return imagePath;
