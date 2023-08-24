@@ -72,6 +72,7 @@ import ChibiAsheImagePath from "../../images/tactician/Chibi_Ashe.png";
 import NixieImagePath from "../../images/tactician/Nixie.png";
 import FlutterbugImagePath from "../../images/tactician/Flutterbug.png";
 import FenroarImagePath from "../../images/tactician/Fenroar.png";
+import NimblefootImagePath from "../../images/tactician/Nimblefoot.png";
 // vc
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
@@ -976,6 +977,9 @@ export const CreateTacticianImagePath = (name: string): string => {
             break;
         case "Fenroar":
             imagePath = FenroarImagePath.src;
+            break;
+        case "Nimblefoot":
+            imagePath = NimblefootImagePath.src;
             break;
     }
     return imagePath;
