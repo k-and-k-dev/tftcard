@@ -17,7 +17,16 @@ export default function Home() {
         <>
             <Spacer size="10px" />
             <div className={styles.main}>
-                <Image className={styles.title_img} src={TitleImagePath} width={1384} height={490} alt="Title" />
+                {/* <h1 className={styles.title}>TFT Profile Card</h1> */}
+                <h1>
+                    <Image
+                        className={styles.title_img}
+                        src={TitleImagePath}
+                        width={1384}
+                        height={490}
+                        alt="TFT Profile Card"
+                    />
+                </h1>
                 <Form />
                 <ContactForm />
             </div>
