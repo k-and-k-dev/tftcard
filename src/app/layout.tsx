@@ -2,6 +2,7 @@
 import "./layout.scss";
 // components
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { JsonLD } from "@/components/templates/JsonLD";
 
 const siteName = "TFT Profile Card 自己紹介カード作成ツール";
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <JsonLD siteName={siteName} url={url} />
                     <Header />
                     {children}
+                    <Footer />
                 </body>
             </html>
         </>
