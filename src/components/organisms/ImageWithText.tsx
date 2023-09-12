@@ -73,6 +73,9 @@ import NixieImagePath from "../../images/tactician/Nixie.png";
 import FlutterbugImagePath from "../../images/tactician/Flutterbug.png";
 import FenroarImagePath from "../../images/tactician/Fenroar.png";
 import NimblefootImagePath from "../../images/tactician/Nimblefoot.png";
+import KnifeHoundImagePath from "../../images/tactician/Knife Hound.png";
+import KnifePupImagePath from "../../images/tactician/Knife Pup.png";
+import ChibiIreliaImagePath from "../../images/tactician/Chibi_Irelia.png";
 // vc
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
@@ -97,34 +100,7 @@ import RankBlueImagePath from "../../images/rank/Blue.png";
 import RankPurpleImagePath from "../../images/rank/Purple.png";
 import RankHyperImagePath from "../../images/rank/Hyper.png";
 // trait
-import TraitAceImagePath from "../../images/trait/set8.5/Ace.png";
-import TraitADMINImagePath from "../../images/trait/set8.5/ADMIN.png";
-import TraitAegisImagePath from "../../images/trait/set8.5/Aegis.png";
-import TraitAnimaImagePath from "../../images/trait/set8.5/Anima.png";
-import TraitBrawlerImagePath from "../../images/trait/set8.5/Brawler.png";
-import TraitCorruptedImagePath from "../../images/trait/set8.5/Corrupted.png";
-import TraitDefenderImagePath from "../../images/trait/set8.5/Defender.png";
-import TraitDuelistImagePath from "../../images/trait/set8.5/Duelist.png";
-import TraitForecasterImagePath from "../../images/trait/set8.5/Forecaster.png";
-import TraitGadgeteenImagePath from "../../images/trait/set8.5/Gadgeteen.png";
-import TraitHackerImagePath from "../../images/trait/set8.5/Hacker.png";
-import TraitHeartImagePath from "../../images/trait/set8.5/Heart.png";
-import TraitInfiniTeamImagePath from "../../images/trait/set8.5/InfiniTeam.png";
-import TraitLazerCorpsImagePath from "../../images/trait/set8.5/LazerCorps.png";
-import TraitMascotImagePath from "../../images/trait/set8.5/Mascot.png";
-import TraitMechaPrimeImagePath from "../../images/trait/set8.5/MechaPrime.png";
-import TraitOxForceImagePath from "../../images/trait/set8.5/OxForce.png";
-import TraitParallelImagePath from "../../images/trait/set8.5/Parallel.png";
-import TraitPranksterImagePath from "../../images/trait/set8.5/Prankster.png";
-import TraitQuickdrawImagePath from "../../images/trait/set8.5/Quickdraw.png";
-import TraitRenegadeImagePath from "../../images/trait/set8.5/Renegade.png";
-import TraitRiftwalkerImagePath from "../../images/trait/set8.5/Riftwalker.png";
-import TraitSpellslingerImagePath from "../../images/trait/set8.5/Spellslinger.png";
-import TraitStarGuardianImagePath from "../../images/trait/set8.5/StarGuardian.png";
-import TraitSupersImagePath from "../../images/trait/set8.5/Supers.png";
-import TraitSureshotImagePath from "../../images/trait/set8.5/Sureshot.png";
-import TraitThreatImagePath from "../../images/trait/set8.5/Threat.png";
-import TraitUndergroundImagePath from "../../images/trait/set8.5/Underground.png";
+// origin
 import TraitDarkinImagePath from "../../images/trait/set9/origin/Darkin.png";
 import TraitDemaciaImagePath from "../../images/trait/set9/origin/Demacia.png";
 import TraitFreljoldImagePath from "../../images/trait/set9/origin/Freljold.png";
@@ -138,6 +114,9 @@ import TraitImageVoidPath from "../../images/trait/set9/origin/Void.png";
 import TraitImageWandererPath from "../../images/trait/set9/origin/Wanderer.png";
 import TraitImageYordlePath from "../../images/trait/set9/origin/Yordle.png";
 import TraitImageZaunPath from "../../images/trait/set9/origin/Zaun.png";
+import TraitImageIxtalPath from "../../images/trait/set9.5/origin/Ixtal.png";
+import TraitImageBilgewaterPath from "../../images/trait/set9.5/origin/Bilgewater.png";
+// class
 import TraitImageBastionPath from "../../images/trait/set9/class/Bastion.png";
 import TraitImageBruiserPath from "../../images/trait/set9/class/Bruiser.png";
 import TraitImageChallengerPath from "../../images/trait/set9/class/Challenger.png";
@@ -153,6 +132,8 @@ import TraitImageSlayerPath from "../../images/trait/set9/class/Slayer.png";
 import TraitImageSorcererPath from "../../images/trait/set9/class/Sorcerer.png";
 import TraitImageStrategistPath from "../../images/trait/set9/class/Strategist.png";
 import TraitImageTechnogeniusPath from "../../images/trait/set9/class/Technogenius.png";
+import TraitImageReaverKingPath from "../../images/trait/set9.5/class/Reaver King.png";
+import TraitImageVanquisherPath from "../../images/trait/set9.5/class/Vanquisher.png";
 // playtime
 import PlayTimeWeekdayAfternoonPath from "../../images/playtime/WeekdayAfternoon3.png";
 import PlayTimeWeekdayNightPath from "../../images/playtime/WeekdayNight3.png";
@@ -541,91 +522,6 @@ const ParseFreespaceText = (text: string): string[] => {
 const CreateTraitImagePath = (name: string): string => {
     let imagePath = "";
     switch (name) {
-        // 8.5
-        case "Ace":
-            imagePath = TraitAceImagePath.src;
-            break;
-        case "ADMIN":
-            imagePath = TraitADMINImagePath.src;
-            break;
-        case "Aegis":
-            imagePath = TraitAegisImagePath.src;
-            break;
-        case "Anima":
-            imagePath = TraitAnimaImagePath.src;
-            break;
-        case "Brawler":
-            imagePath = TraitBrawlerImagePath.src;
-            break;
-        case "Corrupted":
-            imagePath = TraitCorruptedImagePath.src;
-            break;
-        case "Defender":
-            imagePath = TraitDefenderImagePath.src;
-            break;
-        case "Duelist":
-            imagePath = TraitDuelistImagePath.src;
-            break;
-        case "Forecaster":
-            imagePath = TraitForecasterImagePath.src;
-            break;
-        case "Gadgeteen":
-            imagePath = TraitGadgeteenImagePath.src;
-            break;
-        case "Hacker":
-            imagePath = TraitHackerImagePath.src;
-            break;
-        case "Heart":
-            imagePath = TraitHeartImagePath.src;
-            break;
-        case "InfiniTeam":
-            imagePath = TraitInfiniTeamImagePath.src;
-            break;
-        case "LazerCorps":
-            imagePath = TraitLazerCorpsImagePath.src;
-            break;
-        case "Mascot":
-            imagePath = TraitMascotImagePath.src;
-            break;
-        case "MechaPrime":
-            imagePath = TraitMechaPrimeImagePath.src;
-            break;
-        case "OxForce":
-            imagePath = TraitOxForceImagePath.src;
-            break;
-        case "Parallel":
-            imagePath = TraitParallelImagePath.src;
-            break;
-        case "Prankster":
-            imagePath = TraitPranksterImagePath.src;
-            break;
-        case "Quickdraw":
-            imagePath = TraitQuickdrawImagePath.src;
-            break;
-        case "Renegade":
-            imagePath = TraitRenegadeImagePath.src;
-            break;
-        case "Riftwalker":
-            imagePath = TraitRiftwalkerImagePath.src;
-            break;
-        case "Spellslinger":
-            imagePath = TraitSpellslingerImagePath.src;
-            break;
-        case "StarGuardian":
-            imagePath = TraitStarGuardianImagePath.src;
-            break;
-        case "Supers":
-            imagePath = TraitSupersImagePath.src;
-            break;
-        case "Sureshot":
-            imagePath = TraitSureshotImagePath.src;
-            break;
-        case "Threat":
-            imagePath = TraitThreatImagePath.src;
-            break;
-        case "Underground":
-            imagePath = TraitUndergroundImagePath.src;
-            break;
         // origin
         case "Darkin":
             imagePath = TraitDarkinImagePath.src;
@@ -665,6 +561,12 @@ const CreateTraitImagePath = (name: string): string => {
             break;
         case "Zaun":
             imagePath = TraitImageZaunPath.src;
+            break;
+        case "Ixtal":
+            imagePath = TraitImageIxtalPath.src;
+            break;
+        case "Bilgewater":
+            imagePath = TraitImageBilgewaterPath.src;
             break;
         // class
         case "Bastion":
@@ -711,6 +613,12 @@ const CreateTraitImagePath = (name: string): string => {
             break;
         case "Technogenius":
             imagePath = TraitImageTechnogeniusPath.src;
+            break;
+        case "Vanquisher":
+            imagePath = TraitImageVanquisherPath.src;
+            break;
+        case "Reaver King":
+            imagePath = TraitImageReaverKingPath.src;
             break;
     }
     return imagePath;
@@ -980,6 +888,15 @@ export const CreateTacticianImagePath = (name: string): string => {
             break;
         case "Nimblefoot":
             imagePath = NimblefootImagePath.src;
+            break;
+        case "Knife Hound":
+            imagePath = KnifeHoundImagePath.src;
+            break;
+        case "Knife Pup":
+            imagePath = KnifePupImagePath.src;
+            break;
+        case "Chibi_Irelia":
+            imagePath = ChibiIreliaImagePath.src;
             break;
     }
     return imagePath;

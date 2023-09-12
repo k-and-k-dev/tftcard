@@ -459,6 +459,10 @@ const traitProps = [
         value: "Ionia",
     },
     {
+        label: "イシュタル",
+        value: "Ixtal",
+    },
+    {
         label: "ヴォイド",
         value: "Void",
     },
@@ -483,12 +487,20 @@ const traitProps = [
         value: "Targon",
     },
     {
+        label: "探究者",
+        value: "Wanderer",
+    },
+    {
         label: "デマーシア",
         value: "Demacia",
     },
     {
         label: "ノクサス",
         value: "Noxus",
+    },
+    {
+        label: "ビルジウォーター",
+        value: "Bilgewater",
     },
     {
         label: "ピルトーヴァー",
@@ -503,20 +515,32 @@ const traitProps = [
         value: "Yordle",
     },
     {
-        label: "探究者",
-        value: "Wanderer",
-    },
-    {
         label: "インヴォーカー",
         value: "Invoker",
+    },
+    {
+        label: "ヴァンキッシャー",
+        value: "Vanquisher",
     },
     {
         label: "ガンナー",
         value: "Gunner",
     },
     {
+        label: "救済者",
+        value: "Redeemer",
+    },
+    {
+        label: "軍師",
+        value: "Strategist",
+    },
+    {
         label: "ジャガーノート",
         value: "Juggernaut",
+    },
+    {
+        label: "女帝",
+        value: "Empress",
     },
     {
         label: "スレイヤー",
@@ -539,26 +563,6 @@ const traitProps = [
         value: "Bastion",
     },
     {
-        label: "ブルーザー",
-        value: "Bruiser",
-    },
-    {
-        label: "ローグ",
-        value: "Rogue",
-    },
-    {
-        label: "救済者",
-        value: "Redeemer",
-    },
-    {
-        label: "軍師",
-        value: "Strategist",
-    },
-    {
-        label: "女帝",
-        value: "Empress",
-    },
-    {
         label: "発明王",
         value: "Technogenius",
     },
@@ -567,120 +571,16 @@ const traitProps = [
         value: "Multicaster",
     },
     {
-        label: "----------以下SET8.5----------",
-        value: "Line",
+        label: "ブルーザー",
+        value: "Bruiser",
     },
     {
-        label: "ADMIN",
-        value: "ADMIN",
+        label: "略奪王",
+        value: "Reaver King",
     },
     {
-        label: "アニマ部隊",
-        value: "Anima",
-    },
-    {
-        label: "アンダーグラウンド",
-        value: "Underground",
-    },
-    {
-        label: "インフィニティーム",
-        value: "InfiniTeam",
-    },
-    {
-        label: "OXフォース",
-        value: "OxForce",
-    },
-    {
-        label: "ガジェッティーン",
-        value: "Gadgeteen",
-    },
-    {
-        label: "脅威",
-        value: "Threat",
-    },
-    {
-        label: "スーパー",
-        value: "Supers",
-    },
-    {
-        label: "スターガーディアン",
-        value: "StarGuardian",
-    },
-    {
-        label: "メカ: プライム",
-        value: "MechaPrime",
-    },
-    {
-        label: "リフトウォーカー",
-        value: "Riftwalker",
-    },
-    {
-        label: "レーザーコープ",
-        value: "LazerCorps",
-    },
-    {
-        label: "イージス",
-        value: "Aegis",
-    },
-    {
-        label: "エース",
-        value: "Ace",
-    },
-    {
-        label: "クイックドロー",
-        value: "Quickdraw",
-    },
-    {
-        label: "コラプテッド",
-        value: "Corrupted",
-    },
-    {
-        label: "ショアショット",
-        value: "Sureshot",
-    },
-    {
-        label: "スペルスリンガー",
-        value: "Spellslinger",
-    },
-    {
-        label: "ディフェンダー",
-        value: "Defender",
-    },
-    {
-        label: "デュエリスト",
-        value: "Duelist",
-    },
-    {
-        label: "ハート",
-        value: "Heart",
-    },
-    {
-        label: "ハッカー",
-        value: "Hacker",
-    },
-    {
-        label: "パラレル",
-        value: "Parallel",
-    },
-    {
-        label: "反逆者",
-        value: "Renegade",
-    },
-    {
-        label: "プランクスター",
-        value: "Prankster",
-    },
-    {
-        label: "ブローラー",
-        value: "Brawler",
-    },
-    {
-        label: "マスコット",
-        value: "Mascot",
-    },
-    {
-        label: "予報士",
-        value: "Forecaster",
+        label: "ローグ",
+        value: "Rogue",
     },
 ];
 
@@ -768,6 +668,14 @@ const tacticianProps = [
     {
         label: "トッカー",
         value: "Tocker",
+    },
+    {
+        label: "ナイフハウンド",
+        value: "Knife Hound",
+    },
+    {
+        label: "ナイフパップ",
+        value: "Knife Pup",
     },
     {
         label: "ニクシー",
@@ -872,6 +780,10 @@ const tacticianProps = [
     {
         label: "ちびアニー",
         value: "Chibi_Annie",
+    },
+    {
+        label: "ちびイレリア",
+        value: "Chibi_Irelia",
     },
     {
         label: "ちびエコー",
@@ -985,6 +897,14 @@ const tacticianWithNoneProps = [
         value: "Tocker",
     },
     {
+        label: "ナイフハウンド",
+        value: "Knife Hound",
+    },
+    {
+        label: "ナイフパップ",
+        value: "Knife Pup",
+    },
+    {
         label: "ニクシー",
         value: "Nixie",
     },
@@ -1087,6 +1007,10 @@ const tacticianWithNoneProps = [
     {
         label: "ちびアニー",
         value: "Chibi_Annie",
+    },
+    {
+        label: "ちびイレリア",
+        value: "Chibi_Irelia",
     },
     {
         label: "ちびエコー",
