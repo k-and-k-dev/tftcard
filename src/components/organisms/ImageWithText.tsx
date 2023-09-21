@@ -76,6 +76,8 @@ import NimblefootImagePath from "../../images/tactician/Nimblefoot.png";
 import KnifeHoundImagePath from "../../images/tactician/Knife Hound.png";
 import KnifePupImagePath from "../../images/tactician/Knife Pup.png";
 import ChibiIreliaImagePath from "../../images/tactician/Chibi_Irelia.png";
+import PiximanderImagePath from "../../images/tactician/Piximander.png";
+import ChibiAatroxImagePath from "../../images/tactician/Chibi_Aatrox.png";
 // vc
 import discordImagePath from "../../images/Discord.png";
 import lineImagePath from "../../images/Line.png";
@@ -897,6 +899,12 @@ export const CreateTacticianImagePath = (name: string): string => {
             break;
         case "Chibi_Irelia":
             imagePath = ChibiIreliaImagePath.src;
+            break;
+        case "Piximander":
+            imagePath = PiximanderImagePath.src;
+            break;
+        case "Chibi_Aatrox":
+            imagePath = ChibiAatroxImagePath.src;
             break;
     }
     return imagePath;

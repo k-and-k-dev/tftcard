@@ -702,6 +702,10 @@ const tacticianProps = [
         value: "Banban",
     },
     {
+        label: "ピクシマンダー",
+        value: "Piximander",
+    },
+    {
         label: "フェザーナイト",
         value: "Featherknight",
     },
@@ -784,6 +788,10 @@ const tacticianProps = [
     {
         label: "ちびイレリア",
         value: "Chibi_Irelia",
+    },
+    {
+        label: "ちびエイトロックス",
+        value: "Chibi_Aatrox",
     },
     {
         label: "ちびエコー",
@@ -929,6 +937,10 @@ const tacticianWithNoneProps = [
         value: "Banban",
     },
     {
+        label: "ピクシマンダー",
+        value: "Piximander",
+    },
+    {
         label: "フェザーナイト",
         value: "Featherknight",
     },
@@ -1011,6 +1023,10 @@ const tacticianWithNoneProps = [
     {
         label: "ちびイレリア",
         value: "Chibi_Irelia",
+    },
+    {
+        label: "ちびエイトロックス",
+        value: "Chibi_Aatrox",
     },
     {
         label: "ちびエコー",
